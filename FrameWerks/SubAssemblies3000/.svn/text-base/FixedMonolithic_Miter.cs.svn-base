@@ -1,0 +1,312 @@
+#region Copyright (c) 2007 WeaselWare Software
+/************************************************************************************
+'
+' Copyright  2007 WeaselWare Software 
+'
+' This software is provided 'as-is', without any express or implied warranty. In no 
+' event will the authors be held liable for any damages arising from the use of this 
+' software.
+' 
+' Permission is granted to anyone to use this software for any purpose, including 
+' commercial applications, and to alter it and redistribute it freely, subject to the 
+' following restrictions:
+'
+' 1. The origin of this software must not be misrepresented; you must not claim that 
+' you wrote the original software. If you use this software in a product, an 
+' acknowledgment (see the following) in the product documentation is required.
+'
+' Portions Copyright 2007 WeaselWare Software
+'
+' 2. Altered source versions must be plainly marked as such, and must not be 
+' misrepresented as being the original software.
+'
+' 3. This notice may not be removed or altered from any source distribution.
+'
+'***********************************************************************************/
+#endregion
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using FrameWerks;
+
+namespace FrameWerks.System3000
+{
+   [UnitType("Dumb Module")]
+   public class FixedMonolithic_Miter : SubAssemblyBase
+   {
+
+      #region Fields
+
+      static int createID;
+
+      #endregion
+
+      #region Constructor
+
+      public FixedMonolithic_Miter()
+      {
+         m_subAssemblyID = Guid.NewGuid();
+         this.ModelID = "Sys3000-FixedMonolithic_Miter";
+      }
+
+      #endregion
+
+      #region Methods
+
+      //Bill of Material
+      public override void Build()
+      {
+
+         Part part;
+         string partleader =  this.Parent.UnitID + "." + this.CreateID.ToString();
+
+         #region Frame
+
+
+         // JambRight -->>
+         part = new Part(804,"JambR",this,1,m_subAssemblyHieght);
+         part.Qnty = 1;
+         part.PartGroupType = "Frame-Parts"; 
+         part.PartLabel = "";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // JambLeft <<--
+         part = new Part(804, "JambL", this, 1, m_subAssemblyHieght);
+         part.PartGroupType = "Frame-Parts";
+         part.PartLabel = "";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // Head Left  ^^ <<--
+         part = new Part(804,"HeadL",this,1,m_subAssemblyWidth );
+         part.PartGroupType = "Frame-Parts";
+         part.PartLabel = "Rotated Mitre";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // Head Right ^^ -->>
+         part = new Part(804, "HeadR", this, 1, m_subAssemblyDepth );
+         part.PartGroupType = "Frame-Parts";
+         part.PartLabel = "Rotated Mitre";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // Sill Left || <<--
+         part = new Part(804,"SillL",this,1,m_subAssemblyWidth );
+         part.PartGroupType = "Frame-Parts";
+         part.PartLabel = "Rotated Mitre";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // Sill Right || -->>
+         part = new Part(804, "SillR", this, 1, m_subAssemblyDepth );
+         part.PartGroupType = "Frame-Parts";
+         part.PartLabel = "Rotated Mitre";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // Braces
+         part = new Part(1117,"Braces",this,16,0.0m);
+         part.PartGroupType = "Frame-Parts";
+         part.PartLabel = "";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         #endregion
+
+         #region Stops
+
+         // StopR !! my bad
+         part = new Part(809,"StopR",this,1,m_subAssemblyHieght - (0.625m * 2.0m));
+         part.PartGroupType = "Stop-Parts";
+         part.PartLabel = "";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // StopL !!
+         part = new Part(809, "StopL", this, 1, m_subAssemblyHieght - (0.625m * 2.0m));
+         part.PartGroupType = "Stop-Parts";
+         part.PartLabel = "";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // Stop Top Left!!
+         part = new Part(809, "Stop-TopL", this, 1, m_subAssemblyWidth  - (0.625m ));
+         part.PartGroupType = "Stop-Parts";
+         part.PartLabel = "Rotated Miter";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // Stop Bottom Left!!
+         part = new Part(809, "Stop-BotL", this, 1, m_subAssemblyWidth - (0.625m));
+         part.PartGroupType = "Stop-Parts";
+         part.PartLabel = "Rotated Miter";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // Stop Top Right !!
+         part = new Part(809, "Stop-TopR", this, 1, m_subAssemblyDepth  - (0.625m));
+         part.PartGroupType = "Stop-Parts";
+         part.PartLabel = "Rotated Miter";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // Stop Bottom Right!!
+         part = new Part(809, "Stop-BotR", this, 1, m_subAssemblyDepth - (0.625m));
+         part.PartGroupType = "Stop-Parts";
+         part.PartLabel = "Rotated Miter";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+ 
+
+         #endregion
+
+         #region Spacers
+
+         // SpacerV Left !#!
+         part = new Part(272, "SpacerV-Left", this, 1, m_subAssemblyHieght   - (1.37510m * 2.0m));
+         part.Qnty = 1;
+         part.PartGroupType = "Spacers-Parts";
+         part.PartLabel = "";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // SpacerV Right !#!
+         part = new Part(272, "SpacerV-Right", this, 1, m_subAssemblyHieght - (1.37510m * 2.0m));
+         part.Qnty = 1;
+         part.PartGroupType = "Spacers-Parts";
+         part.PartLabel = "";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // SpacerH LeftT !#!
+         part = new Part(272, "SpacerH-TopLeft", this, 1, m_subAssemblyWidth - (0.7880m + 0.8816m));
+         part.Qnty = 1;
+         part.PartGroupType = "Spacers-Parts";
+         part.PartLabel = "Rotated Miter";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // SpacerH LeftB !#!
+         part = new Part(272, "SpacerH-BotLeft", this, 1, m_subAssemblyWidth - (0.7880m + 0.8816m));
+         part.Qnty = 1;
+         part.PartGroupType = "Spacers-Parts";
+         part.PartLabel = "Rotated Miter";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // SpacerH RightT !#!
+         part = new Part(272, "SpacerH-TopRight", this, 1, m_subAssemblyDepth - (0.7880m + 0.8816m));
+         part.Qnty = 1;
+         part.PartGroupType = "Spacers-Parts";
+         part.PartLabel = "Rotated Miter";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+         // SpacerH LeftB !#!
+         part = new Part(272, "SpacerH-BotRight", this, 1, m_subAssemblyDepth   - (0.7880m + 0.8816m));
+         part.Qnty = 1;
+         part.PartGroupType = "Spacers-Parts";
+         part.PartLabel = "Rotated Miter";
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         m_parts.Add(part);
+
+
+         #endregion
+
+         #region Glass
+
+
+         //Glass Panel L
+         part = new Part(-1);
+         part.FunctionalName = "Glass Left";
+         part.PartGroupType = "Glass-Parts";
+         part.Qnty = 1;
+         part.Source.MaterialDescription = "1/2 Glass";
+         part.PartName = "Glass Panel";
+         part.PartLabel = "Mitered Edge";
+         part.Source.MaterialName = "1/2 Glass";
+         part.ContainerAssembly = this;
+         part.PartThick = 0.5m;
+         part.PartLength = m_subAssemblyHieght -(0.9375m * 2.0m);
+         part.PartWidth = m_subAssemblyWidth - (0.9375m + 0.4248m);
+         part.Source.UOM = (int)FrameWerks.UnitOfMeasure.Foot;
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+         
+         m_parts.Add(part);
+
+
+
+         //Glass Panel R
+         part = new Part(-1);
+         part.FunctionalName = "Glass Right";
+         part.PartGroupType = "Glass-Parts";
+         part.Qnty = 1;
+         part.Source.MaterialDescription = "1/2 Glass";
+         part.PartName = "Glass Panel";
+         part.PartLabel = "Mitered Edge";
+         part.Source.MaterialName = "1/2 Glass";
+         part.ContainerAssembly = this;
+         part.PartThick = 0.5m;
+         part.PartLength = m_subAssemblyHieght - (0.9375m * 2.0m);
+         part.PartWidth = m_subAssemblyDepth - (0.9375m + 0.4248m);
+         part.Source.UOM = 9;
+         part.PartIdentifier= partleader + "." + Convert.ToString(createID++);
+
+         m_parts.Add(part);
+
+
+         #endregion
+
+            #region Labor
+
+         Labor.LaborPart design =
+            new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Design", 4.0m, 80.0m);
+         this.LaborParts.Add(design);
+         //Measure: Collect Information on Sizes from Contractor: Provide Information for Approval: Samples Correspondence: Ordering: Supervision
+
+         Labor.LaborPart draft =
+            new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Draft", 3.0m, 80.0m);
+         this.LaborParts.Add(draft);
+         //Typical Drawings: Supervision
+
+         Labor.LaborPart metalhours =
+             new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "MetalHours", 8.0m, 80.0m);
+         this.LaborParts.Add(metalhours);
+         //1 Receive: 1 Handle: 1 Cut: 1 Machine: 2 Weld & Assemble: 1 Hardware Prep: 1 NailFin
+
+         Labor.LaborPart glazinglhours =
+           new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "GlazingHours", (this.Area * 0.1m) + 4.0m, 80.0m);
+         this.LaborParts.Add(glazinglhours);
+         //.5 Recieve: .5 InspectReject: .5 StoreHandle: 1.0 GlazeShimCalk: .5 SetGlassStop: 05 InsertGasket 
+
+         Labor.LaborPart finishhours =
+            new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "FinishHours", 4.0m, 80.0m);
+         this.LaborParts.Add(finishhours);
+         //2 SandLineGrain: 2 Finish
+
+         Labor.LaborPart stage =
+            new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Stage", 0.5m, 80.0m);
+         this.LaborParts.Add(stage);
+         //.5 Stage
+
+         Labor.LaborPart load =
+            new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Load", 1.0m, 80.0m);
+         this.LaborParts.Add(load);
+          //1 Load
+
+
+         #endregion
+
+
+      }
+
+      
+
+      #endregion
+
+
+   }
+}

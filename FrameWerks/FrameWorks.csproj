@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{747D77D4-88D8-4D73-AE9B-693D7C8D7619}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FrameWorks</RootNamespace>
+    <AssemblyName>FrameWorks</AssemblyName>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.ReportSource.1.0.0\lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.Shared.1.0.0\lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.Windows.Forms.1.0.0\lib\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\AssemblyBase.cs" />
+    <Compile Include="Core\Fractions.cs" />
+    <Compile Include="Core\Functions.cs" />
+    <Compile Include="Core\HelperMethods.cs" />
+    <Compile Include="Core\LPart.cs" />
+    <Compile Include="Core\Machining.cs" />
+    <Compile Include="Core\Material.cs" />
+    <Compile Include="Core\Materials.cs" />
+    <Compile Include="Core\Part.cs" />
+    <Compile Include="Core\PartsCollection.cs" />
+    <Compile Include="Core\PartsHelper.cs" />
+    <Compile Include="Core\Project.cs" />
+    <Compile Include="Core\Routing.cs" />
+    <Compile Include="Core\SubAssemblyBase.cs" />
+    <Compile Include="Core\Unit.cs" />
+    <Compile Include="Core\Utilities.cs" />
+    <Compile Include="EuroBox\EuroBase.cs" />
+    <Compile Include="EuroBox\FrameCab.cs" />
+    <Compile Include="Exception.cs" />
+    <Compile Include="Hardware\Amesbury40.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SubAssemblies2010\AwnFixedUnit.cs" />
+    <Compile Include="SubAssemblies2010\AwningUnit.cs" />
+    <Compile Include="SubAssemblies2010\CaseUnitFrench.cs" />
+    <Compile Include="SubAssemblies2010\CaseUnitLHR.cs" />
+    <Compile Include="SubAssemblies2010\CaseUnitRHR.cs" />
+    <Compile Include="SubAssemblies2010\FixedLouvScrn.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_LeadX.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_Lead_LftX.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_Lead_RtX.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_MidX.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_Mid_LftX.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_Mid_RtX.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_PnlO.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_Pnl_LftO.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_Pnl_RtO.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_RearPX.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_Rear_LftPX.cs" />
+    <Compile Include="SubAssemblies2010\DoorAlum_LS_Rear_RtPX.cs" />
+    <Compile Include="SubAssemblies2010\DoorSwg1LtActLH.cs" />
+    <Compile Include="SubAssemblies2010\DoorSwg1LtActLHR.cs" />
+    <Compile Include="SubAssemblies2010\DoorSwg1LtActRH.cs" />
+    <Compile Include="SubAssemblies2010\DoorSwg1LtActRHR.cs" />
+    <Compile Include="SubAssemblies2010\FixedFcdJambs.cs" />
+    <Compile Include="SubAssemblies2010\FixedFcdSilHd.cs" />
+    <Compile Include="SubAssemblies2010\FixedIG.cs" />
+    <Compile Include="SubAssemblies2010\FixedMiterIG.cs" />
+    <Compile Include="SubAssemblies2010\FixedSegJmbsIG.cs" />
+    <Compile Include="SubAssemblies2010\FixInsideMiterIG.cs" />
+    <Compile Include="SubAssemblies2010\FixSegFlotSilHdIG.cs" />
+    <Compile Include="SubAssemblies2010\FixSegWalSilHdIG.cs" />
+    <Compile Include="SubAssemblies2010\FrameAlumSlabDoorLH.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_CLF_OX.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_OX.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_OXX.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_OXXO.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_OXXX.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_PXXP.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_PXXXX.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_PXXXXP.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_PXXXXXXP.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_WND_OX.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_WND_VW_OX.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_WND_VW_XO.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_WND_XO.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_XO.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_XX.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_XXO.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_XXXO.cs" />
+    <Compile Include="SubAssemblies2010\FrameLS_XXXXP.cs" />
+    <Compile Include="SubAssemblies2010\FrameScreen.cs" />
+    <Compile Include="SubAssemblies2010\FrameSpndrlParts.cs" />
+    <Compile Include="SubAssemblies2010\FrameSpndrlPnl.cs" />
+    <Compile Include="SubAssemblies2010\FrmLS_OX_HdMld.cs" />
+    <Compile Include="SubAssemblies2010\FrmLS_XO_HdMld.cs" />
+    <Compile Include="SubAssemblies2010\FrmSpndrlFcdFlotSilHd.cs" />
+    <Compile Include="SubAssemblies2010\FrmSpndrlFcdJMB.cs" />
+    <Compile Include="SubAssemblies2010\FrmSpndrlFcdSilHd.cs" />
+    <Compile Include="SubAssemblies2010\NailFin3Sided.cs" />
+    <Compile Include="SubAssemblies2010\NailFin4Sided.cs" />
+    <Compile Include="SubAssemblies2010\NailFinMtr6.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\CaseUnit1x2LHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\CaseUnit1x3LHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\CaseUnit1x3RHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\CaseUnit2x2LHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\CaseUnit2x2RHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\CaseUnit2x3LHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\CaseUnit2x3RHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\CaseUnit_1Lt_RHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DoorSwg1LtActLHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DoorSwg1LtActRH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DoorSwg1LtActRHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DoorSwg1Lt_FIXED.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DoorSwing2x4RHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwg1x3FIXED.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwg1x3LH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwg1x3LHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwg1x3RH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwg1x3RHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwg2x3LH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwg2x3RH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwg2x4RH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1LtActLHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1LtActRH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1LtActRHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1X3ActLHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1X3ActRH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1X3ActRHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1X4ActLH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1X4ActLHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1X4ActRH.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\DrSwgPr1X4ActRHR.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\FixedIG_1x3SDL.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\FixedIG_2x3SDL.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\FixedIG_2x4SDL.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\FixedIG_3x3SDL.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\FixedIG_3x5SDL.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\FixedIG_4x2SDL.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\FixedIG_4x3SDL.cs" />
+    <Compile Include="SubAssemblies2010\SubAssemblies2010AH\NailFin3Sided.cs" />
+    <Compile Include="SubAssemblies2010\WND_Alum_LS_LeadX.cs" />
+    <Compile Include="SubAssemblies2010\WND_Alum_LS_Lead_LftX.cs" />
+    <Compile Include="SubAssemblies2010\WND_Alum_LS_Lead_RtX.cs" />
+    <Compile Include="SubAssemblies2060\Awning1x4.cs" />
+    <Compile Include="SubAssemblies2060\Awning2x2.cs" />
+    <Compile Include="SubAssemblies2060\Awning2x4.cs" />
+    <Compile Include="SubAssemblies2060\CaseUnit2x2LHR.cs" />
+    <Compile Include="SubAssemblies2060\CaseUnit2x2RHR.cs" />
+    <Compile Include="SubAssemblies2060\CaseUnit2x3LHR.cs" />
+    <Compile Include="SubAssemblies2060\CaseUnit2x3RHR.cs" />
+    <Compile Include="SubAssemblies2060\DoorAlum_LS_Lead_LftX.cs" />
+    <Compile Include="SubAssemblies2060\DoorAlum_LS_Lead_RtX.cs" />
+    <Compile Include="SubAssemblies2060\DoorAlum_LS_Mid_LftX.cs" />
+    <Compile Include="SubAssemblies2060\DoorAlum_LS_Mid_RtX.cs" />
+    <Compile Include="SubAssemblies2060\DoorAlum_LS_Pnl_LftO.cs" />
+    <Compile Include="SubAssemblies2060\DoorAlum_LS_Pnl_RtO.cs" />
+    <Compile Include="SubAssemblies2060\DoorAlum_LS_Rear_LftPX.cs" />
+    <Compile Include="SubAssemblies2060\DoorAlum_LS_Rear_RtPX.cs" />
+    <Compile Include="SubAssemblies2060\DoorPair2x4Fixed.cs" />
+    <Compile Include="SubAssemblies2060\DoorSwg1LtActLHR.cs" />
+    <Compile Include="SubAssemblies2060\DoorSwg1LtActRHR.cs" />
+    <Compile Include="SubAssemblies2060\DoorSwing2x4LHR.cs" />
+    <Compile Include="SubAssemblies2060\DrAl_LS_Lead_2x4_LftX.cs" />
+    <Compile Include="SubAssemblies2060\DrAl_LS_Lead_2x4_RtX.cs" />
+    <Compile Include="SubAssemblies2060\DrAl_LS_Mid_2x4_LftX.cs" />
+    <Compile Include="SubAssemblies2060\DrAl_LS_Mid_2x4_RtX.cs" />
+    <Compile Include="SubAssemblies2060\DrAl_LS_Rear_2x4_LftPX.cs" />
+    <Compile Include="SubAssemblies2060\DrAl_LS_Rear_2x4_RtPX.cs" />
+    <Compile Include="SubAssemblies2060\DrSwgPr2x4ActLHR.cs" />
+    <Compile Include="SubAssemblies2060\DrSwgPr2x4ActRH.cs" />
+    <Compile Include="SubAssemblies2060\DrSwgPr2x4ActRHR.cs" />
+    <Compile Include="SubAssemblies2060\FixedIG.cs" />
+    <Compile Include="SubAssemblies2060\FixedIG_2x1SDL.cs" />
+    <Compile Include="SubAssemblies2060\FixedIG_2x3SDL.cs" />
+    <Compile Include="SubAssemblies2060\FixedIG_2x4SDL.cs" />
+    <Compile Include="SubAssemblies2060\FixedIG_3x5SDL.cs" />
+    <Compile Include="SubAssemblies2060\FixedIG_4x2SDL.cs" />
+    <Compile Include="SubAssemblies3090.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTOX.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTOXOXO.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTOXX.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTOXXO.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTOXXX.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTOXXXX.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTPXXX.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTPXXXX.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTPXXXXP.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTPXXXXX.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTPXXP.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTPXXXXXXP.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTXOX.cs" />
+    <Compile Include="SubAssembliesFASTrack\TrackHelper.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTBXXXXB.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTOX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTOXX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTOXXO.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTOXXX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTOXXXO.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTOXXXX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTPX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTPXS.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTPXX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTPXXP.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTPXXX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTPXXXX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTPXXXXP.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTPXXXXX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTPXXXXXXP.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTXOX.cs" />
+    <Compile Include="SubAssembliesFASTrcPer\FTXX.cs" />
+    <Compile Include="TibronTestDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TibronTestDataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\EntitySpaces.Core.dll" />
+    <Content Include="bin\Debug\EntitySpaces.Interfaces.dll" />
+    <Content Include="bin\Debug\EntitySpaces.Loader.dll" />
+    <Content Include="bin\Debug\EntitySpaces.LoaderMT.dll" />
+    <Content Include="bin\Debug\EntitySpaces.MSAccessProvider.dll" />
+    <Content Include="bin\Debug\EntitySpaces.MySqlClientProvider.dll" />
+    <Content Include="bin\Debug\EntitySpaces.Npgsql2Provider.dll" />
+    <Content Include="bin\Debug\EntitySpaces.NpgsqlProvider.dll" />
+    <Content Include="bin\Debug\EntitySpaces.OracleClientProvider.dll" />
+    <Content Include="bin\Debug\EntitySpaces.SqlClientProvider.dll" />
+    <Content Include="bin\Debug\EntitySpaces.SqlServerCeProvider.dll" />
+    <Content Include="bin\Debug\EntitySpaces.VistaDBProvider.dll" />
+    <Content Include="bin\Debug\FrameWerks.dll" />
+    <Content Include="bin\Debug\FrameWerks.pdb" />
+    <Content Include="bin\Debug\FrameWerks.vshost.exe" />
+    <Content Include="bin\Debug\FrameWorks.dll" />
+    <Content Include="bin\Debug\FrameWorks.pdb" />
+    <Content Include="bin\Release\FrameWerks.dll" />
+    <Content Include="bin\Release\FrameWerks.pdb" />
+    <Content Include="bin\Release\FrameWorks.dll" />
+    <Content Include="bin\Release\FrameWorks.pdb" />
+    <Content Include="obj\Debug\FrameWerks.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\FrameWerks.dll" />
+    <Content Include="obj\Debug\FrameWerks.pdb" />
+    <Content Include="obj\Debug\FrameWorks.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\FrameWorks.dll" />
+    <Content Include="obj\Debug\FrameWorks.pdb" />
+    <Content Include="obj\Debug\Refactor\FrameWerks.dll" />
+    <Content Include="obj\Debug\Refactor\FrameWorks.dll" />
+    <Content Include="obj\Debug\TempPE\DBparts.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\DevineDataSet.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\OutPut.Designer.cs.dll" />
+    <Content Include="obj\FrameWerks.csproj.FileList.txt" />
+    <Content Include="obj\Release\FrameWerks.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\FrameWerks.dll" />
+    <Content Include="obj\Release\FrameWerks.pdb" />
+    <Content Include="obj\Release\FrameWorks.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\FrameWorks.dll" />
+    <Content Include="obj\Release\FrameWorks.pdb" />
+    <Content Include="obj\Release\TempPE\DBparts.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\DevineDataSet.Designer.cs.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="bin\Debug\FrameWerks.dll.config" />
+    <None Include="bin\Debug\FrameWerks.vshost.exe.config" />
+    <None Include="bin\Release\FrameWerks.dll.config" />
+    <None Include="bin\Release\FrameWorks.dll.config" />
+    <None Include="EuroBox\Part-Ferrit.esprj" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Hardware\Amesbury.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTOXXXO.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTBXXXXB.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTPX.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTPXS.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTPXX.cs" />
+    <Compile Include="SubAssembliesFASTrack\FTXX.cs" />
+    <None Include="TibronTestDataSet.xsc">
+      <DependentUpon>TibronTestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TibronTestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TibronTestDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TibronTestDataSet.xss">
+      <DependentUpon>TibronTestDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

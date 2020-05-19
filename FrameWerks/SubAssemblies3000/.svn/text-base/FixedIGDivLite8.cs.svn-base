@@ -1,0 +1,343 @@
+﻿#region Copyright (c) 2007 WeaselWare Software
+/************************************************************************************
+'
+' Copyright  2007 WeaselWare Software 
+'
+' This software is provided 'as-is', without any express or implied warranty. In no 
+' event will the authors be held liable for any damages arising from the use of this 
+' software.
+' 
+' Permission is granted to anyone to use this software for any purpose, including 
+' commercial applications, and to alter it and redistribute it freely, subject to the 
+' following restrictions:
+'
+' 1. The origin of this software must not be misrepresented; you must not claim that 
+' you wrote the original software. If you use this software in a product, an 
+' acknowledgment (see the following) in the product documentation is required.
+'
+' Portions Copyright 2007 WeaselWare Software
+'
+' 2. Altered source versions must be plainly marked as such, and must not be 
+' misrepresented as being the original software.
+'
+' 3. This notice may not be removed or altered from any source distribution.
+'
+'***********************************************************************************/
+#endregion
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using FrameWerks;
+
+namespace FrameWerks.System3000
+{
+    [UnitType("Dumb Module")]
+    public class FixedIGDivLite8 : SubAssemblyBase
+    {
+
+        #region Fields
+
+        static int createID;
+
+        #endregion
+
+        #region Constructor
+
+        public FixedIGDivLite8()
+        {
+            m_subAssemblyID = Guid.NewGuid();
+            this.ModelID = "Sys3000-FixedIGDivLite8";
+        }
+
+        #endregion
+
+        #region Methods
+
+        //Bill of Material
+        public override void Build()
+        {
+
+            Part part;
+            string partleader = this.Parent.UnitID + "." + this.CreateID.ToString();
+
+
+
+            #region Frame
+
+
+
+            // JambRight -->>
+            part = new Part(804);
+            part.Qnty = 1;
+            part.PartGroupType = "Frame-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = m_subAssemblyHieght;
+            part.FunctionalName = "JambR";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // JambLeft <<--
+            part = new Part(804);
+            part.Qnty = 1;
+            part.PartGroupType = "Frame-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = m_subAssemblyHieght;
+            part.FunctionalName = "JambL";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+            // Head ^^
+            part = new Part(804);
+            part.Qnty = 1;
+            part.PartGroupType = "Frame-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = m_subAssemblyWidth;
+            part.FunctionalName = "Head";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+            // Sill ||
+            part = new Part(804);
+            part.Qnty = 1;
+            part.PartGroupType = "Frame-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = m_subAssemblyWidth;
+            part.FunctionalName = "Sill";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+
+            #endregion
+
+            #region Muntin
+
+
+
+            // HMuntin
+            part = new Part(1859);
+            part.Qnty = 2;
+            part.PartGroupType = "Muntin-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = m_subAssemblyWidth - 1.375m * 2.0m ;
+            part.PartWidth = part.Source.Width;
+            part.PartThick = part.Source.Height;
+            part.FunctionalName = "HMuntin";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+            // VMuntin
+            part = new Part(1859);
+            part.Qnty = 12;
+            part.PartGroupType = "Muntin-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = (m_subAssemblyHieght - 4.25m) / 2.0m;
+            part.PartWidth = part.Source.Width;
+            part.PartThick = part.Source.Height;
+            part.FunctionalName = "VMuntin";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+
+            #endregion
+
+            #region GStop
+
+
+            // VStopR
+
+            part = new Part(809);
+            part.Qnty = 1;
+            part.PartGroupType = "GStop-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = m_subAssemblyHieght - (0.625m * 2.0m);
+            part.PartWidth = part.Source.Width;
+            part.PartThick = part.Source.Height;
+            part.FunctionalName = "VStopR";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+            // VStopL
+
+            part = new Part(809);
+            part.Qnty = 1;
+            part.PartGroupType = "GStop-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = m_subAssemblyHieght - (0.625m * 2.0m);
+            part.PartWidth = part.Source.Width;
+            part.PartThick = part.Source.Height;
+            part.FunctionalName = "VStopL";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+            // HStopTop
+
+            part = new Part(809);
+            part.Qnty = 1;
+            part.PartGroupType = "GStop-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = m_subAssemblyWidth - (0.625m * 2.0m) ;
+            part.PartWidth = part.Source.Width;
+            part.PartThick = part.Source.Height;
+            part.FunctionalName = "HStopTop";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+            // HStopBot
+
+            string crap;
+            crap = Utils.Dim.StopWeepMachining(m_subAssemblyWidth - 0.0625m * 2.0m );
+            part = new Part(809);
+            part.Qnty = 1;
+            part.PartGroupType = "GStop-Parts";
+            part.ContainerAssembly = this;
+            part.PartLength = m_subAssemblyWidth - (0.625m * 2.0m) ;
+            part.PartWidth = part.Source.Width;
+            part.PartThick = part.Source.Height;
+            part.FunctionalName = "HStopBot";
+            part.PartLabel = "1)MiterEnds" + "\r\n" +
+                             "2)" + crap;
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+
+            #endregion
+
+            #region Glass
+
+
+            //GlassPanel
+
+            part = new Part(2828);
+            part.FunctionalName = "GlassPanel";
+            part.PartGroupType = "Glass-Parts";
+            part.Qnty = 1;
+            part.PartName = "PartName";
+            part.PartLabel = "";
+            part.ContainerAssembly = this;
+            part.PartWidth = m_subAssemblyWidth - (0.9375m * 2.0m );
+            part.PartLength = m_subAssemblyHieght - (0.9375m * 2.0m);
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+
+            #endregion
+
+            #region Seal/Weatherstripping
+
+
+            decimal peri = Utils.Dim.Perimeter(m_subAssemblyHieght, m_subAssemblyDepth);
+            peri += Utils.Dim.Perimeter(m_subAssemblyHieght, m_subAssemblyWidth);
+
+            peri -= (m_subAssemblyHieght * 2.0m);
+
+            //Glazing Seals
+            part = new Part(1819, "Glazing Seal", this, 2, peri);
+            part.PartGroupType = "Seal-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            #endregion
+
+            #region Hardware
+
+
+            // Braces
+            part = new Part(1117);
+            part.Qnty = 12;
+            part.PartGroupType = "Hardware-Parts";
+            part.ContainerAssembly = this;
+            part.FunctionalName = "Braces";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+
+
+            #endregion
+
+                #region Labor
+
+            Labor.LaborPart design =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Design", 4.0m, 80.0m);
+            this.LaborParts.Add(design);
+            //Measure: Collect Information on Sizes from Contractor: Provide Information for Approval: Samples Correspondence: Ordering: Supervision
+
+            Labor.LaborPart draft =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Draft", 3.0m, 80.0m);
+            this.LaborParts.Add(draft);
+            //Typical Drawings: Supervision
+
+            Labor.LaborPart metalhours =
+                new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "MetalHours", 8.0m, 80.0m);
+            this.LaborParts.Add(metalhours);
+            //1 Receive: 1 Handle: 1 Cut: 1 Machine: 2 Weld & Assemble: 1 Hardware Prep: 1 NailFin
+
+            Labor.LaborPart glazinglhours =
+              new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "GlazingHours", (this.Area * 0.1m) + 4.0m, 80.0m);
+            this.LaborParts.Add(glazinglhours);
+            //.5 Recieve: .5 InspectReject: .5 StoreHandle: 1.0 GlazeShimCalk: .5 SetGlassStop: 05 InsertGasket 
+
+            Labor.LaborPart finishhours =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "FinishHours", 4.0m, 80.0m);
+            this.LaborParts.Add(finishhours);
+            //2 SandLineGrain: 2 Finish
+
+            Labor.LaborPart stage =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Stage", 0.5m, 80.0m);
+            this.LaborParts.Add(stage);
+            //.5 Stage
+
+            Labor.LaborPart load =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Load", 1.0m, 80.0m);
+            this.LaborParts.Add(load);
+            //1 Load
+
+
+            #endregion
+
+
+
+        }
+
+
+
+        #endregion
+
+
+    }
+}

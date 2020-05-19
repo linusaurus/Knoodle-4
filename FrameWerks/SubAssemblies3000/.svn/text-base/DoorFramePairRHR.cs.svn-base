@@ -1,0 +1,176 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+
+namespace FrameWerks.System3000
+{
+    [UnitType("Dumb Module")]
+    public class DoorFramePairRHR : SubAssemblyBase
+    {
+
+        #region Fields
+
+        static int createID;
+        Part part;
+        string partleader;
+
+        #endregion
+
+        #region Constructor
+
+        public DoorFramePairRHR()
+        {
+            m_subAssemblyID = Guid.NewGuid();
+            this.ModelID = "Sys3000-DoorFramePairRHR";
+
+        }
+
+        #endregion
+
+        #region Error Handling
+
+        System.Exception HardwareApplicationError(string description)
+        {
+
+            return new SystemException(description);
+        }
+
+        #endregion
+
+        //Methods
+        public override void Build()
+        {
+
+            partleader = this.Parent.UnitID + "." + this.CreateID.ToString();
+
+
+            #region Door-Frame
+
+            // JambRight -->>
+            part = new Part(801, "JambR", this, 1, m_subAssemblyHieght);
+            part.PartGroupType = "Frame-Parts";
+            part.PartLabel = "M-Hinge # 1775";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // JambLeft <<--
+            part = new Part(801, "JambL", this, 1, m_subAssemblyHieght);
+            part.PartGroupType = "Frame-Parts";
+            part.PartLabel = "M-Hinge # 1775";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // Head ^^
+            part = new Part(801, "Head", this, 1, m_subAssemblyWidth);
+            part.PartGroupType = "Frame-Parts";
+            part.PartLabel = "M-Shoot Strike # 1986";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+
+
+            #endregion
+
+            #region HardWare
+
+
+            // Assembly Braces
+
+            part = new Part(1117, "Assembly Braces", this, 4, 0.0m);
+            part.PartGroupType = "Hardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // PVC ASTRIGAL
+
+            part = new Part(1901, "PVC Astrigal", this, 1, m_subAssemblyHieght - 1.625m);
+            part.PartGroupType = "Hardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // BRONZE ASTRIGAL
+
+            part = new Part(2763, "Bronze Astrigal", this, 1, m_subAssemblyHieght - 1.625m);
+            part.PartGroupType = "Hardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // Plate Backer
+
+            part = new Part(1121, "Plate Backer", this, FrameWerks.Utils.Dim.HingeCount(m_subAssemblyHieght), 0.0m);
+            part.PartGroupType = "Hardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // Strike Plate
+
+            part = new Part(1933, "Strike Plate", this, 1, 0.0m);
+            part.PartGroupType = "Hardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // Shoot Strike 
+
+            part = new Part(1986, "Shoot Strike", this, 2, 0.0m);
+            part.PartGroupType = "Hardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            #endregion
+
+            #region WeatherSeals
+
+            //Door Bulb Seals
+            decimal peri = m_subAssemblyHieght * 2.0m;
+            peri += m_subAssemblyWidth;
+            part = new Part(1769, "Frame Bulb Seal", this, 1, peri);
+            part.PartGroupType = "Seals-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            #endregion
+
+                #region Labor
+
+
+            Labor.LaborPart metalhours =
+                new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "MetalHours", 9.0m, 80.0m);
+            this.LaborParts.Add(metalhours);
+            //1 Receive: 1 Handle: 1.5 Cut: 1.5 Machine: 2 Weld & Assemble: 1 Hardware Prep: 1 NailFin
+
+            Labor.LaborPart finishhours =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "FinishHours", 4.0m, 80.0m);
+            this.LaborParts.Add(finishhours);
+            //2 SandLineGrain: 2 Finish
+
+
+
+
+            #endregion
+
+        }
+
+
+
+
+
+
+
+    }
+}

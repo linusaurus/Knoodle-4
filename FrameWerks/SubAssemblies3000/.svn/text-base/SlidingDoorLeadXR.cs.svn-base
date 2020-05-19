@@ -1,0 +1,356 @@
+﻿#region CopyRight
+/************************************************************************************
+'
+' Copyright  2007 WeaselWare Software 
+'
+' This software is provided 'as-is', without any express or implied warranty. In no 
+' event will the authors be held liable for any damages arising from the use of this 
+' software.
+' 
+' Permission is granted to anyone to use this software for any purpose, including 
+' commercial applications, and to alter it and redistribute it freely, subject to the 
+' following restrictions:
+'
+' 1. The origin of this software must not be misrepresented; you must not claim that 
+' you wrote the original software. If you use this software in a product, an 
+' acknowledgment (see the following) in the product documentation is required.
+'
+' Portions Copyright 2007 WeaselWare Software
+'
+' 2. Altered source versions must be plainly marked as such, and must not be 
+' misrepresented as being the original software.
+'
+' 3. This notice may not be removed or altered from any source distribution.
+'
+'***********************************************************************************/
+#endregion
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using FrameWerks;
+
+namespace FrameWerks.System3000
+{
+    [UnitType("Dumb Module")]
+    public class SlidingDoorLeadXR : SubAssemblyBase
+    {
+
+        #region Fields
+
+        static int createID;
+        Part part;
+        #endregion
+
+        #region Constructor
+
+        public SlidingDoorLeadXR()
+        {
+            m_subAssemblyID = Guid.NewGuid();
+            this.ModelID = "SlidingDoorLeadXR";
+        }
+
+        #endregion
+
+        #region Methods
+
+        //Bill of Material
+        public override void Build()
+        {
+
+
+            string partleader = this.Parent.UnitID + "." + this.CreateID.ToString();
+
+
+            #region Panel
+
+
+            // StileL <<--
+            part = new Part(1167, "StileL", this, 1, m_subAssemblyHieght);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // StileR -->>
+            part = new Part(1167, "StileR", this, 1, m_subAssemblyHieght);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = ".m3476";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // RailT ^^
+            part = new Part(1167, "RailT", this, 1, m_subAssemblyWidth);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // RailB ||
+            part = new Part(1167, "RailB", this, 1, m_subAssemblyWidth);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // Hooking Cap L <<--
+            part = new Part(2157, "Hooking Cap L", this, 1, m_subAssemblyHieght);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "Machine Notch 0.50m";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // Stile Cap R -->>
+            part = new Part(2158, "Cap R", this, 1, m_subAssemblyHieght);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // Plastic Hook Strip
+            part = new Part(924, "Hook Strip", this, 1, m_subAssemblyHieght);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // Filler Edge
+            part = new Part(1818, "Filler Edge", this, 2, m_subAssemblyHieght);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // Glass Stop 
+            part = new Part(809, "Glass Stop", this, 1, FrameWerks.Utils.Dim.Perimeter(m_subAssemblyWidth, m_subAssemblyHieght, 1.3125m) * 2.0m);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // Brush Holder 
+            part = new Part(1404, "Brush Holder", this, 1, m_subAssemblyWidth);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+            // Guide Fin 
+            part = new Part(2071, "Guide Fin", this, 1, m_subAssemblyWidth);
+            part.PartGroupType = "Panel-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+
+
+            #endregion
+
+            #region Glass
+
+
+
+            //Glass Panel
+            part = new Part(2828);
+
+            part.FunctionalName = "Glass";
+            part.PartGroupType = "Glass-Parts";
+            part.Qnty = 1;
+            part.PartName = "PartName";
+            part.PartLabel = "";
+            part.ContainerAssembly = this;
+            part.PartWidth = m_subAssemblyWidth - (1.625m * 2.0m);
+            part.PartLength = m_subAssemblyHieght - (1.625m * 2.0m);
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+
+            #endregion
+
+            #region Hardware
+
+
+            //DS Sliding Door Lock
+            part = new Part(2430, "Sliding Door Lock", this, 1, decimal.Zero);
+            part.PartGroupType = "Hardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // Assemble Braces
+            part = new Part(1115, "Braces", this, 8, 0.0m);
+            part.PartGroupType = "Hardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // Screws 
+            part = new Part(1300, "Screws", this,Convert.ToInt32( ((m_subAssemblyHieght / 4.0m )+ 2.0m)), decimal.Zero);
+            part.PartGroupType = "Hardware-Parts";
+            part.PartLabel = "Screws for 924";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            #endregion
+
+            #region TrollyHardware
+
+
+            //3 Blue Turcite Wheels
+            part = new Part(1586, "Wheels", this, 2, decimal.Zero);
+            part.PartGroupType = "TrollyHardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            //Pendant Bolt 
+            part = new Part(2347, "PenBolt", this, 2, decimal.Zero);
+            part.PartGroupType = "TrollyHardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            //Socket Set Screw 
+            part = new Part(480, "SetScrew", this, 2, decimal.Zero);
+            part.PartGroupType = "TrollyHardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            //Suspension Plate 
+            part = new Part(2124, "Suspension Plate", this, 2, decimal.Zero);
+            part.PartGroupType = "TrollyHardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            //Screw Hex Head Cap
+            part = new Part(1567, "Hex Cap", this, 2, decimal.Zero);
+            part.PartGroupType = "TrollyHardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // Suspention Track
+            part = new Part(2148, "Suspention Track", this, 2, 0.0m);
+            part.PartGroupType = "TrollyHardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // Aluminum Block Shim
+            part = new Part(2454, "Block Shim", this, 2, 0.0m);
+            part.PartGroupType = "TrollyHardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // Track Stop
+            part = new Part(2311, "Track Stop", this, 2, 0.0m);
+            part.PartGroupType = "TrollyHardware-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+
+
+            #endregion
+
+            #region Seals
+
+
+
+            // Weather Strip
+            part = new Part(1029, "Weather Strip", this, 2, m_subAssemblyWidth);
+            part.PartGroupType = "Seal-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+            // Glazing Vinyl
+            part = new Part(1819, "Glazing Vinyl", this, 1, FrameWerks.Utils.Dim.Perimeter(m_subAssemblyWidth, m_subAssemblyHieght, 1.625m) * 2.0m);
+            part.PartGroupType = "Seal-Parts";
+            part.PartLabel = "";
+            part.PartIdentifier = partleader + "." + Convert.ToString(createID++);
+            m_parts.Add(part);
+
+
+
+            #endregion
+
+                #region Labor
+
+
+            Labor.LaborPart design =
+                new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Design", 4.0m, 80.0m);
+            this.LaborParts.Add(design);
+            //Collect Information on Sizes: Measure: Provide Information for Approval: Order: Supervision
+
+            Labor.LaborPart draft =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Draft", 3.0m, 80.0m);
+            this.LaborParts.Add(draft);
+            //Typical Drawings
+
+            Labor.LaborPart metalhours =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "MetalHours", 12.0m, 80.0m);
+            this.LaborParts.Add(metalhours);
+            //1 Recieve: 1 Handle: 1 CutSash: 1 CutGlassStop: 1.5 Machine: 1.5 Hardware Prep: 1 Mount Hardware: 4 Weld:
+
+            Labor.LaborPart Finish =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Finish", 4.0m, 80.0m);
+            this.LaborParts.Add(Finish);
+            //2 Sand Linegrain: 2 Finish:
+
+            Labor.LaborPart glazing =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Glazing", (this.Area * .10m) + 4.0m, 80.0m);
+            this.LaborParts.Add(glazing);
+            //0.5 Order: 0.5 Recieve: 0.5 Inspect/Reject: 0.5 Store/Handle: 0.5 SetGlass/Shim&Calk: 0.5 Set GlassStop: 0.5 GlazingSeals
+
+            Labor.LaborPart prehang =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Prehang", (this.Area * .10m) + 3.0m, 80.0m);
+            this.LaborParts.Add(prehang);
+            //2 FitSash into Frame: 1 Mount Weather Strips/Seals
+
+            Labor.LaborPart stage =
+               new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Stage", 1.0m, 80.0m);
+            this.LaborParts.Add(stage);
+            //1 Stage
+
+            Labor.LaborPart load =
+                new FrameWerks.Labor.LaborPart(this, UnitOfLaborCosting.unit, "Load", 1.0m, 80.0m);
+            this.LaborParts.Add(load);
+            //1 Load
+
+
+            #endregion
+
+
+
+
+
+        }
+
+
+        #endregion
+
+
+
+    }
+}

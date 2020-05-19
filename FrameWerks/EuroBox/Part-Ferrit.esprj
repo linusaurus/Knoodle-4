@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySpacesProject Version="2009.1.0209.0">
+  <Folder Name="Project">
+    <RecordedTemplate Name="Generated - Classes Master (C#)">
+      <Template Name="Generated - Classes Master (C#)" Path="C:\Program Files\EntitySpaces 2009\CodeGeneration\Templates\EntitySpaces\C#\Generated - Classes Master (C#).est" Version="2009.0.0.0" />
+      <Input>
+        <Item Type="System.Boolean" Key="UseDnnObjectQualifier" Value="False" />
+        <Item Type="System.String" Key="WcfDataContract" Value="http://tempuri.org/" />
+        <Item Type="System.String" Key="ConnectionName" Value="" />
+        <Item Type="System.Boolean" Key="IncludeRowStateInXml" Value="True" />
+        <Item Type="System.Boolean" Key="UseCustomBaseClass" Value="False" />
+        <Item Type="System.String" Key="Namespace" Value="BusinessObjects" />
+        <Item Type="System.Boolean" Key="SupportINotifyChanged" Value="True" />
+        <Item Type="System.Collections.ArrayList" Key="Entities" Value="Item,Labor,Manu,Resource,ResourceItem,Revision,Supplier,SupplierItem,Symbol,Task,UnitOfMeasure,WorkOrder,WorkOrderItems" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreSchema" Value="True" />
+        <Item Type="System.Boolean" Key="DebugVisualizer" Value="False" />
+        <Item Type="System.Boolean" Key="DebuggerDisplay" Value="True" />
+        <Item Type="System.Boolean" Key="TargetMultipleDatabases" Value="False" />
+        <Item Type="System.Boolean" Key="MetadataClassShouldIgnoreCatalog" Value="True" />
+        <Item Type="System.Boolean" Key="WcfOrder" Value="True" />
+        <Item Type="System.Boolean" Key="TargetTheCompactFramework" Value="False" />
+        <Item Type="System.Boolean" Key="LINQtoSQL" Value="False" />
+        <Item Type="System.String" Key="EntityType" Value="Tables" />
+        <Item Type="System.String" Key="Database" Value="PARTDB" />
+        <Item Type="System.Boolean" Key="WcfEmitDefaultValue" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateProxyStub" Value="False" />
+        <Item Type="System.Boolean" Key="GenerateSingleFile" Value="True" />
+        <Item Type="System.Boolean" Key="GenerateHierarchicalModel" Value="True" />
+        <Item Type="System.String" Key="OutputPath" Value="C:\Users\Rich.DESIGNSYNTHESIS\Documents\Visual Studio 2008\Projects\Weaselware.PartFerrit\Generated\" />
+        <Item Type="System.Boolean" Key="WcfSupport" Value="False" />
+        <Item Type="System.Boolean" Key="WcfIsRequired" Value="False" />
+      </Input>
+      <Settings>
+        <esSettings Name="esCustom">
+          <esSetting Name="Driver" Value="SQL" />
+          <esSetting Name="ConnectionString" Value="Provider=SQLOLEDB.1;Password=Kx09a32x;Persist Security Info=True;User ID=sa;Initial Catalog=PARTDB;Data Source=DATASERVER" />
+          <esSetting Name="TemplatePath" Value="C:\Program Files\EntitySpaces 2009\CodeGeneration\Templates\" />
+          <esSetting Name="OutputPath" Value="C:\Users\Rich.DESIGNSYNTHESIS\Documents\Visual Studio 2008\Projects\Weaselware.PartFerrit" />
+          <esSetting Name="UIAssemblyPath" Value="C:\Program Files\EntitySpaces 2009\CodeGeneration\Bin\UIAddIns\" />
+          <esSetting Name="CompilerAssemblyPath" Value="C:\Program Files\EntitySpaces 2009\CodeGeneration\Bin\" />
+          <esSetting Name="LanguageMappingFile" Value="C:\Program Files\EntitySpaces 2009\CodeGeneration\esLanguages.xml" />
+          <esSetting Name="UserMetadataFile" Value="C:\ProgramData\EntitySpaces\ES2009\esUserData.xml" />
+          <esSetting Name="AbstractPrefix" Value="es" />
+          <esSetting Name="EntitySuffix" Value="" />
+          <esSetting Name="CollectionSuffix" Value="Collection" />
+          <esSetting Name="QuerySuffix" Value="Query" />
+          <esSetting Name="MetadataSuffix" Value="Metadata" />
+          <esSetting Name="ProxyStubSuffix" Value="ProxyStub" />
+          <esSetting Name="ProcPrefix" Value="proc_" />
+          <esSetting Name="ProcSuffix" Value="" />
+          <esSetting Name="ProcInsert" Value="Insert" />
+          <esSetting Name="ProcUpdate" Value="Update" />
+          <esSetting Name="ProcDelete" Value="Delete" />
+          <esSetting Name="ProcLoadAll" Value="LoadAll" />
+          <esSetting Name="ProcLoadByPK" Value="LoadByPrimaryKey" />
+          <esSetting Name="ProcVerbFirst" Value="False" />
+          <esSetting Name="OneToOnePrefix" Value="" />
+          <esSetting Name="OneToOneSeparator" Value="By" />
+          <esSetting Name="OneToOneSuffix" Value="" />
+          <esSetting Name="ManyToManyPrefix" Value="" />
+          <esSetting Name="ManyToManySeparator" Value="By" />
+          <esSetting Name="ManyToManySuffix" Value="Collection" />
+          <esSetting Name="SelfOnly" Value="False" />
+          <esSetting Name="SwapNames" Value="False" />
+          <esSetting Name="UseAssociativeName" Value="False" />
+          <esSetting Name="UseUpToPrefix" Value="True" />
+          <esSetting Name="TrimList" Value=" .-" />
+          <esSetting Name="UseRawNames" Value="False" />
+          <esSetting Name="UseNullableTypesAlways" Value="True" />
+        </esSettings>
+      </Settings>
+    </RecordedTemplate>
+  </Folder>
+</EntitySpacesProject>
