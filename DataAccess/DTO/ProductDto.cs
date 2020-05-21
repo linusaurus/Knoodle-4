@@ -6,11 +6,12 @@ using System.Text;
 
 namespace DataAccess.DTO
 {
-    public class ProductListDTO : INotifyPropertyChanged
+    public class ProductDto : INotifyPropertyChanged
     {
         private int productID;
         private int jobID;
         private int unitID;
+        private string unitName;
         private string archDescription;
         private string roomName;
 
@@ -23,9 +24,21 @@ namespace DataAccess.DTO
         private DateTime deliveryDate;
         private DateTime productionDate;
         private bool nIC;
+        private bool isDeleted;
+
+
+        public bool IsDeleted
+        {
+            get { return isDeleted; }
+            set
+            {
+                isDeleted = value;
+                OnPropertyChange();
+            }
+        }
 
         // ProductID
-        public int PurchaseOrderID
+        public int ProductID
         {
             get { return productID; }
             set
@@ -42,6 +55,17 @@ namespace DataAccess.DTO
             set
             {
                 jobID = value;
+                OnPropertyChange();
+            }
+        }
+
+        // JobID
+        public string UnitName
+        {
+            get { return unitName; }
+            set
+            {
+                unitName = value;
                 OnPropertyChange();
             }
         }
@@ -149,7 +173,17 @@ namespace DataAccess.DTO
             }
         }
 
-        
+        // ProductionDate
+        public bool NIC
+        {
+            get { return nIC; }
+            set
+            {
+                nIC = value;
+                OnPropertyChange();
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

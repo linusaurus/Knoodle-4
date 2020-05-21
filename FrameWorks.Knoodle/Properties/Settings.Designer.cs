@@ -44,5 +44,17 @@ namespace Weaselware.Knoodle.Properties {
                 return ((string)(this["outputConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int LastSelectedJob {
+            get {
+                return ((int)(this["LastSelectedJob"]));
+            }
+            set {
+                this["LastSelectedJob"] = value;
+            }
+        }
     }
 }

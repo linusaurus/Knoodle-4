@@ -5,6 +5,8 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using DataAccess;
 using DataAccess.Entities;
+using DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Service
 {
@@ -24,17 +26,24 @@ namespace DataAccess.Service
 
             return ctx.Job.Find(jobID);
         }
-
-        //public List<Job> RecentJobs()
-        //{
-
-        //   // return ctx.Job.OrderByDescending(p => p.)
-        //}
+        /// <summary>
+        /// Return list of 25 most recent Jobs
+        /// </summary>
+        /// <returns></returns>
+        public List<JobListDto> RecentJobs()
+        {
+            var jobs = ctx.Job.AsNoTracking().OrderByDescending(r => r.start_ts).Select(d => new JobListDto
+            {
+                JobID = d.JobID,
+                JobName = d.JobName
+            }).Take(35).ToList();
+            return jobs;
+        }
 
         public List<Job> SearchJobs(string term)
         {
 
-            return ctx.Job.Where(w => w.jobname.Contains(term)).ToList();
+            return ctx.Job.Where(w => w.JobName.Contains(term)).ToList();
         }
 
     }

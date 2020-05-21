@@ -11,7 +11,7 @@ namespace DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<Job> entity)
         {
-            entity.HasKey(p => p.job_id);
+            entity.HasKey(p => p.JobID);
             
         }
     }
