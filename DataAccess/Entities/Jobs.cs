@@ -21,6 +21,8 @@ namespace DataAccess.Entities
 
         public DateTime start_ts { get; set; }
 
-       // public ICollection<PurchaseOrder> PurchaseOrders { get; set; }
+       //public ICollection<PurchaseOrder> PurchaseOrders { get; set; }
+
+        public ICollection<Product> Products { get; set; }
     }
 }

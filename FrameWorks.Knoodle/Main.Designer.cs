@@ -48,21 +48,40 @@
             this.inputTabPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgProductGrid = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.unitIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assemblyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assemblyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.makeFileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Find = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.wDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.componentCollection1 = new BusinessObjects.ComponentCollection();
             this.outputTabPage = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.buildTree = new System.Windows.Forms.TreeView();
             this.partPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.partsTab = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.theExitGreedyNextFit = new System.Windows.Forms.CheckBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.theToolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.theTextBoxStatus = new System.Windows.Forms.ToolStripLabel();
+            this.btnSolve = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbStockLength = new System.Windows.Forms.TextBox();
+            this.lbSumofParts = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbOptimizerFilter = new System.Windows.Forms.TextBox();
+            this.btn = new System.Windows.Forms.Button();
+            this.dgOptimizerItems = new System.Windows.Forms.DataGridView();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
+            this.PartsStatus = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssDataPath = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnWrite = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnClearAll = new System.Windows.Forms.Button();
+            this.btnSelectAll = new System.Windows.Forms.Button();
+            this.btnInvert = new System.Windows.Forms.Button();
+            this.cbxJobsList = new System.Windows.Forms.ComboBox();
+            this.cbxShowAllJobs = new System.Windows.Forms.CheckBox();
+            this.dgSubAssemblies = new System.Windows.Forms.DataGridView();
+            this.componentCollection1 = new BusinessObjects.ComponentCollection();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.cutlistIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,34 +119,16 @@
             this.subAssemblyAreaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.outputCollection1 = new BusinessObjects.OutputCollection();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.theExitGreedyNextFit = new System.Windows.Forms.CheckBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.theToolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.theTextBoxStatus = new System.Windows.Forms.ToolStripLabel();
-            this.btnSolve = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbStockLength = new System.Windows.Forms.TextBox();
-            this.lbSumofParts = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbOptimizerFilter = new System.Windows.Forms.TextBox();
-            this.btn = new System.Windows.Forms.Button();
-            this.dgOptimizerItems = new System.Windows.Forms.DataGridView();
-            this.btnSaveChanges = new System.Windows.Forms.Button();
-            this.PartsStatus = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tssDataPath = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnWrite = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btnClearAll = new System.Windows.Forms.Button();
-            this.btnSelectAll = new System.Windows.Forms.Button();
-            this.btnInvert = new System.Windows.Forms.Button();
-            this.cbxJobsList = new System.Windows.Forms.ComboBox();
             this.unitCollection1 = new BusinessObjects.UnitCollection();
-            this.cbxShowAllJobs = new System.Windows.Forms.CheckBox();
+            this.colsubAssemblyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMakeFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Find = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colSubWidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubHeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubDepth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGlassPartID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCPD_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ArchDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -136,6 +137,7 @@
             this.colD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMake = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colNotInContract = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabOptimizer.SuspendLayout();
             this.inputTabPage.SuspendLayout();
@@ -144,18 +146,18 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.outputTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.partsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOptimizerItems)).BeginInit();
             this.PartsStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSubAssemblies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -174,12 +176,13 @@
             // menuStrip1
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.dataToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1379, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1379, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -191,7 +194,7 @@
             this.tsmNewDataFile,
             this.tsmExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 36);
             this.fileToolStripMenuItem.Text = "File";
             this.fileToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.fileToolStripMenuItem_DropDownItemClicked);
             // 
@@ -224,9 +227,9 @@
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setSourceToolStripMenuItem,
             this.tsmprojectSettings});
-            this.dataToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("dataToolStripMenuItem.Image")));
+            this.dataToolStripMenuItem.Image = global::Weaselware.Knoodle.Properties.Resources.twotone_account_balance_black_24dp;
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(93, 36);
             this.dataToolStripMenuItem.Text = "Settings";
             this.dataToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.dataToolStripMenuItem_DropDownItemClicked);
             // 
@@ -286,7 +289,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
+            this.splitContainer1.Panel2.Controls.Add(this.dgSubAssemblies);
             this.splitContainer1.Size = new System.Drawing.Size(1050, 560);
             this.splitContainer1.SplitterDistance = 323;
             this.splitContainer1.TabIndex = 4;
@@ -302,98 +305,14 @@
             this.colWidth,
             this.colD,
             this.colHeight,
-            this.colMake});
+            this.colMake,
+            this.colNotInContract});
             this.dgProductGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgProductGrid.Location = new System.Drawing.Point(0, 0);
             this.dgProductGrid.Name = "dgProductGrid";
             this.dgProductGrid.Size = new System.Drawing.Size(1050, 323);
             this.dgProductGrid.TabIndex = 2;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.unitIDDataGridViewTextBoxColumn1,
-            this.assemblyIDDataGridViewTextBoxColumn,
-            this.assemblyNameDataGridViewTextBoxColumn,
-            this.makeFileDataGridViewTextBoxColumn,
-            this.Find,
-            this.wDataGridViewTextBoxColumn,
-            this.hDataGridViewTextBoxColumn,
-            this.dDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.componentCollection1;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1050, 233);
-            this.dataGridView2.TabIndex = 3;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // unitIDDataGridViewTextBoxColumn1
-            // 
-            this.unitIDDataGridViewTextBoxColumn1.DataPropertyName = "UnitID";
-            this.unitIDDataGridViewTextBoxColumn1.HeaderText = "UnitID";
-            this.unitIDDataGridViewTextBoxColumn1.Name = "unitIDDataGridViewTextBoxColumn1";
-            this.unitIDDataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // assemblyIDDataGridViewTextBoxColumn
-            // 
-            this.assemblyIDDataGridViewTextBoxColumn.DataPropertyName = "AssemblyID";
-            this.assemblyIDDataGridViewTextBoxColumn.HeaderText = "AssemblyID";
-            this.assemblyIDDataGridViewTextBoxColumn.Name = "assemblyIDDataGridViewTextBoxColumn";
-            this.assemblyIDDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // assemblyNameDataGridViewTextBoxColumn
-            // 
-            this.assemblyNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.assemblyNameDataGridViewTextBoxColumn.DataPropertyName = "AssemblyName";
-            this.assemblyNameDataGridViewTextBoxColumn.HeaderText = "AssemblyName";
-            this.assemblyNameDataGridViewTextBoxColumn.Name = "assemblyNameDataGridViewTextBoxColumn";
-            // 
-            // makeFileDataGridViewTextBoxColumn
-            // 
-            this.makeFileDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.makeFileDataGridViewTextBoxColumn.DataPropertyName = "MakeFile";
-            this.makeFileDataGridViewTextBoxColumn.HeaderText = "MakeFile";
-            this.makeFileDataGridViewTextBoxColumn.Name = "makeFileDataGridViewTextBoxColumn";
-            // 
-            // Find
-            // 
-            this.Find.HeaderText = "...";
-            this.Find.Name = "Find";
-            this.Find.Width = 25;
-            // 
-            // wDataGridViewTextBoxColumn
-            // 
-            this.wDataGridViewTextBoxColumn.DataPropertyName = "W";
-            this.wDataGridViewTextBoxColumn.HeaderText = "W";
-            this.wDataGridViewTextBoxColumn.Name = "wDataGridViewTextBoxColumn";
-            this.wDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // hDataGridViewTextBoxColumn
-            // 
-            this.hDataGridViewTextBoxColumn.DataPropertyName = "H";
-            this.hDataGridViewTextBoxColumn.HeaderText = "H";
-            this.hDataGridViewTextBoxColumn.Name = "hDataGridViewTextBoxColumn";
-            this.hDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // dDataGridViewTextBoxColumn
-            // 
-            this.dDataGridViewTextBoxColumn.DataPropertyName = "D";
-            this.dDataGridViewTextBoxColumn.HeaderText = "D";
-            this.dDataGridViewTextBoxColumn.Name = "dDataGridViewTextBoxColumn";
-            this.dDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // componentCollection1
-            // 
-            this.componentCollection1.AllowDelete = true;
-            this.componentCollection1.AllowEdit = true;
-            this.componentCollection1.AllowNew = true;
-            this.componentCollection1.EnableHierarchicalBinding = true;
-            this.componentCollection1.Filter = "";
-            this.componentCollection1.RowStateFilter = System.Data.DataViewRowState.None;
-            this.componentCollection1.Sort = "";
+            this.dgProductGrid.SelectionChanged += new System.EventHandler(this.dgProductGrid_SelectionChanged);
             // 
             // outputTabPage
             // 
@@ -454,6 +373,294 @@
             this.partsTab.TabIndex = 2;
             this.partsTab.Text = "Output";
             this.partsTab.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.theExitGreedyNextFit);
+            this.tabPage1.Controls.Add(this.toolStrip1);
+            this.tabPage1.Controls.Add(this.btnSolve);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.tbStockLength);
+            this.tabPage1.Controls.Add(this.lbSumofParts);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.tbOptimizerFilter);
+            this.tabPage1.Controls.Add(this.btn);
+            this.tabPage1.Controls.Add(this.dgOptimizerItems);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1056, 566);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Optimizer";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // theExitGreedyNextFit
+            // 
+            this.theExitGreedyNextFit.AutoSize = true;
+            this.theExitGreedyNextFit.Location = new System.Drawing.Point(25, 385);
+            this.theExitGreedyNextFit.Name = "theExitGreedyNextFit";
+            this.theExitGreedyNextFit.Size = new System.Drawing.Size(80, 17);
+            this.theExitGreedyNextFit.TabIndex = 9;
+            this.theExitGreedyNextFit.Text = "checkBox1";
+            this.theExitGreedyNextFit.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.theToolStripProgressBar,
+            this.theTextBoxStatus});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1050, 25);
+            this.toolStrip1.TabIndex = 8;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // theToolStripProgressBar
+            // 
+            this.theToolStripProgressBar.Name = "theToolStripProgressBar";
+            this.theToolStripProgressBar.Size = new System.Drawing.Size(100, 22);
+            // 
+            // theTextBoxStatus
+            // 
+            this.theTextBoxStatus.Name = "theTextBoxStatus";
+            this.theTextBoxStatus.Size = new System.Drawing.Size(86, 22);
+            this.theTextBoxStatus.Text = "toolStripLabel1";
+            // 
+            // btnSolve
+            // 
+            this.btnSolve.Location = new System.Drawing.Point(25, 189);
+            this.btnSolve.Name = "btnSolve";
+            this.btnSolve.Size = new System.Drawing.Size(194, 23);
+            this.btnSolve.TabIndex = 7;
+            this.btnSolve.Text = "Solve";
+            this.btnSolve.UseVisualStyleBackColor = true;
+            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Stock Length (inches)";
+            // 
+            // tbStockLength
+            // 
+            this.tbStockLength.Location = new System.Drawing.Point(153, 125);
+            this.tbStockLength.Name = "tbStockLength";
+            this.tbStockLength.Size = new System.Drawing.Size(73, 20);
+            this.tbStockLength.TabIndex = 5;
+            // 
+            // lbSumofParts
+            // 
+            this.lbSumofParts.AutoSize = true;
+            this.lbSumofParts.Location = new System.Drawing.Point(150, 63);
+            this.lbSumofParts.Name = "lbSumofParts";
+            this.lbSumofParts.Size = new System.Drawing.Size(46, 13);
+            this.lbSumofParts.TabIndex = 4;
+            this.lbSumofParts.Text = "Total Ft.";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(138, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Part ID";
+            // 
+            // tbOptimizerFilter
+            // 
+            this.tbOptimizerFilter.Location = new System.Drawing.Point(137, 40);
+            this.tbOptimizerFilter.Name = "tbOptimizerFilter";
+            this.tbOptimizerFilter.Size = new System.Drawing.Size(89, 20);
+            this.tbOptimizerFilter.TabIndex = 2;
+            // 
+            // btn
+            // 
+            this.btn.Location = new System.Drawing.Point(23, 40);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(95, 23);
+            this.btn.TabIndex = 1;
+            this.btn.Text = "Filter Items";
+            this.btn.UseVisualStyleBackColor = true;
+            this.btn.Click += new System.EventHandler(this.btn_Click);
+            // 
+            // dgOptimizerItems
+            // 
+            this.dgOptimizerItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgOptimizerItems.Location = new System.Drawing.Point(287, 40);
+            this.dgOptimizerItems.Name = "dgOptimizerItems";
+            this.dgOptimizerItems.Size = new System.Drawing.Size(536, 363);
+            this.dgOptimizerItems.TabIndex = 0;
+            // 
+            // btnSaveChanges
+            // 
+            this.btnSaveChanges.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveChanges.Image")));
+            this.btnSaveChanges.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveChanges.Location = new System.Drawing.Point(12, 40);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(114, 31);
+            this.btnSaveChanges.TabIndex = 4;
+            this.btnSaveChanges.Text = "Save Changes";
+            this.btnSaveChanges.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveChanges.UseVisualStyleBackColor = true;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
+            // 
+            // PartsStatus
+            // 
+            this.PartsStatus.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.PartsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripProgressBar1,
+            this.toolStripStatusLabel2,
+            this.tssDataPath});
+            this.PartsStatus.Location = new System.Drawing.Point(0, 697);
+            this.PartsStatus.Name = "PartsStatus";
+            this.PartsStatus.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.PartsStatus.Size = new System.Drawing.Size(1379, 25);
+            this.PartsStatus.TabIndex = 5;
+            this.PartsStatus.Text = "statusStrip1";
+            this.PartsStatus.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.PartsStatus_ItemClicked);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
+            this.toolStripStatusLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel1.Image")));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(58, 20);
+            this.toolStripStatusLabel1.Text = "Ready!";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(200, 19);
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(64, 20);
+            this.toolStripStatusLabel2.Text = "Task Status";
+            // 
+            // tssDataPath
+            // 
+            this.tssDataPath.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.tssDataPath.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
+            this.tssDataPath.Image = ((System.Drawing.Image)(resources.GetObject("tssDataPath.Image")));
+            this.tssDataPath.Name = "tssDataPath";
+            this.tssDataPath.Size = new System.Drawing.Size(1040, 20);
+            this.tssDataPath.Spring = true;
+            this.tssDataPath.Text = "DataPath";
+            // 
+            // btnWrite
+            // 
+            this.btnWrite.Image = ((System.Drawing.Image)(resources.GetObject("btnWrite.Image")));
+            this.btnWrite.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnWrite.Location = new System.Drawing.Point(206, 40);
+            this.btnWrite.Name = "btnWrite";
+            this.btnWrite.Size = new System.Drawing.Size(91, 31);
+            this.btnWrite.TabIndex = 6;
+            this.btnWrite.Text = "View Parts";
+            this.btnWrite.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWrite.UseVisualStyleBackColor = true;
+            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReport.Location = new System.Drawing.Point(303, 40);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(92, 31);
+            this.btnReport.TabIndex = 7;
+            this.btnReport.Text = "Write Data";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // btnClearAll
+            // 
+            this.btnClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearAll.Location = new System.Drawing.Point(1140, 65);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(74, 25);
+            this.btnClearAll.TabIndex = 11;
+            this.btnClearAll.Text = "Clear All";
+            this.btnClearAll.UseVisualStyleBackColor = true;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
+            // 
+            // btnSelectAll
+            // 
+            this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectAll.Location = new System.Drawing.Point(1052, 65);
+            this.btnSelectAll.Name = "btnSelectAll";
+            this.btnSelectAll.Size = new System.Drawing.Size(82, 25);
+            this.btnSelectAll.TabIndex = 12;
+            this.btnSelectAll.Text = "Select All";
+            this.btnSelectAll.UseVisualStyleBackColor = true;
+            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
+            // 
+            // btnInvert
+            // 
+            this.btnInvert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInvert.Location = new System.Drawing.Point(1220, 65);
+            this.btnInvert.Name = "btnInvert";
+            this.btnInvert.Size = new System.Drawing.Size(139, 25);
+            this.btnInvert.TabIndex = 13;
+            this.btnInvert.Text = "Invert Selection";
+            this.btnInvert.UseVisualStyleBackColor = true;
+            this.btnInvert.Click += new System.EventHandler(this.btnInvert_Click);
+            // 
+            // cbxJobsList
+            // 
+            this.cbxJobsList.FormattingEnabled = true;
+            this.cbxJobsList.Location = new System.Drawing.Point(417, 46);
+            this.cbxJobsList.Name = "cbxJobsList";
+            this.cbxJobsList.Size = new System.Drawing.Size(296, 21);
+            this.cbxJobsList.TabIndex = 14;
+            this.cbxJobsList.SelectedIndexChanged += new System.EventHandler(this.cbxJobsList_SelectedIndexChanged);
+            // 
+            // cbxShowAllJobs
+            // 
+            this.cbxShowAllJobs.AutoSize = true;
+            this.cbxShowAllJobs.Location = new System.Drawing.Point(738, 49);
+            this.cbxShowAllJobs.Name = "cbxShowAllJobs";
+            this.cbxShowAllJobs.Size = new System.Drawing.Size(91, 17);
+            this.cbxShowAllJobs.TabIndex = 15;
+            this.cbxShowAllJobs.Text = "Show all Jobs";
+            this.cbxShowAllJobs.UseVisualStyleBackColor = true;
+            // 
+            // dgSubAssemblies
+            // 
+            this.dgSubAssemblies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSubAssemblies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colsubAssemblyID,
+            this.colSubName,
+            this.colMakeFile,
+            this.Find,
+            this.colSubWidth,
+            this.colSubHeight,
+            this.colSubDepth,
+            this.colGlassPartID,
+            this.colCPD_ID});
+            this.dgSubAssemblies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSubAssemblies.Location = new System.Drawing.Point(0, 0);
+            this.dgSubAssemblies.Name = "dgSubAssemblies";
+            this.dgSubAssemblies.Size = new System.Drawing.Size(1050, 233);
+            this.dgSubAssemblies.TabIndex = 3;
+            this.dgSubAssemblies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // componentCollection1
+            // 
+            this.componentCollection1.AllowDelete = true;
+            this.componentCollection1.AllowEdit = true;
+            this.componentCollection1.AllowNew = true;
+            this.componentCollection1.EnableHierarchicalBinding = true;
+            this.componentCollection1.Filter = "";
+            this.componentCollection1.RowStateFilter = System.Data.DataViewRowState.None;
+            this.componentCollection1.Sort = "";
             // 
             // dataGridView3
             // 
@@ -722,254 +929,6 @@
             this.outputCollection1.RowStateFilter = System.Data.DataViewRowState.None;
             this.outputCollection1.Sort = "";
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.theExitGreedyNextFit);
-            this.tabPage1.Controls.Add(this.toolStrip1);
-            this.tabPage1.Controls.Add(this.btnSolve);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.tbStockLength);
-            this.tabPage1.Controls.Add(this.lbSumofParts);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.tbOptimizerFilter);
-            this.tabPage1.Controls.Add(this.btn);
-            this.tabPage1.Controls.Add(this.dgOptimizerItems);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1056, 566);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Optimizer";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // theExitGreedyNextFit
-            // 
-            this.theExitGreedyNextFit.AutoSize = true;
-            this.theExitGreedyNextFit.Location = new System.Drawing.Point(25, 385);
-            this.theExitGreedyNextFit.Name = "theExitGreedyNextFit";
-            this.theExitGreedyNextFit.Size = new System.Drawing.Size(80, 17);
-            this.theExitGreedyNextFit.TabIndex = 9;
-            this.theExitGreedyNextFit.Text = "checkBox1";
-            this.theExitGreedyNextFit.UseVisualStyleBackColor = true;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.theToolStripProgressBar,
-            this.theTextBoxStatus});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1050, 25);
-            this.toolStrip1.TabIndex = 8;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // theToolStripProgressBar
-            // 
-            this.theToolStripProgressBar.Name = "theToolStripProgressBar";
-            this.theToolStripProgressBar.Size = new System.Drawing.Size(100, 22);
-            // 
-            // theTextBoxStatus
-            // 
-            this.theTextBoxStatus.Name = "theTextBoxStatus";
-            this.theTextBoxStatus.Size = new System.Drawing.Size(86, 22);
-            this.theTextBoxStatus.Text = "toolStripLabel1";
-            // 
-            // btnSolve
-            // 
-            this.btnSolve.Location = new System.Drawing.Point(25, 189);
-            this.btnSolve.Name = "btnSolve";
-            this.btnSolve.Size = new System.Drawing.Size(194, 23);
-            this.btnSolve.TabIndex = 7;
-            this.btnSolve.Text = "Solve";
-            this.btnSolve.UseVisualStyleBackColor = true;
-            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 128);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Stock Length (inches)";
-            // 
-            // tbStockLength
-            // 
-            this.tbStockLength.Location = new System.Drawing.Point(153, 125);
-            this.tbStockLength.Name = "tbStockLength";
-            this.tbStockLength.Size = new System.Drawing.Size(73, 20);
-            this.tbStockLength.TabIndex = 5;
-            // 
-            // lbSumofParts
-            // 
-            this.lbSumofParts.AutoSize = true;
-            this.lbSumofParts.Location = new System.Drawing.Point(150, 63);
-            this.lbSumofParts.Name = "lbSumofParts";
-            this.lbSumofParts.Size = new System.Drawing.Size(46, 13);
-            this.lbSumofParts.TabIndex = 4;
-            this.lbSumofParts.Text = "Total Ft.";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(138, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Part ID";
-            // 
-            // tbOptimizerFilter
-            // 
-            this.tbOptimizerFilter.Location = new System.Drawing.Point(137, 40);
-            this.tbOptimizerFilter.Name = "tbOptimizerFilter";
-            this.tbOptimizerFilter.Size = new System.Drawing.Size(89, 20);
-            this.tbOptimizerFilter.TabIndex = 2;
-            // 
-            // btn
-            // 
-            this.btn.Location = new System.Drawing.Point(23, 40);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(95, 23);
-            this.btn.TabIndex = 1;
-            this.btn.Text = "Filter Items";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // dgOptimizerItems
-            // 
-            this.dgOptimizerItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgOptimizerItems.Location = new System.Drawing.Point(287, 40);
-            this.dgOptimizerItems.Name = "dgOptimizerItems";
-            this.dgOptimizerItems.Size = new System.Drawing.Size(536, 363);
-            this.dgOptimizerItems.TabIndex = 0;
-            // 
-            // btnSaveChanges
-            // 
-            this.btnSaveChanges.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveChanges.Image")));
-            this.btnSaveChanges.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSaveChanges.Location = new System.Drawing.Point(12, 40);
-            this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(114, 31);
-            this.btnSaveChanges.TabIndex = 4;
-            this.btnSaveChanges.Text = "Save Changes";
-            this.btnSaveChanges.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveChanges.UseVisualStyleBackColor = true;
-            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
-            // 
-            // PartsStatus
-            // 
-            this.PartsStatus.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.PartsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripProgressBar1,
-            this.toolStripStatusLabel2,
-            this.tssDataPath});
-            this.PartsStatus.Location = new System.Drawing.Point(0, 697);
-            this.PartsStatus.Name = "PartsStatus";
-            this.PartsStatus.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.PartsStatus.Size = new System.Drawing.Size(1379, 25);
-            this.PartsStatus.TabIndex = 5;
-            this.PartsStatus.Text = "statusStrip1";
-            this.PartsStatus.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.PartsStatus_ItemClicked);
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
-            this.toolStripStatusLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel1.Image")));
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(58, 20);
-            this.toolStripStatusLabel1.Text = "Ready!";
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(200, 19);
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(64, 20);
-            this.toolStripStatusLabel2.Text = "Task Status";
-            // 
-            // tssDataPath
-            // 
-            this.tssDataPath.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.tssDataPath.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
-            this.tssDataPath.Image = ((System.Drawing.Image)(resources.GetObject("tssDataPath.Image")));
-            this.tssDataPath.Name = "tssDataPath";
-            this.tssDataPath.Size = new System.Drawing.Size(1040, 20);
-            this.tssDataPath.Spring = true;
-            this.tssDataPath.Text = "DataPath";
-            // 
-            // btnWrite
-            // 
-            this.btnWrite.Image = ((System.Drawing.Image)(resources.GetObject("btnWrite.Image")));
-            this.btnWrite.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnWrite.Location = new System.Drawing.Point(206, 40);
-            this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Size = new System.Drawing.Size(91, 31);
-            this.btnWrite.TabIndex = 6;
-            this.btnWrite.Text = "View Parts";
-            this.btnWrite.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWrite.UseVisualStyleBackColor = true;
-            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
-            // 
-            // btnReport
-            // 
-            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
-            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReport.Location = new System.Drawing.Point(303, 40);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(92, 31);
-            this.btnReport.TabIndex = 7;
-            this.btnReport.Text = "Write Data";
-            this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // btnClearAll
-            // 
-            this.btnClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearAll.Location = new System.Drawing.Point(1140, 65);
-            this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(74, 25);
-            this.btnClearAll.TabIndex = 11;
-            this.btnClearAll.Text = "Clear All";
-            this.btnClearAll.UseVisualStyleBackColor = true;
-            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
-            // 
-            // btnSelectAll
-            // 
-            this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectAll.Location = new System.Drawing.Point(1052, 65);
-            this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(82, 25);
-            this.btnSelectAll.TabIndex = 12;
-            this.btnSelectAll.Text = "Select All";
-            this.btnSelectAll.UseVisualStyleBackColor = true;
-            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
-            // 
-            // btnInvert
-            // 
-            this.btnInvert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInvert.Location = new System.Drawing.Point(1220, 65);
-            this.btnInvert.Name = "btnInvert";
-            this.btnInvert.Size = new System.Drawing.Size(139, 25);
-            this.btnInvert.TabIndex = 13;
-            this.btnInvert.Text = "Invert Selection";
-            this.btnInvert.UseVisualStyleBackColor = true;
-            this.btnInvert.Click += new System.EventHandler(this.btnInvert_Click);
-            // 
-            // cbxJobsList
-            // 
-            this.cbxJobsList.FormattingEnabled = true;
-            this.cbxJobsList.Location = new System.Drawing.Point(417, 46);
-            this.cbxJobsList.Name = "cbxJobsList";
-            this.cbxJobsList.Size = new System.Drawing.Size(296, 21);
-            this.cbxJobsList.TabIndex = 14;
-            this.cbxJobsList.SelectedIndexChanged += new System.EventHandler(this.cbxJobsList_SelectedIndexChanged);
-            // 
             // unitCollection1
             // 
             this.unitCollection1.AllowDelete = true;
@@ -980,15 +939,61 @@
             this.unitCollection1.RowStateFilter = System.Data.DataViewRowState.None;
             this.unitCollection1.Sort = "";
             // 
-            // cbxShowAllJobs
+            // colsubAssemblyID
             // 
-            this.cbxShowAllJobs.AutoSize = true;
-            this.cbxShowAllJobs.Location = new System.Drawing.Point(738, 49);
-            this.cbxShowAllJobs.Name = "cbxShowAllJobs";
-            this.cbxShowAllJobs.Size = new System.Drawing.Size(91, 17);
-            this.cbxShowAllJobs.TabIndex = 15;
-            this.cbxShowAllJobs.Text = "Show all Jobs";
-            this.cbxShowAllJobs.UseVisualStyleBackColor = true;
+            this.colsubAssemblyID.DataPropertyName = "SubAssemblyID";
+            this.colsubAssemblyID.HeaderText = "SubAssemblyID";
+            this.colsubAssemblyID.Name = "colsubAssemblyID";
+            // 
+            // colSubName
+            // 
+            this.colSubName.DataPropertyName = "SubAssemblyName";
+            this.colSubName.HeaderText = "Name";
+            this.colSubName.Name = "colSubName";
+            this.colSubName.Width = 200;
+            // 
+            // colMakeFile
+            // 
+            this.colMakeFile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMakeFile.DataPropertyName = "MakeFile";
+            this.colMakeFile.HeaderText = "MakeFile";
+            this.colMakeFile.Name = "colMakeFile";
+            // 
+            // Find
+            // 
+            this.Find.HeaderText = "...";
+            this.Find.Name = "Find";
+            this.Find.Width = 25;
+            // 
+            // colSubWidth
+            // 
+            this.colSubWidth.DataPropertyName = "W";
+            this.colSubWidth.HeaderText = "W";
+            this.colSubWidth.Name = "colSubWidth";
+            // 
+            // colSubHeight
+            // 
+            this.colSubHeight.DataPropertyName = "H";
+            this.colSubHeight.HeaderText = "H";
+            this.colSubHeight.Name = "colSubHeight";
+            // 
+            // colSubDepth
+            // 
+            this.colSubDepth.DataPropertyName = "D";
+            this.colSubDepth.HeaderText = "D";
+            this.colSubDepth.Name = "colSubDepth";
+            // 
+            // colGlassPartID
+            // 
+            this.colGlassPartID.DataPropertyName = "GlassPartID";
+            this.colGlassPartID.HeaderText = "GlassID";
+            this.colGlassPartID.Name = "colGlassPartID";
+            // 
+            // colCPD_ID
+            // 
+            this.colCPD_ID.DataPropertyName = "CPD_ID";
+            this.colCPD_ID.HeaderText = "CPD-ID";
+            this.colCPD_ID.Name = "colCPD_ID";
             // 
             // colProductID
             // 
@@ -1011,6 +1016,7 @@
             this.colUnitID.DataPropertyName = "UnitID";
             this.colUnitID.HeaderText = "UnitID";
             this.colUnitID.Name = "colUnitID";
+            this.colUnitID.Width = 50;
             // 
             // colUnitName
             // 
@@ -1028,6 +1034,7 @@
             this.colWidth.DefaultCellStyle = dataGridViewCellStyle2;
             this.colWidth.HeaderText = "W";
             this.colWidth.Name = "colWidth";
+            this.colWidth.Width = 80;
             // 
             // colD
             // 
@@ -1038,6 +1045,7 @@
             this.colD.DefaultCellStyle = dataGridViewCellStyle3;
             this.colD.HeaderText = "D";
             this.colD.Name = "colD";
+            this.colD.Width = 80;
             // 
             // colHeight
             // 
@@ -1048,6 +1056,7 @@
             this.colHeight.DefaultCellStyle = dataGridViewCellStyle4;
             this.colHeight.HeaderText = "H";
             this.colHeight.Name = "colHeight";
+            this.colHeight.Width = 80;
             // 
             // colMake
             // 
@@ -1056,6 +1065,15 @@
             this.colMake.Name = "colMake";
             this.colMake.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colMake.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colMake.Width = 45;
+            // 
+            // colNotInContract
+            // 
+            this.colNotInContract.DataPropertyName = "NIC";
+            this.colNotInContract.HeaderText = "NIC";
+            this.colNotInContract.Name = "colNotInContract";
+            this.colNotInContract.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colNotInContract.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Main
             // 
@@ -1079,6 +1097,7 @@
             this.Text = "Knoodle 4.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Main_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabOptimizer.ResumeLayout(false);
@@ -1088,14 +1107,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgProductGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.outputTabPage.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.partsTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -1103,6 +1120,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgOptimizerItems)).EndInit();
             this.PartsStatus.ResumeLayout(false);
             this.PartsStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSubAssemblies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1121,7 +1140,7 @@
         private System.Windows.Forms.TabControl tabOptimizer;
         private System.Windows.Forms.TabPage inputTabPage;
         private System.Windows.Forms.TabPage outputTabPage;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgSubAssemblies;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private BusinessObjects.ComponentCollection componentCollection1;
         private System.Windows.Forms.SplitContainer splitContainer2;
@@ -1172,14 +1191,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uomDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn assemblyIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn assemblyNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn makeFileDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn Find;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dDataGridViewTextBoxColumn;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem tsmExit;
         private System.Windows.Forms.ToolStripMenuItem tsmsaveFile;
@@ -1205,6 +1216,18 @@
         private System.Windows.Forms.Button btnInvert;
         private System.Windows.Forms.ComboBox cbxJobsList;
         private System.Windows.Forms.CheckBox cbxShowAllJobs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn assemblyIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn assemblyNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colsubAssemblyID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMakeFile;
+        private System.Windows.Forms.DataGridViewButtonColumn Find;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubWidth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubHeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubDepth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGlassPartID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCPD_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArchDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitID;
@@ -1213,6 +1236,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colD;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHeight;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colMake;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colNotInContract;
     }
 }
 

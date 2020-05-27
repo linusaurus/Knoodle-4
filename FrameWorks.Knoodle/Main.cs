@@ -39,6 +39,7 @@ using DataAccess;
 using DataAccess.Models;
 using DataAccess.DTO;
 using System.Linq;
+using DataAccess.Mappers;
 
 namespace Weaselware.Knoodle
 {
@@ -51,23 +52,55 @@ namespace Weaselware.Knoodle
         //-------------------------------------------
 
         Job _selectedJob;
+        // This is the primary active object
+        JobListDto _SelectedJobDTO;
+        ProductDto _selectedProductDto;
         bool _loading = true;
+        private List<ProductDto> _products;
+        ProductMapper productMapper = new ProductMapper();
+        JobMapper jobMapper = new JobMapper();
+        
         BindingSource bsProducts = new BindingSource();
+        BindingSource bsSubassemlies = new BindingSource();
 
         public Main()
         {
             InitializeComponent();
             dgProductGrid.AutoGenerateColumns = false;
+            dgSubAssemblies.AutoGenerateColumns = false;
             ctx = new ProductionContext();
             _unitsService  = new ProductService(ctx);
             _jobService = new JobService(ctx);
 
             dgProductGrid.DataSource = bsProducts;
+            dgSubAssemblies.DataSource = bsSubassemlies;
             // ----------------Wire Events------------------
             this.Activated += Main_Activated;
             bsProducts.AddingNew += BsProducts_AddingNew;
             bsProducts.ListChanged += BsProducts_ListChanged;
-          
+
+            bsSubassemlies.AddingNew += BsSubassemlies_AddingNew;
+            if (Knoodle.Properties.Settings.Default.LastSelectedJob != default)
+            {
+                _selectedJob = _jobService.GetDeepJob( Knoodle.Properties.Settings.Default.LastSelectedJob);
+                LoadProducts(_selectedJob.JobID);
+            }
+
+            
+
+        }
+
+        private void BsSubassemlies_AddingNew(object sender, AddingNewEventArgs e)
+        {
+            if (_selectedProductDto != null)
+            {
+                e.NewObject = new SubAssemblyDTO { ProductID = _selectedProductDto.ProductID, 
+                                                    SubAssemblyName = "New Subassembly....",
+                                                    W = decimal.Zero,
+                                                    H = decimal.Zero,D = decimal.Zero ,
+                                                    d = decimal.Zero };
+            }
+
 
         }
 
@@ -75,11 +108,9 @@ namespace Weaselware.Knoodle
         {
             
             BindingSource bs = (BindingSource)sender;
-            if (e.ListChangedType == ListChangedType.ItemDeleted)
+            if (e.ListChangedType == ListChangedType.ItemChanged)
             {
-                var d = e.PropertyDescriptor;
-                var x = e.OldIndex;
-                var y = e.NewIndex;
+               // ISDirty set ot true;
                
                 
                 // ctx.SaveChanges();
@@ -88,78 +119,90 @@ namespace Weaselware.Knoodle
 
         private void Main_Activated(object sender, EventArgs e)
         {
-            _loading = false;
-            if (Knoodle.Properties.Settings.Default.LastSelectedJob != default)
-            {
-                bsProducts.DataSource = _unitsService.GetProducts(Knoodle.Properties.Settings.Default.LastSelectedJob); 
-                dgProductGrid.DataSource = bsProducts;
-                _selectedJob = _jobService.FindJob(Knoodle.Properties.Settings.Default.LastSelectedJob);
-            }
+            //if (_loading)
+            //{
+            //    LoadProducts();
+            //}
+
+            //_loading = false;   
+            
         }
 
         private void BsProducts_AddingNew(object sender, AddingNewEventArgs e)
         {
-            e.NewObject = new ProductDto{JobID = _selectedJob.JobID,ArchDescription = "new" };
+            int w = _products.Max(d => d.UnitID);
+            e.NewObject = new ProductDto{JobID = _selectedJob.JobID,ArchDescription = "New Product ....",
+                                                                        NIC = false,Make = true,
+                                                                        W=decimal.Zero,H=decimal.Zero, D=decimal.Zero , UnitID = w + 1};
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-          
+        {          
             cbxJobsList.DataSource = _jobService.RecentJobs();
             cbxJobsList.DisplayMember = "JobName";
             cbxJobsList.ValueMember = "JobID";
-            cbxJobsList.SelectedValue = Knoodle.Properties.Settings.Default.LastSelectedJob;
-
+            
+            cbxJobsList.SelectedItem = _selectedJob;
         }
 
         private void cbxJobsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadProducts();
+            if (!_loading)
+            {          
+                ComboBox cb = (ComboBox)sender;
+                if (cb.DataSource != null)
+                {
+                    int key = ((JobListDto)cb.SelectedItem).JobID;
+                    _selectedJob = _jobService.GetDeepJob(key);
+
+                    if (_selectedJob != null)
+                    {
+                       Knoodle.Properties.Settings.Default.LastSelectedJob = _selectedJob.JobID;
+                       Knoodle.Properties.Settings.Default.Save();
+                       LoadProducts(_selectedJob.JobID);
+                    }              
+                }
+             }
         }
 
-        private void LoadProducts()
+        private void dgProductGrid_SelectionChanged(object sender, EventArgs e)
         {
-            if (!_loading)
+            if (dgProductGrid.DataSource != null)
             {
-                if (cbxJobsList.DataSource != null)
+                if (dgProductGrid.SelectedRows.Count > 0)
                 {
-                    if (cbxJobsList.Items.Count > 0)
-                    {
-                        JobListDto k = (JobListDto)cbxJobsList.SelectedItem;
-                        _selectedJob = _jobService.FindJob(k.JobID);
-
-                        try
-                        {
-                           
-                                                  
-                            bsProducts.DataSource = _unitsService.GetProducts(_selectedJob.JobID)
-
-                           //bsProducts.DataSource = _unitsService.GetJobUnits(_selectedJob.JobID);
-                            Knoodle.Properties.Settings.Default.LastSelectedJob = _selectedJob.JobID;
-                            Knoodle.Properties.Settings.Default.Save();
-                        }
-                        catch (Exception)
-                        {
-
-                            MessageBox.Show("Error");
-                        }
-
-                    }
+                    _selectedProductDto = (ProductDto)dgProductGrid.CurrentRow.DataBoundItem;
+                    bsSubassemlies.DataSource = _selectedProductDto.SubAssemblies;
+                    dgSubAssemblies.DataSource = bsSubassemlies;
                 }
             }
         }
 
-       
-
-        private void BlProduct_BeforeRemove(ProductDto deletedItem)
+        private void LoadProducts(int jobID)
+        {                                       
+            try
+            {
+               _SelectedJobDTO = new JobListDto();
+                jobMapper.Map(_selectedJob, _SelectedJobDTO);
+                _products = _SelectedJobDTO.Products;
+                bsProducts.DataSource = _products;
+                dgProductGrid.DataSource = bsProducts;                                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error");
+            } 
+        }
+        // Save the DTO
+        private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
+
+            _unitsService.AddOrUpdate(_products);
+            ctx.SaveChanges();
+            LoadProducts(_selectedJob.JobID);
         }
 
-        private void LoadJobs(int jobid)
-        {
-
-        }
 
         private void SetPath(string path)
         {
@@ -175,11 +218,7 @@ namespace Weaselware.Knoodle
            
         }
 
-        private void LoadUnits()
-        {
-          
-        }
-
+   
         private void dataToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             //switch (e.ClickedItem.Name)
@@ -214,16 +253,7 @@ namespace Weaselware.Knoodle
 
  
 
-        private void btnSaveChanges_Click(object sender, EventArgs e)
-        {
-            //foreach (ProductDto h in bsProducts)
-            //{
-            //    _unitsService.AddOrUpdate(h);
-
-            //}
-            ctx.SaveChanges();
-            LoadProducts();
-        }
+       
 
         private void buildTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -292,10 +322,6 @@ namespace Weaselware.Knoodle
             //worker.RunWorkerAsync();
         }
 
-        void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            //this.toolStripProgressBar1.Value = e.ProgressPercentage;
-        }
 
         void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -303,10 +329,6 @@ namespace Weaselware.Knoodle
             //this.toolStripProgressBar1.Value = 100;
         }
 
-        void worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            //Db.WriteParts(buildUnits, this.worker);
-        }
 
         void ansynWrite_Completed(object sender, Db.WriteUnitsCompletedEventArgs e)
         {
@@ -572,7 +594,12 @@ namespace Weaselware.Knoodle
 
         }
 
-       
+      
+
+        private void Main_Shown(object sender, EventArgs e)
+        {
+            _loading = false;
+        }
     }
 }
 

@@ -59,5 +59,15 @@ namespace Weaselware.Knoodle.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap twotone_account_balance_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("twotone_account_balance_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

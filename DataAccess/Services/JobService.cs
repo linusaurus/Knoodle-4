@@ -21,6 +21,11 @@ namespace DataAccess.Service
             ctx = context;
         }
 
+        public Job GetDeepJob(int jobID)
+        {
+            return ctx.Job.Include(s => s.Products).ThenInclude(s => s.SubAssembly).Where(j => j.JobID == jobID).FirstOrDefault();
+        }
+
         public Job FindJob(int jobID)
         {
 

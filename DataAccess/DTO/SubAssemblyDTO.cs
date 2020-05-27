@@ -17,8 +17,29 @@ namespace DataAccess.DTO
         public decimal? h { get; set; }
         public decimal? d { get; set; }
 
-        public int glassPartID { get; set; }
+        public int? glassPartID { get; set; }
         public int? cPD_id { get; set; }
+
+
+        public int? GlassPartID
+        {
+            get { return glassPartID; }
+            set
+            {
+                glassPartID = value;
+                OnPropertyChange();
+            }
+        }
+
+        public int? CPD_ID
+        {
+            get { return cPD_id; }
+            set
+            {
+                cPD_id = value;
+                OnPropertyChange();
+            }
+        }
 
         // ProductionDate
         public int ProductID
@@ -32,7 +53,7 @@ namespace DataAccess.DTO
         }
 
         // SUbAssemblyID
-        public int SUbAssemblyID
+        public int SubAssemblyID
         {
             get { return subAssemblyID; }
             set

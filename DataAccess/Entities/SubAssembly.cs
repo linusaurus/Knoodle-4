@@ -14,7 +14,7 @@ namespace DataAccess.Entities
         public decimal? H { get; set; }
         public decimal? D { get; set; }
 
-        public int GlassPartID { get; set; }
+        public int? GlassPartID { get; set; }
         public int? CPD_id { get; set; }
 
         public List<Part> Parts { get; set; }

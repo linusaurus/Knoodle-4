@@ -120,29 +120,6 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dataToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAADmElEQVQ4T21Ta0yTVxj+2AwL0ezPsiy6
-        ZAnELYtLWBYDxY3YmcjchWzBtZJMsotzFs2k4g0J1C7AXKizFnEMxA66uQ5aKrVCg+20tKUFirSFyqSl
-        UAqllK8XegNEN559LfzZ5UnOSd6c93ne9znnPcS/IZFInlbqdM9zudyn6kVSqVhxT9Ikupkr0Wi2cDWa
-        TRtp/4+Ont490h6tvb37nqWkjJvbZ3HA5VtE3ofM7wXC9k6htMfZIJLv3Uj/Ly43i7+dD8XgCURhGXfD
-        F47DTYZx3z5HLS9GJhfw5YnKDqq71ESnAFKIxNYqVWaKZD2/F5+qqJmY9SP6aBX+6BLGpv0Ypsi2KRJW
-        p48SmccJznf68gtX5E3CX3MpkdSk5+b222p/bAkefxTLT57ATJHaugfQOzQBjcmJDvUIVP0TGJ0k8Yc7
-        APtsELwGkYHibiEcgcCzgsbWFptj5s/Iyioc1KFSb0MwsgwytAS9ZRb9Ni8MI3N4MOWn7MUwPhNENb/R
-        zOfztxJmm/11Xt2PPLXBvBJffQwrVX3KG4bB4sLB4lND+woOKm7c0j8edZJwehaxGF+BbXIeR0+Wy89x
-        ODuJmrrrh9wLEYSXHyFGeZ+YDeHhdADfXBZ609PTP2Cz2W+fq+J1mWxzmBxzIOiZgXshnLwX2u68Y0Tt
-        1Z8OtXVpkv5D8eUk2Tzuw8Xmm7GMjFfeYrFYLzZUVowYeFxYa8/AWl2CgSo2bl0R4I0c+nGCJMmtdfX1
-        h6+LFTGXL4z+UQ+6tHZIVGPg8sUh3ukKt6n6JGIqCaJyIYI1LPiqWdAdyV+VfZTNIiKRyHPlFwRd2mHH
-        mumhF3eHpvGzwoxrkkE0tA1CefY4Ah3XELpUSr04EFfeAHm6AK6yT9DLzBkgrFbr5s9ZJWyZygRRp3ZN
-        NehCp9aBFvkwfhAboS5mIHS1EsHarxGoOozA+c/gLy/Ewlkmehk0MjkHRUVFm1/b+WZFxquZ55vEd5IC
-        t/ucUBqnoDtagCBVPSGQQFTRui5whgFd4a7AxhATKUwmM5VGf++rpt/u/CVTm1HKueSX3X0ATdkx3C/O
-        p7wfSQpE5C0gS97H4Kd7YPg4S7XBXwedTt/0wraX8mn0dxqpkFbKuYjGmloo92cHDV/sXUsIeH8RoK9o
-        95qOke3uZ9Dy1pn/RMr27e8+s2MHMzUtLW0bFb8s2pe538jM6tYf2OXrK8whjYwspfFADvUrCeJvNWpz
-        fMDKf4wAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
@@ -170,11 +147,35 @@
   <metadata name="colMake.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="colNotInContract.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colsubAssemblyID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colSubName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colMakeFile.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="Find.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="componentCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>406, 17</value>
+  <metadata name="colSubWidth.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colSubHeight.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colSubDepth.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colGlassPartID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colCPD_ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="outputCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>581, 17</value>
@@ -182,6 +183,7 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>153, 56</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnSaveChanges.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -337,6 +339,9 @@
   </data>
   <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
+  </metadata>
+  <metadata name="componentCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>406, 17</value>
   </metadata>
   <metadata name="unitCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>272, 17</value>

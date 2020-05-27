@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DataAccess.DTO;
 
 namespace DataAccess.Models
 {
@@ -8,5 +9,7 @@ namespace DataAccess.Models
     {
         public int JobID { get; set; }
         public string JobName { get; set; }
+
+        public List<ProductDto> Products { get; set; }
     }
 }

@@ -184,6 +184,8 @@ namespace DataAccess.DTO
             }
         }
 
+        public List<SubAssemblyDTO> SubAssemblies { get; set; }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

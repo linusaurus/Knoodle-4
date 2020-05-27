@@ -49,6 +49,9 @@
     <StartupObject>Weaselware.Knoodle.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Boxed.Mapping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=fc5550082a9c642c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Boxed.Mapping.4.0.0\lib\netstandard2.0\Boxed.Mapping.dll</HintPath>
+    </Reference>
     <Reference Include="EntitySpaces.Core, Version=2009.1.209.0, Culture=neutral, PublicKeyToken=79073dc052c106ac, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\EntitySpaces 2009\Runtimes\.NET 3.5\EntitySpaces.Core.dll</HintPath>
@@ -342,6 +345,7 @@
     <Content Include="bin\Release\FrameWorks.dll" />
     <Content Include="bin\Release\FrameWorks.pdb" />
     <Content Include="bin\Release\MultithreadingWorker.dll" />
+    <None Include="Resources\twotone_account_balance_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Mappers\" />
