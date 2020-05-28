@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.button1 = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnBuild = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmsaveFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +48,7 @@
             this.inputTabPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgProductGrid = new System.Windows.Forms.DataGridView();
+            this.dgSubAssemblies = new System.Windows.Forms.DataGridView();
             this.outputTabPage = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.buildTree = new System.Windows.Forms.TreeView();
@@ -71,7 +72,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tssDataPath = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnWrite = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -80,8 +80,15 @@
             this.btnInvert = new System.Windows.Forms.Button();
             this.cbxJobsList = new System.Windows.Forms.ComboBox();
             this.cbxShowAllJobs = new System.Windows.Forms.CheckBox();
-            this.dgSubAssemblies = new System.Windows.Forms.DataGridView();
-            this.componentCollection1 = new BusinessObjects.ComponentCollection();
+            this.colProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArchDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMake = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colNotInContract = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.cutlistIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,8 +125,9 @@
             this.subAssemblyDepthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subAssemblyAreaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outputCollection1 = new BusinessObjects.OutputCollection();
-            this.unitCollection1 = new BusinessObjects.UnitCollection();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.colsubAssemblyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMakeFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,15 +137,6 @@
             this.colSubDepth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGlassPartID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCPD_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ArchDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMake = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colNotInContract = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabOptimizer.SuspendLayout();
             this.inputTabPage.SuspendLayout();
@@ -146,6 +145,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSubAssemblies)).BeginInit();
             this.outputTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -156,22 +156,22 @@
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOptimizerItems)).BeginInit();
             this.PartsStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSubAssemblies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnBuild
             // 
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button1.ImageKey = "(none)";
-            this.button1.Location = new System.Drawing.Point(132, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 31);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Build";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBuild.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnBuild.ImageKey = "(none)";
+            this.btnBuild.Location = new System.Drawing.Point(132, 40);
+            this.btnBuild.Name = "btnBuild";
+            this.btnBuild.Size = new System.Drawing.Size(68, 31);
+            this.btnBuild.TabIndex = 0;
+            this.btnBuild.Text = "Build";
+            this.btnBuild.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuild.UseVisualStyleBackColor = true;
+            this.btnBuild.Click += new System.EventHandler(this.btnBuild_Click);
             // 
             // menuStrip1
             // 
@@ -182,7 +182,7 @@
             this.dataToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1379, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1350, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -259,10 +259,10 @@
             this.tabOptimizer.Controls.Add(this.outputTabPage);
             this.tabOptimizer.Controls.Add(this.partsTab);
             this.tabOptimizer.Controls.Add(this.tabPage1);
-            this.tabOptimizer.Location = new System.Drawing.Point(303, 88);
+            this.tabOptimizer.Location = new System.Drawing.Point(373, 88);
             this.tabOptimizer.Name = "tabOptimizer";
             this.tabOptimizer.SelectedIndex = 0;
-            this.tabOptimizer.Size = new System.Drawing.Size(1064, 592);
+            this.tabOptimizer.Size = new System.Drawing.Size(965, 601);
             this.tabOptimizer.TabIndex = 3;
             // 
             // inputTabPage
@@ -271,7 +271,7 @@
             this.inputTabPage.Location = new System.Drawing.Point(4, 22);
             this.inputTabPage.Name = "inputTabPage";
             this.inputTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.inputTabPage.Size = new System.Drawing.Size(1056, 566);
+            this.inputTabPage.Size = new System.Drawing.Size(957, 575);
             this.inputTabPage.TabIndex = 0;
             this.inputTabPage.Text = "Input Data";
             this.inputTabPage.UseVisualStyleBackColor = true;
@@ -290,8 +290,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgSubAssemblies);
-            this.splitContainer1.Size = new System.Drawing.Size(1050, 560);
-            this.splitContainer1.SplitterDistance = 323;
+            this.splitContainer1.Size = new System.Drawing.Size(951, 569);
+            this.splitContainer1.SplitterDistance = 328;
             this.splitContainer1.TabIndex = 4;
             // 
             // dgProductGrid
@@ -310,9 +310,30 @@
             this.dgProductGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgProductGrid.Location = new System.Drawing.Point(0, 0);
             this.dgProductGrid.Name = "dgProductGrid";
-            this.dgProductGrid.Size = new System.Drawing.Size(1050, 323);
+            this.dgProductGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgProductGrid.Size = new System.Drawing.Size(951, 328);
             this.dgProductGrid.TabIndex = 2;
             this.dgProductGrid.SelectionChanged += new System.EventHandler(this.dgProductGrid_SelectionChanged);
+            // 
+            // dgSubAssemblies
+            // 
+            this.dgSubAssemblies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSubAssemblies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colsubAssemblyID,
+            this.colSubName,
+            this.colMakeFile,
+            this.Find,
+            this.colSubWidth,
+            this.colSubHeight,
+            this.colSubDepth,
+            this.colGlassPartID,
+            this.colCPD_ID});
+            this.dgSubAssemblies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSubAssemblies.Location = new System.Drawing.Point(0, 0);
+            this.dgSubAssemblies.Name = "dgSubAssemblies";
+            this.dgSubAssemblies.Size = new System.Drawing.Size(951, 237);
+            this.dgSubAssemblies.TabIndex = 3;
+            this.dgSubAssemblies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // outputTabPage
             // 
@@ -514,12 +535,11 @@
             this.PartsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1,
-            this.toolStripStatusLabel2,
-            this.tssDataPath});
-            this.PartsStatus.Location = new System.Drawing.Point(0, 697);
+            this.toolStripStatusLabel2});
+            this.PartsStatus.Location = new System.Drawing.Point(0, 692);
             this.PartsStatus.Name = "PartsStatus";
             this.PartsStatus.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.PartsStatus.Size = new System.Drawing.Size(1379, 25);
+            this.PartsStatus.Size = new System.Drawing.Size(1350, 25);
             this.PartsStatus.TabIndex = 5;
             this.PartsStatus.Text = "statusStrip1";
             this.PartsStatus.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.PartsStatus_ItemClicked);
@@ -543,16 +563,6 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(64, 20);
             this.toolStripStatusLabel2.Text = "Task Status";
-            // 
-            // tssDataPath
-            // 
-            this.tssDataPath.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.tssDataPath.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
-            this.tssDataPath.Image = ((System.Drawing.Image)(resources.GetObject("tssDataPath.Image")));
-            this.tssDataPath.Name = "tssDataPath";
-            this.tssDataPath.Size = new System.Drawing.Size(1040, 20);
-            this.tssDataPath.Spring = true;
-            this.tssDataPath.Text = "DataPath";
             // 
             // btnWrite
             // 
@@ -583,7 +593,7 @@
             // btnClearAll
             // 
             this.btnClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearAll.Location = new System.Drawing.Point(1140, 65);
+            this.btnClearAll.Location = new System.Drawing.Point(1111, 65);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(74, 25);
             this.btnClearAll.TabIndex = 11;
@@ -594,7 +604,7 @@
             // btnSelectAll
             // 
             this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectAll.Location = new System.Drawing.Point(1052, 65);
+            this.btnSelectAll.Location = new System.Drawing.Point(1023, 65);
             this.btnSelectAll.Name = "btnSelectAll";
             this.btnSelectAll.Size = new System.Drawing.Size(82, 25);
             this.btnSelectAll.TabIndex = 12;
@@ -605,7 +615,7 @@
             // btnInvert
             // 
             this.btnInvert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInvert.Location = new System.Drawing.Point(1220, 65);
+            this.btnInvert.Location = new System.Drawing.Point(1191, 65);
             this.btnInvert.Name = "btnInvert";
             this.btnInvert.Size = new System.Drawing.Size(139, 25);
             this.btnInvert.TabIndex = 13;
@@ -632,35 +642,86 @@
             this.cbxShowAllJobs.Text = "Show all Jobs";
             this.cbxShowAllJobs.UseVisualStyleBackColor = true;
             // 
-            // dgSubAssemblies
+            // colProductID
             // 
-            this.dgSubAssemblies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSubAssemblies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colsubAssemblyID,
-            this.colSubName,
-            this.colMakeFile,
-            this.Find,
-            this.colSubWidth,
-            this.colSubHeight,
-            this.colSubDepth,
-            this.colGlassPartID,
-            this.colCPD_ID});
-            this.dgSubAssemblies.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgSubAssemblies.Location = new System.Drawing.Point(0, 0);
-            this.dgSubAssemblies.Name = "dgSubAssemblies";
-            this.dgSubAssemblies.Size = new System.Drawing.Size(1050, 233);
-            this.dgSubAssemblies.TabIndex = 3;
-            this.dgSubAssemblies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.colProductID.DataPropertyName = "ProductID";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colProductID.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colProductID.HeaderText = "ProductID";
+            this.colProductID.Name = "colProductID";
+            this.colProductID.Width = 75;
             // 
-            // componentCollection1
+            // ArchDescription
             // 
-            this.componentCollection1.AllowDelete = true;
-            this.componentCollection1.AllowEdit = true;
-            this.componentCollection1.AllowNew = true;
-            this.componentCollection1.EnableHierarchicalBinding = true;
-            this.componentCollection1.Filter = "";
-            this.componentCollection1.RowStateFilter = System.Data.DataViewRowState.None;
-            this.componentCollection1.Sort = "";
+            this.ArchDescription.DataPropertyName = "ArchDescription";
+            this.ArchDescription.HeaderText = "ArchDescr";
+            this.ArchDescription.Name = "ArchDescription";
+            this.ArchDescription.Width = 200;
+            // 
+            // colUnitID
+            // 
+            this.colUnitID.DataPropertyName = "UnitID";
+            this.colUnitID.HeaderText = "UnitID";
+            this.colUnitID.Name = "colUnitID";
+            this.colUnitID.Width = 50;
+            // 
+            // colUnitName
+            // 
+            this.colUnitName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colUnitName.DataPropertyName = "UnitName";
+            this.colUnitName.HeaderText = "UnitName";
+            this.colUnitName.Name = "colUnitName";
+            // 
+            // colWidth
+            // 
+            this.colWidth.DataPropertyName = "W";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "N4";
+            dataGridViewCellStyle6.NullValue = null;
+            this.colWidth.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colWidth.HeaderText = "W";
+            this.colWidth.Name = "colWidth";
+            this.colWidth.Width = 80;
+            // 
+            // colD
+            // 
+            this.colD.DataPropertyName = "D";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Format = "N4";
+            dataGridViewCellStyle7.NullValue = null;
+            this.colD.DefaultCellStyle = dataGridViewCellStyle7;
+            this.colD.HeaderText = "D";
+            this.colD.Name = "colD";
+            this.colD.Width = 80;
+            // 
+            // colHeight
+            // 
+            this.colHeight.DataPropertyName = "H";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N4";
+            dataGridViewCellStyle8.NullValue = null;
+            this.colHeight.DefaultCellStyle = dataGridViewCellStyle8;
+            this.colHeight.HeaderText = "H";
+            this.colHeight.Name = "colHeight";
+            this.colHeight.Width = 80;
+            // 
+            // colMake
+            // 
+            this.colMake.DataPropertyName = "Make";
+            this.colMake.HeaderText = "Make";
+            this.colMake.Name = "colMake";
+            this.colMake.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMake.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colMake.Width = 45;
+            // 
+            // colNotInContract
+            // 
+            this.colNotInContract.DataPropertyName = "NIC";
+            this.colNotInContract.HeaderText = "NIC";
+            this.colNotInContract.Name = "colNotInContract";
+            this.colNotInContract.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colNotInContract.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colNotInContract.Width = 60;
             // 
             // dataGridView3
             // 
@@ -702,7 +763,6 @@
             this.subAssemblyDepthDataGridViewTextBoxColumn,
             this.subAssemblyAreaDataGridViewTextBoxColumn,
             this.uomDataGridViewTextBoxColumn});
-            this.dataGridView3.DataSource = this.outputCollection1;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
@@ -919,31 +979,44 @@
             this.uomDataGridViewTextBoxColumn.HeaderText = "Uom";
             this.uomDataGridViewTextBoxColumn.Name = "uomDataGridViewTextBoxColumn";
             // 
-            // outputCollection1
+            // tabControl1
             // 
-            this.outputCollection1.AllowDelete = true;
-            this.outputCollection1.AllowEdit = true;
-            this.outputCollection1.AllowNew = true;
-            this.outputCollection1.EnableHierarchicalBinding = true;
-            this.outputCollection1.Filter = "";
-            this.outputCollection1.RowStateFilter = System.Data.DataViewRowState.None;
-            this.outputCollection1.Sort = "";
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(12, 88);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(355, 601);
+            this.tabControl1.TabIndex = 16;
             // 
-            // unitCollection1
+            // tabPage2
             // 
-            this.unitCollection1.AllowDelete = true;
-            this.unitCollection1.AllowEdit = true;
-            this.unitCollection1.AllowNew = true;
-            this.unitCollection1.EnableHierarchicalBinding = true;
-            this.unitCollection1.Filter = "";
-            this.unitCollection1.RowStateFilter = System.Data.DataViewRowState.None;
-            this.unitCollection1.Sort = "";
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(347, 575);
+            this.tabPage2.TabIndex = 0;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(192, 74);
+            this.tabPage3.TabIndex = 1;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // colsubAssemblyID
             // 
             this.colsubAssemblyID.DataPropertyName = "SubAssemblyID";
-            this.colsubAssemblyID.HeaderText = "SubAssemblyID";
+            this.colsubAssemblyID.HeaderText = "Sub-ID";
             this.colsubAssemblyID.Name = "colsubAssemblyID";
+            this.colsubAssemblyID.Width = 70;
             // 
             // colSubName
             // 
@@ -970,116 +1043,42 @@
             this.colSubWidth.DataPropertyName = "W";
             this.colSubWidth.HeaderText = "W";
             this.colSubWidth.Name = "colSubWidth";
+            this.colSubWidth.Width = 90;
             // 
             // colSubHeight
             // 
             this.colSubHeight.DataPropertyName = "H";
             this.colSubHeight.HeaderText = "H";
             this.colSubHeight.Name = "colSubHeight";
+            this.colSubHeight.Width = 90;
             // 
             // colSubDepth
             // 
             this.colSubDepth.DataPropertyName = "D";
             this.colSubDepth.HeaderText = "D";
             this.colSubDepth.Name = "colSubDepth";
+            this.colSubDepth.Width = 90;
             // 
             // colGlassPartID
             // 
             this.colGlassPartID.DataPropertyName = "GlassPartID";
             this.colGlassPartID.HeaderText = "GlassID";
             this.colGlassPartID.Name = "colGlassPartID";
+            this.colGlassPartID.Width = 80;
             // 
             // colCPD_ID
             // 
             this.colCPD_ID.DataPropertyName = "CPD_ID";
             this.colCPD_ID.HeaderText = "CPD-ID";
             this.colCPD_ID.Name = "colCPD_ID";
-            // 
-            // colProductID
-            // 
-            this.colProductID.DataPropertyName = "ProductID";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colProductID.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colProductID.HeaderText = "ProductID";
-            this.colProductID.Name = "colProductID";
-            this.colProductID.Width = 75;
-            // 
-            // ArchDescription
-            // 
-            this.ArchDescription.DataPropertyName = "ArchDescription";
-            this.ArchDescription.HeaderText = "ArchDescr";
-            this.ArchDescription.Name = "ArchDescription";
-            this.ArchDescription.Width = 200;
-            // 
-            // colUnitID
-            // 
-            this.colUnitID.DataPropertyName = "UnitID";
-            this.colUnitID.HeaderText = "UnitID";
-            this.colUnitID.Name = "colUnitID";
-            this.colUnitID.Width = 50;
-            // 
-            // colUnitName
-            // 
-            this.colUnitName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colUnitName.DataPropertyName = "UnitName";
-            this.colUnitName.HeaderText = "UnitName";
-            this.colUnitName.Name = "colUnitName";
-            // 
-            // colWidth
-            // 
-            this.colWidth.DataPropertyName = "W";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "N4";
-            dataGridViewCellStyle2.NullValue = null;
-            this.colWidth.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colWidth.HeaderText = "W";
-            this.colWidth.Name = "colWidth";
-            this.colWidth.Width = 80;
-            // 
-            // colD
-            // 
-            this.colD.DataPropertyName = "D";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "N4";
-            dataGridViewCellStyle3.NullValue = null;
-            this.colD.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colD.HeaderText = "D";
-            this.colD.Name = "colD";
-            this.colD.Width = 80;
-            // 
-            // colHeight
-            // 
-            this.colHeight.DataPropertyName = "H";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N4";
-            dataGridViewCellStyle4.NullValue = null;
-            this.colHeight.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colHeight.HeaderText = "H";
-            this.colHeight.Name = "colHeight";
-            this.colHeight.Width = 80;
-            // 
-            // colMake
-            // 
-            this.colMake.DataPropertyName = "Make";
-            this.colMake.HeaderText = "Make";
-            this.colMake.Name = "colMake";
-            this.colMake.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colMake.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colMake.Width = 45;
-            // 
-            // colNotInContract
-            // 
-            this.colNotInContract.DataPropertyName = "NIC";
-            this.colNotInContract.HeaderText = "NIC";
-            this.colNotInContract.Name = "colNotInContract";
-            this.colNotInContract.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colNotInContract.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colCPD_ID.Width = 80;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1379, 722);
+            this.ClientSize = new System.Drawing.Size(1350, 717);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.cbxShowAllJobs);
             this.Controls.Add(this.cbxJobsList);
             this.Controls.Add(this.btnInvert);
@@ -1090,7 +1089,7 @@
             this.Controls.Add(this.PartsStatus);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.tabOptimizer);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBuild);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
@@ -1107,6 +1106,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgProductGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSubAssemblies)).EndInit();
             this.outputTabPage.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -1120,8 +1120,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgOptimizerItems)).EndInit();
             this.PartsStatus.ResumeLayout(false);
             this.PartsStatus.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSubAssemblies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1129,20 +1129,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuild;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setSourceToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.DataGridView dgProductGrid;
-        private BusinessObjects.UnitCollection unitCollection1;
         private System.Windows.Forms.TabControl tabOptimizer;
         private System.Windows.Forms.TabPage inputTabPage;
         private System.Windows.Forms.TabPage outputTabPage;
         private System.Windows.Forms.DataGridView dgSubAssemblies;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private BusinessObjects.ComponentCollection componentCollection1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.TreeView buildTree;
         private System.Windows.Forms.Button btnSaveChanges;
@@ -1153,7 +1151,6 @@
         private System.Windows.Forms.PropertyGrid partPropertyGrid;
         private System.Windows.Forms.Button btnWrite;
         private System.Windows.Forms.Button btnReport;
-        private BusinessObjects.OutputCollection outputCollection1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cutlistIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subAssemblyGUIDDataGridViewTextBoxColumn;
@@ -1196,7 +1193,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmsaveFile;
         private System.Windows.Forms.ToolStripMenuItem tsmsaveAs;
         private System.Windows.Forms.ToolStripMenuItem tsmNewDataFile;
-        private System.Windows.Forms.ToolStripStatusLabel tssDataPath;
         private System.Windows.Forms.ToolStripMenuItem tsmprojectSettings;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btn;
@@ -1219,15 +1215,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unitIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn assemblyIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn assemblyNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colsubAssemblyID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMakeFile;
-        private System.Windows.Forms.DataGridViewButtonColumn Find;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubWidth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubHeight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubDepth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGlassPartID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCPD_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArchDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitID;
@@ -1237,6 +1224,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colHeight;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colMake;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colNotInContract;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colsubAssemblyID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMakeFile;
+        private System.Windows.Forms.DataGridViewButtonColumn Find;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubWidth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubHeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubDepth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGlassPartID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCPD_ID;
     }
 }
 

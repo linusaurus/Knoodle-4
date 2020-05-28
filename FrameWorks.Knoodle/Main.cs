@@ -100,8 +100,6 @@ namespace Weaselware.Knoodle
                                                     H = decimal.Zero,D = decimal.Zero ,
                                                     d = decimal.Zero };
             }
-
-
         }
 
         private void BsProducts_ListChanged(object sender, ListChangedEventArgs e)
@@ -182,7 +180,8 @@ namespace Weaselware.Knoodle
         {                                       
             try
             {
-               _SelectedJobDTO = new JobListDto();
+                _selectedJob = _jobService.GetDeepJob(_selectedJob.JobID);
+                _SelectedJobDTO = new JobListDto();
                 jobMapper.Map(_selectedJob, _SelectedJobDTO);
                 _products = _SelectedJobDTO.Products;
                 bsProducts.DataSource = _products;
@@ -203,16 +202,21 @@ namespace Weaselware.Knoodle
             LoadProducts(_selectedJob.JobID);
         }
 
-
-        private void SetPath(string path)
-        {
-           
-        }
         /// <summary>
-        ///  Build
+        /// Build BOM Model
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        private void btnBuild_Click(object sender, EventArgs e)
+        {
+            // Implement the loop to proccess the job-products list
+            foreach (var productDTO in _products)
+            {
+                //productDTO.ArchDescription;
+            }
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
            
@@ -330,13 +334,13 @@ namespace Weaselware.Knoodle
         }
 
 
-        void ansynWrite_Completed(object sender, Db.WriteUnitsCompletedEventArgs e)
-        {
-            //BusinessObjects.OutputCollection col = new BusinessObjects.OutputCollection();
-            //col = e.OutPut;
-            //this.dataGridView3.DataSource = col;
-            //MessageBox.Show("Done :" + e.OutPut.Count.ToString() + " Units Completed");
-        }
+        //void ansynWrite_Completed(object sender, Db.WriteUnitsCompletedEventArgs e)
+        //{
+        //    BusinessObjects.OutputCollection col = new BusinessObjects.OutputCollection();
+        //col = e.OutPut;
+        //    this.dataGridView3.DataSource = col;
+        //    MessageBox.Show("Done :" + e.OutPut.Count.ToString() + " Units Completed");
+        //}
 
         private void partPropertyGrid_Click(object sender, EventArgs e)
         {
@@ -345,57 +349,17 @@ namespace Weaselware.Knoodle
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == 4)
-            //{
-            //    ClassNameFinder classFinder = new ClassNameFinder();
-            //    if (classFinder.ShowDialog() ==DialogResult.OK)
-            //    {
-            //        dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex-1].Value = classFinder.SelectedClass;
-            //    }
-                
-            //}
+            if (e.ColumnIndex == 3)
+            {
+                ClassNameFinder classFinder = new ClassNameFinder();
+                if (classFinder.ShowDialog() == DialogResult.OK)
+                {
+                    dgSubAssemblies.Rows[e.RowIndex].Cells[e.ColumnIndex - 1].Value = classFinder.SelectedClass;
+                }
+
+            }
         }
-
-        private void btnSaveModel_Click(object sender, EventArgs e)
-        {
-            //if (buildUnits != null && buildUnits.Count > 0)
-            //{
-            //    thisProject.JobName = "Test Project";
-            //    thisProject.JobNumber = 1334;
-            //    thisProject.VersionNumber = 1;
-            //    this.thisProject.UnitsCollection.AddRange(buildUnits);
-
-            //    System.Runtime.Serialization.Formatters.Binary.BinaryFormatter bf = new BinaryFormatter();
-            //    MemoryStream ms = new MemoryStream(); // Stream
-            //    bf.Serialize(ms, buildUnits); // "Save" object state
-            //    saveFileDialog1 = new SaveFileDialog();
-            //    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            //    {
-            //        string path = saveFileDialog1.FileName;   
-            //        FrameWorks.Serializer s = new Serializer();
-            //        s.SerializeObject(path, thisProject);
-            //    }
-
-            //}
-        }
-
-        private void btnLoadModel_Click(object sender, EventArgs e)
-        {
-            //Project p;
-            //FrameWorks.Serializer s = new Serializer();
-            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-            //    string path = openFileDialog1.FileName;
-            //    p = s.DeSerializeObject(path);
-            //    buildTree.Nodes.Clear();
-            //    Db.FillBuildTree(buildTree, p.UnitsCollection);
-            //    this.buildUnits = p.UnitsCollection;
-
-            //}
-
-
-        }
-
+   
         private void buildTree_DoubleClick(object sender, EventArgs e)
         {
 
@@ -409,12 +373,7 @@ namespace Weaselware.Knoodle
            
         }
 
-        private void bntClearModel_Click(object sender, EventArgs e)
-        {
-            //buildUnits.Clear();
-            //this.buildTree.Nodes.Clear();
-        }
-
+      
         private void PartsStatus_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -559,34 +518,34 @@ namespace Weaselware.Knoodle
 
         private void btnClearAll_Click(object sender, EventArgs e)
         {
-        
-           //foreach(DataGridViewRow row in dataGridView1.Rows)
-           // {
-           //     row.Cells[6].Value = false;
-           // }
+
+            foreach (DataGridViewRow row in dgProductGrid.Rows)
+            {
+                row.Cells[7].Value = false;
+            }
         }
 
         private void btnSelectAll_Click(object sender, EventArgs e)
         {
-            //foreach (DataGridViewRow row in dataGridView1.Rows)
-            //{
-            //    row.Cells[6].Value = true;
-            //}
+            foreach (DataGridViewRow row in dgProductGrid.Rows)
+            {
+                row.Cells[7].Value = true;
+            }
         }
 
         private void btnInvert_Click(object sender, EventArgs e)
         {
-            //foreach (DataGridViewRow row in dataGridView1.Rows)
-            //{
-            //    //Check for null value at cell 6
-            //    if(row.Cells[6].Value != null) {
+            foreach (DataGridViewRow row in dgProductGrid.Rows)
+            {
+                //Check for null value at cell 6
+                if (row.Cells[7].Value != null)
+                {
 
-            //    if (row.Cells[6].Value.Equals(true))
-            //    { row.Cells[6].Value = false; }
-            //    else { row.Cells[6].Value = true; }
-            //    }
-            //}
-
+                    if (row.Cells[7].Value.Equals(true))
+                    { row.Cells[7].Value = false; }
+                    else { row.Cells[7].Value = true; }
+                }
+            }
         }
 
         private void unitsListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -600,6 +559,8 @@ namespace Weaselware.Knoodle
         {
             _loading = false;
         }
+
+       
     }
 }
 

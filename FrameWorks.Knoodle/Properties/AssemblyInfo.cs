@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Knoodle")]
-[assembly: AssemblyDescription("Costlisting Application")]
+[assembly: AssemblyDescription("Cutlisting Bill of Materials Application")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Weaselware")]
-[assembly: AssemblyProduct("Knoodle 2.0")]
-[assembly: AssemblyCopyright("Copyright ©  2010")]
+[assembly: AssemblyProduct("Knoodle 4.1")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

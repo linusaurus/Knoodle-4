@@ -944,73 +944,73 @@ namespace BinPackingCuttingStock
             return size;
         }
 
-        private void PrintSolution(float absoluteBestSize, float bestCost, Dictionary<string, List<Bin>> mySetOfSolutions,BusinessObjects.Project project)
-        {
-            // Status Label
-            Label.Text = "Print solution";
+        //private void PrintSolution(float absoluteBestSize, float bestCost, Dictionary<string, List<Bin>> mySetOfSolutions,BusinessObjects.Project project)
+        //{
+        //    // Status Label
+        //    Label.Text = "Print solution";
 
-            StringBuilder sb = new StringBuilder();
+        //    StringBuilder sb = new StringBuilder();
 
-            foreach (KeyValuePair<string, List<Bin>> kvp in mySetOfSolutions)
-            {
-                // Checks if the current "Value" in the dictionary contains a solution
-                if (kvp.Value == null)
-                { continue; }
+        //    foreach (KeyValuePair<string, List<Bin>> kvp in mySetOfSolutions)
+        //    {
+        //        // Checks if the current "Value" in the dictionary contains a solution
+        //        if (kvp.Value == null)
+        //        { continue; }
 
-                sb.Clear();
+        //        sb.Clear();
 
-                // Header for Report
-                sb.AppendLine("-------------------------------------------------------------");
-                sb.AppendLine("OPTIMIZATION REPORT:  " + kvp.Key);
-                sb.AppendLine("-------------------------------------------------------------");
+        //        // Header for Report
+        //        sb.AppendLine("-------------------------------------------------------------");
+        //        sb.AppendLine("OPTIMIZATION REPORT:  " + kvp.Key);
+        //        sb.AppendLine("-------------------------------------------------------------");
 
-                // Get the solution data
-                float stockSum = 0;
-                float employ = 0;
-                float cost = 0;
-                foreach (Bin bin in kvp.Value)
-                {
-                    stockSum += bin.Stock;
-                    employ += bin.Employ;
-                    cost += bin.Cost;
-                }
+        //        // Get the solution data
+        //        float stockSum = 0;
+        //        float employ = 0;
+        //        float cost = 0;
+        //        foreach (Bin bin in kvp.Value)
+        //        {
+        //            stockSum += bin.Stock;
+        //            employ += bin.Employ;
+        //            cost += bin.Cost;
+        //        }
 
-                float reject = (float)Math.Round((stockSum - employ) / stockSum, 2);
+        //        float reject = (float)Math.Round((stockSum - employ) / stockSum, 2);
 
-                sb.AppendLine("Best Possible Size:\t" + absoluteBestSize.ToString("#,###.###"));
-                //This will divide the stock into stick count
-                sb.AppendLine("Stick Count:\t\t" + kvp.Value.Count.ToString());
-                sb.AppendLine("Total Material used:\t" + stockSum.ToString("#,###.###"));
-                sb.AppendLine("Sum of Items:\t\t" + TotalItemsSum.ToString("#,###.###"));
-                sb.AppendLine("Material Name:\t\t" + TotalItemsSum.ToString("#,###.###"));
-                sb.AppendLine("Waste Precentage:\t" + reject.ToString("#0.0##%"));
+        //        sb.AppendLine("Best Possible Size:\t" + absoluteBestSize.ToString("#,###.###"));
+        //        //This will divide the stock into stick count
+        //        sb.AppendLine("Stick Count:\t\t" + kvp.Value.Count.ToString());
+        //        sb.AppendLine("Total Material used:\t" + stockSum.ToString("#,###.###"));
+        //        sb.AppendLine("Sum of Items:\t\t" + TotalItemsSum.ToString("#,###.###"));
+        //        sb.AppendLine("Material Name:\t\t" + TotalItemsSum.ToString("#,###.###"));
+        //        sb.AppendLine("Waste Precentage:\t" + reject.ToString("#0.0##%"));
 
-                // Get the solution
-                foreach (Bin bin in kvp.Value)
-                {
-                    sb.AppendLine();
-                    sb.AppendLine("----------------------------------------------------------------------");
-                    sb.AppendLine("Stock Length ->" + bin.Stock.ToString() + "\tused ->"
-                        + bin.Employ.ToString("#,###.##") + "\twaste -> " + Math.Round(bin.Reject, 1).ToString() + " inches");
-                    sb.Append("   Cut Sizes->");
-                    foreach (Item item in bin.ItemsAssigned)
-                    { sb.Append("\t" + item.Size.ToString()); }
-
-
-
-                }
-
-
-                string reportLocation = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                reportLocation += @"\Report.txt";
-
-                File.WriteAllText(reportLocation, sb.ToString());
-                Process.Start(reportLocation);
+        //        // Get the solution
+        //        foreach (Bin bin in kvp.Value)
+        //        {
+        //            sb.AppendLine();
+        //            sb.AppendLine("----------------------------------------------------------------------");
+        //            sb.AppendLine("Stock Length ->" + bin.Stock.ToString() + "\tused ->"
+        //                + bin.Employ.ToString("#,###.##") + "\twaste -> " + Math.Round(bin.Reject, 1).ToString() + " inches");
+        //            sb.Append("   Cut Sizes->");
+        //            foreach (Item item in bin.ItemsAssigned)
+        //            { sb.Append("\t" + item.Size.ToString()); }
 
 
 
-            }
-        }
+        //        }
+
+
+        //        string reportLocation = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        //        reportLocation += @"\Report.txt";
+
+        //        File.WriteAllText(reportLocation, sb.ToString());
+        //        Process.Start(reportLocation);
+
+
+
+        //    }
+        //}
 
         private void PrintSolution(float absoluteBestSize, float bestCost, Dictionary<string, List<Bin>> mySetOfSolutions)
         {
@@ -1029,7 +1029,7 @@ namespace BinPackingCuttingStock
                 
                 // Header for Report
                 sb.AppendLine("-------------------------------------------------------------");
-                sb.AppendLine("OPTIMIZATION REPORT:  " + Weaselware.Knoodle.Db.ProjectData().JobName.ToString());
+                //sb.AppendLine("OPTIMIZATION REPORT:  " + Weaselware.Knoodle.Db.ProjectData().JobName.ToString());
                 sb.AppendLine("-------------------------------------------------------------");
 
                 // Get the solution data
