@@ -40,15 +40,19 @@ using DataAccess.Models;
 using DataAccess.DTO;
 using System.Linq;
 using DataAccess.Mappers;
+using Weaselware.Knoodle.Models;
+
 
 namespace Weaselware.Knoodle
 {
     public partial class Main : Form
     {
+           
         //----Services-------------------------------
         private readonly ProductionContext ctx;
         ProductService _unitsService;
         JobService _jobService;
+        PartsService partsService;
         //-------------------------------------------
 
         Job _selectedJob;
@@ -62,6 +66,8 @@ namespace Weaselware.Knoodle
         
         BindingSource bsProducts = new BindingSource();
         BindingSource bsSubassemlies = new BindingSource();
+        
+        
 
         public Main()
         {
@@ -82,11 +88,32 @@ namespace Weaselware.Knoodle
             bsSubassemlies.AddingNew += BsSubassemlies_AddingNew;
             if (Knoodle.Properties.Settings.Default.LastSelectedJob != default)
             {
-                _selectedJob = _jobService.GetDeepJob( Knoodle.Properties.Settings.Default.LastSelectedJob);
+                _selectedJob = _jobService.GetDeepJob(Knoodle.Properties.Settings.Default.LastSelectedJob);
                 LoadProducts(_selectedJob.JobID);
+
             }
 
-            
+            partsService = new PartsService();
+            partsService.LoadParts();
+            foreach (var p in partsService.Parts)
+            {
+                SourceMaterial mat = new SourceMaterial() {ItemID=p.Key };
+                mat.ItemID = p.Key;
+                mat.MarkUp = p.Value.MarkUp.GetValueOrDefault();
+                mat.MaterialDescription = p.Value.ItemDescription;
+                mat.MaterialName = p.Value.ItemName;
+                mat.SupplierID = p.Value.SupplierID.GetValueOrDefault();
+                mat.UOM = p.Value.UID.GetValueOrDefault();
+                mat.Waste = p.Value.Waste.GetValueOrDefault();
+                mat.Weight = p.Value.Weight.GetValueOrDefault();
+               
+
+                PartDictionary.PartSource.Add(mat.ItemID, mat);
+            }
+
+           
+            int k = PartDictionary.PartSource.Count();
+            this.toolStripStatusLabel1.Text = String.Format("Parts Loaded : {0}",k.ToString());
 
         }
 
@@ -140,7 +167,7 @@ namespace Weaselware.Knoodle
             cbxJobsList.DisplayMember = "JobName";
             cbxJobsList.ValueMember = "JobID";
             
-            cbxJobsList.SelectedItem = _selectedJob;
+            cbxJobsList.SelectedValue = _SelectedJobDTO.JobID;
         }
 
         private void cbxJobsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -170,8 +197,13 @@ namespace Weaselware.Knoodle
                 if (dgProductGrid.SelectedRows.Count > 0)
                 {
                     _selectedProductDto = (ProductDto)dgProductGrid.CurrentRow.DataBoundItem;
-                    bsSubassemlies.DataSource = _selectedProductDto.SubAssemblies;
-                    dgSubAssemblies.DataSource = bsSubassemlies;
+                    if (_selectedProductDto != null)
+                    {
+                       
+                        bsSubassemlies.DataSource = _selectedProductDto.SubAssemblies;
+                        dgSubAssemblies.DataSource = bsSubassemlies;
+                    }
+
                 }
             }
         }
@@ -222,42 +254,7 @@ namespace Weaselware.Knoodle
            
         }
 
-   
-        private void dataToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            //switch (e.ClickedItem.Name)
-            //{
-            //    case "setSourceToolStripMenuItem":
-            //        {
-            //            openFileDialog1.DefaultExt = "*.mdb";
-            //            openFileDialog1.Filter = "Access Database|*.mdb";
-
-            //            if (openFileDialog1.ShowDialog()== DialogResult.OK)
-            //            {
-            //                string path = openFileDialog1.FileName.ToString();
-            //                Db.SetAccessConection(path);
-            //                Weaselware.Knoodle.Properties.Settings.Default.dataPath = path;
-            //                tssDataPath.Text = path;
-            //                Db.SetAccessConection(path);
-            //                LoadUnits();
-
-            //            }
-            //            break;
-            //        }
-            //    case "tsmprojectSettings":
-            //        {
-            //            ProjectEdit pEdit = new ProjectEdit();
-            //            pEdit.ShowDialog();
-            //            break;
-            //        }
-            //    default:
-            //        break;
-            //}
-        }
-
- 
-
-       
+  
 
         private void buildTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -560,7 +557,82 @@ namespace Weaselware.Knoodle
             _loading = false;
         }
 
-       
+        #region Tool Bar Actions
+
+
+        private void MainToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            switch (e.ClickedItem.Name)
+            {
+                case "tsSave":
+
+                    _unitsService.AddOrUpdate(_products);
+                    ctx.SaveChanges();
+                    LoadProducts(_selectedJob.JobID);
+
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+
+        #endregion
+        /// <summary>
+        /// Build the Products
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBuild_Click_1(object sender, EventArgs e)
+        {
+         //Process and Bind the Products in the Inspector
+            BindTree( BuildEngine.BuildProducts(_products.Where(m => m.Make == true).ToList()));
+         
+        }
+
+        private void BindTree(List<ProductDto> products)
+        {
+            TreeNode rootNode = new TreeNode(_selectedJob.JobName);
+            buildTree.Nodes.Add(rootNode);
+
+            foreach (var prd in products)
+             {
+                TreeNode productNode = new TreeNode(String.Format("{0}-{1}",prd.ProductID,prd.UnitName));
+                productNode.Tag = prd;
+               
+
+                foreach (var sub in prd.SubAssemblies)
+                {
+                    TreeNode subNode = new TreeNode(String.Format("[{0}-{1}]-{2} ", sub.ProductID, sub.SubAssemblyID, sub.SubAssemblyName));
+                  
+
+                    productNode.Nodes.Add(subNode);
+                }
+
+                rootNode.Nodes.Add(productNode);
+
+             }
+
+
+        }
+
+        private void WriteOutPut()
+        {
+            using (System.IO.StreamWriter file =
+                                         new System.IO.StreamWriter(@"C:\Users\Public\TestFolder\WriteLines2.txt"))
+            {
+               
+                //foreach (string line in lines)
+                //{
+                //    // If the line doesn't contain the word 'Second', write the line to the file.
+                //    if (!line.Contains("Second"))
+                //    {
+                //        file.WriteLine(line);
+                //    }
+                //}
+            }
+
+        }
     }
 }
 

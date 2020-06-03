@@ -29,6 +29,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using FrameWorks.Makes;
+using DataAccess.DTO;
+using DataAccess.Service;
 
 namespace FrameWorks 
 {
@@ -39,12 +41,12 @@ namespace FrameWorks
       #region Fields
       
       
-      protected Guid m_subAssemblyID = new Guid();
-      protected int m_ID;
+      protected int subAssemblyID;
+    
       protected AssemblyBase m_parent;
-      protected List<Part> m_parts = new List<Part>();
-      protected string m_modelID;
-      protected string m_name;
+      protected List<Component> m_Components = new List<Component>();
+      protected string makeFileName;
+      protected string subAssemblyName;
       protected decimal m_subAssemblyWidth;
       protected decimal m_subAssemblyHieght;
       protected decimal m_subAssemblyDepth;
@@ -57,27 +59,34 @@ namespace FrameWorks
       protected decimal m_laborTotal;
       protected FrameWorks.Workorder m_workorder;
 
-    
-      
-      #endregion
+        // Parent Product Assembly
+        private ProductDto parentAssembly;
 
-       public static SubAssemblyBase  FactoryNew(object criteria)
+
+
+        #endregion
+
+
+
+        public static SubAssemblyBase  FactoryNew(object criteria,int subID)
        {
            SubAssemblyBase newAssembly;
            newAssembly = null;
            Type t = Type.GetType(criteria.ToString());
            try
            {
-                if (t != null)
+               if (t != null)
                {
                  newAssembly = (SubAssemblyBase)Activator.CreateInstance(t, true);
-                 newAssembly.subassemblyID = Guid.NewGuid();
+                 newAssembly.SubAssemblyID = subID;
+                 
+                 
                }
 
            }
            catch (Exception e)
            {
-               string msg = criteria.ToString() + " is not a valid class, or not included in project";
+               string msg =  String.Format("Makefile {0} no match found",criteria.ToString() );
                throw e;
            }
            
@@ -88,7 +97,7 @@ namespace FrameWorks
 
        public override string ToString()
        {
-           return m_subAssemblyID.ToString();
+           return subAssemblyID.ToString();
        }
 
 
@@ -96,24 +105,17 @@ namespace FrameWorks
 
       public SubAssemblyBase()
       {
-        // m_subAssemblyID = Guid.NewGuid();
+        // subAssemblyID = Guid.NewGuid();
          counter++ ;
         
       }
       
       #endregion
 
-      public FrameWorks.Workorder WrkOrder
+      public FrameWorks.Workorder WorkOrder
       { get { return m_workorder; } set { m_workorder = value ; } }
 
-      public int ID
-      {
-          get { return m_ID; }
-          set { m_ID = value; }
-      }
-
-     
-      
+           
       public int CreateID
       {
              get{return counter;}
@@ -134,10 +136,10 @@ namespace FrameWorks
           get
           {
               decimal _cost = decimal.Zero;
-              foreach (Part part in this.m_parts)
+              foreach (Component Component in this.m_Components)
               {
-                  decimal per = part.UnitPrice;
-                  _cost += part.CalculatedCost;
+                  decimal per = Component.UnitPrice;
+                  _cost += Component.CalculatedCost;
 
               }
               m_calculatedCost = _cost;
@@ -145,18 +147,21 @@ namespace FrameWorks
           }
       }
 
+        /// <summary>
+        /// TODO replace with reference to a selfcalculationg WORKORDER object
+        /// </summary>
       public decimal LaborTotal
       {
           get {
 
               m_laborTotal = decimal.Zero;
-              foreach (var lpart in m_parts)
+              foreach (var lComponent in m_Components)
               {
-                  if (lpart.GetType().Name == "LPart")
+                  if (lComponent.GetType().Name == "LComponent")
                   {
-                        m_laborTotal += lpart.LaborAmount * lpart.Rate;
+                        m_laborTotal += lComponent.LaborAmount * lComponent.Rate;
                   }
-                  
+                
               }
 
               return Math.Round(m_laborTotal, 2);
@@ -168,7 +173,7 @@ namespace FrameWorks
          get 
          {
             decimal w = decimal.Zero;
-             foreach (FrameWorks.Part p in this.Parts)
+             foreach (FrameWorks.Component p in this.Components)
              {
                  w += p.Weight;
              }
@@ -205,10 +210,10 @@ namespace FrameWorks
       
       #region SubAssemblyBase Members
       
-      public Guid subassemblyID
+      public int SubAssemblyID
       {
-         get{return m_subAssemblyID;}
-         set{m_subAssemblyID = value;}
+         get{return subAssemblyID;}
+         set{subAssemblyID = value;}
       }
 
       public AssemblyBase Parent
@@ -217,21 +222,25 @@ namespace FrameWorks
          set{ m_parent = value;}
       }
 
-      public List<Part> Parts
+
+        /// <summary>
+        /// Refactored Parts Name
+        /// </summary>
+      public List<Component> Components
       {
-         get { return m_parts ; }
+         get { return m_Components ; }
       } 
 
       public string ModelID
       {
           get {return this.GetType().ToString() ;}
-          //get {return m_modelID; }
-         set{m_modelID = value;}
+          //get {return makeFileName; }
+         set{makeFileName = value;}
       }
       public string Name
       {
-         get { return m_name ; }
-         set { m_name = value;}
+         get { return subAssemblyName ; }
+         set { subAssemblyName = value;}
       }
       public decimal SubAssemblyWidth
       {
@@ -249,18 +258,15 @@ namespace FrameWorks
          set { m_subAssemblyDepth = value; }
       }
 
-      public decimal Radius
-      {
-          get { return m_radius; }
-          set { m_radius = value; }
-      }
+      
+        public ProductDto ParentAssembly { get => parentAssembly; set => parentAssembly = value; }
 
-      #endregion
-      
-      #region Methods
-      
-      // This is overidden with each Makefile Instance Class
-      public virtual void Build(){}
+        #endregion
+
+        #region Methods
+
+        // This is overidden with each Makefile Instance Class
+        public virtual void Build(){}
          
       #endregion
 

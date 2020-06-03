@@ -1,7 +1,9 @@
+using DataAccess.Service;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+
 
 
 namespace FrameWorks
@@ -35,11 +37,11 @@ namespace FrameWorks
    
       public override void Build()
       {
-         foreach(SubAssemblyBase  sub in this.m_subAssemblies)
-          {
-             sub.Parent = this; 
-             sub.Build();
-          }
+         //foreach(SubAssemblyBase  sub in this.m_subAssemblies)
+         // {
+         //    sub.Parent = this; 
+         //    sub.Build(new PartsService());
+         // }
       }
 
 

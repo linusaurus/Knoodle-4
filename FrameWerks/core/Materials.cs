@@ -37,24 +37,24 @@ namespace FrameWorks
    public class SourceManager
    {
        
-      private static Dictionary<int, Material> m_partSource = new Dictionary<int,Material>();
+      private static Dictionary<int, SourceMaterial> m_ComponentSource = new Dictionary<int,SourceMaterial>();
       private static string connectionString = string.Empty;
-      public static Dictionary<int, Material> PartsSource
-      {get { return m_partSource; } }
+      public static Dictionary<int, SourceMaterial> ComponentsSource
+      {get { return m_ComponentSource; } }
 
       public static void SetConnectionString(string con)
       {
           connectionString = con;
       }
       
-      public static void Load(bool usePartLibrary)
+      public static void Load(bool useComponentLibrary)
       {
          string ConString = @"Password=Kx09a32x;Persist Security Info=True;User ID=sa;Initial Catalog=Badger;Data Source=192.168.10.3";
         // string ConString = connectionString;
          SqlConnection con = new SqlConnection(ConString);
         
          SqlCommand  cmd = con.CreateCommand();
-         cmd.CommandText = @"select partid,
+         cmd.CommandText = @"select Componentid,
                                     itemname,
                                     itemdescription,
                                     cost,
@@ -62,14 +62,14 @@ namespace FrameWorks
                                     Weight,
                                     Waste,
                                     Markup,
-                                    SupplierID FROM Part";
+                                    SupplierID FROM Component";
          con.Open();
          SqlDataReader  reader = cmd.ExecuteReader();
 
          while (reader.Read())
          {
-            Material material = new Material();
-            // ItemID-PartNum
+            SourceMaterial material = new SourceMaterial();
+            // ItemID-ComponentNum
             material.ItemID = reader.GetInt32(0);
             if(!reader.IsDBNull(1))material.MaterialName = reader.GetString(1);
             else{material.MaterialName = string.Empty;}
@@ -90,7 +90,7 @@ namespace FrameWorks
             // SupplierID 
             if (!reader.IsDBNull(8)) material.SupplierID  = reader.GetInt32 (8);
  
-            m_partSource.Add(reader.GetInt32(0), material);
+            m_ComponentSource.Add(reader.GetInt32(0), material);
 
          }
          con.Close();
@@ -129,7 +129,7 @@ namespace FrameWorks
 //           while (reader.Read())
 //           {
 //               FrameWorks.Routing  routing = new Routing();
-//               // routingID-Labor part ID
+//               // routingID-Labor Component ID
 //               if (!reader.IsDBNull(0)) routing.RoutingID = reader.GetInt32(0);
 //               else { routing.RoutingID = 0; }
 //               if (!reader.IsDBNull(1)) routing.RoutingName = reader.GetString(1);

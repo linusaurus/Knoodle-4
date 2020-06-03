@@ -33,14 +33,13 @@ using FrameWorks;
 
 namespace FrameWorks
 {
-    [Serializable()]
-    public class PartsCollection : List<FrameWorks.Part>
+    
+    public class PartDictionary
     {
-        public PartsCollection() { }
-
         
+        public static Dictionary<int, SourceMaterial> PartSource { get; set; } 
+            = new Dictionary<int, SourceMaterial>();
 
-        
     }
 
 

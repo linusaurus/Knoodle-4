@@ -6,20 +6,20 @@ using System.Text;
 namespace FrameWorks
 {
     [Serializable]
-    public class LPart : Part   
+    public class LComponent : Component   
     {
       #region Contructors
 
-      public LPart()
+      public LComponent()
       {
-          this.m_partType = "Labor";
-          this.PartGroupType = "Labor";
+          this.m_ComponentType = "Labor";
+          this.ComponentGroupType = "Labor";
           this.m_UOM = 11;//hrs
       }
 
-      public LPart(string TaskName, SubAssemblyBase parent,decimal laborAmount,decimal laborRate)
+      public LComponent(string TaskName, SubAssemblyBase parent,decimal laborAmount,decimal laborRate)
       {
-          this.PartType = "Labor";
+          this.ComponentType = "Labor";
           this.m_UOM = 11;
           this.FunctionalName = TaskName ;
           
@@ -27,27 +27,27 @@ namespace FrameWorks
           this.m_rate = laborRate;
           this.m_laborAmount = laborAmount;
           this.Qnty = 1;
-          this.m_partLength = 0.0m;
-          this.m_partWidth = 0.0m;
-          this.m_partGroupType = "Labor";
+          this.m_ComponentLength = 0.0m;
+          this.m_ComponentWidth = 0.0m;
+          this.m_ComponentGroupType = "Labor";
 
-          this.m_partThick =  0.0m;
+          this.m_ComponentThick =  0.0m;
           
           this.m_waste = 0.0m;
           this.m_weight = 0.0m;
-          this.m_source = new Material();
+          this.m_source = new SourceMaterial();
           this.m_source.MaterialDescription = TaskName;
           this.m_source.MaterialName = TaskName;
           this.m_source.Cost = laborRate;
-          this.PartGroupType = "Labor";
+          this.ComponentGroupType = "Labor";
           this.m_UOM = 11; //hrs
           
           
           
       }
-      public LPart(int routingID,string TaskName, SubAssemblyBase parent, decimal laborAmount, decimal laborRate)
+      public LComponent(int routingID,string TaskName, SubAssemblyBase parent, decimal laborAmount, decimal laborRate)
       {
-          this.PartType = "Labor";
+          this.ComponentType = "Labor";
           this.m_UOM = 11;
           this.FunctionalName = TaskName;
 
@@ -55,19 +55,19 @@ namespace FrameWorks
           this.m_rate = laborRate;
           this.m_laborAmount = laborAmount;
           this.Qnty = 1;
-          this.m_partLength = 0.0m;
-          this.m_partWidth = 0.0m;
-          this.m_partGroupType = "Labor";
+          this.m_ComponentLength = 0.0m;
+          this.m_ComponentWidth = 0.0m;
+          this.m_ComponentGroupType = "Labor";
 
-          this.m_partThick = 0.0m;
+          this.m_ComponentThick = 0.0m;
 
           this.m_waste = 0.0m;
           this.m_weight = 0.0m;
-          this.m_source = new Material();
+          this.m_source = new SourceMaterial();
           this.m_source.MaterialDescription = TaskName;
           this.m_source.MaterialName = TaskName;
           this.m_source.Cost = laborRate;
-          this.PartGroupType = "Labor";
+          this.ComponentGroupType = "Labor";
           this.m_UOM = 11; //hrs
 
 

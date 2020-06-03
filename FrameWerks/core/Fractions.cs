@@ -198,9 +198,9 @@ namespace Weaselware.FractionalNumbers
 
       /// <summary>
       /// A lossy conversion from decimal to fraction.
-      /// If the integer part of the decimal exceeds the available 64 bits (96 is possible)
-      /// we truncate the least significant part of these bits.
-      /// If the scale factor is too large we scale down the integer part at the expense of precision.
+      /// If the integer Component of the decimal exceeds the available 64 bits (96 is possible)
+      /// we truncate the least significant Component of these bits.
+      /// If the scale factor is too large we scale down the integer Component at the expense of precision.
       /// </summary>
       /// <param name="val"></param>
       /// <returns></returns>

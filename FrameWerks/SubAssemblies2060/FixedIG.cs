@@ -52,7 +52,7 @@ namespace FrameWorks.Makes.System2060
 
         public FixedIG()
         {
-            m_subAssemblyID = Guid.NewGuid();
+            subAssemblyID = Guid.NewGuid();
             this.ModelID = "System2060-FixedIG";
         }
 
@@ -64,8 +64,8 @@ namespace FrameWorks.Makes.System2060
         public override void Build()
         {
 
-            Part part;
-            string partleader = this.Parent.UnitID + "." + this.CreateID.ToString();
+            Component Component;
+            string Componentleader = this.Parent.UnitID + "." + this.CreateID.ToString();
 
 
 
@@ -77,13 +77,13 @@ namespace FrameWorks.Makes.System2060
             // AlumFixedIGVert
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(5125, "AlumFixedIGVert", this, 1, m_subAssemblyHieght);
-                part.PartGroupType = "FrameAlum-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "";
+                Component = new Component(5125, "AlumFixedIGVert", this, 1, m_subAssemblyHieght);
+                Component.ComponentGroupType = "FrameAlum-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -95,13 +95,13 @@ namespace FrameWorks.Makes.System2060
             // AlumFixedIGHorz
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(5125, "AlumFixedIGHorz", this, 1, m_subAssemblyWidth);
-                part.PartGroupType = "FrameAlum-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "";
+                Component = new Component(5125, "AlumFixedIGHorz", this, 1, m_subAssemblyWidth);
+                Component.ComponentGroupType = "FrameAlum-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -120,13 +120,13 @@ namespace FrameWorks.Makes.System2060
             //AlumGlsStpVt
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(5123, "AlumGlsStpVt", this, 1, m_subAssemblyHieght - stopReduceX2);
-                part.PartGroupType = "StopAlum-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "";
+                Component = new Component(5123, "AlumGlsStpVt", this, 1, m_subAssemblyHieght - stopReduceX2);
+                Component.ComponentGroupType = "StopAlum-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -138,13 +138,13 @@ namespace FrameWorks.Makes.System2060
             //AlumGlsStpHz  
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(5123, "AlumGlsStpHz", this, 1, m_subAssemblyWidth - stopReduceX2);
-                part.PartGroupType = "StopAlum-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "";
+                Component = new Component(5123, "AlumGlsStpHz", this, 1, m_subAssemblyWidth - stopReduceX2);
+                Component.ComponentGroupType = "StopAlum-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -159,17 +159,17 @@ namespace FrameWorks.Makes.System2060
 
             //Glass Panel
 
-            part = new Part(3300);
+            Component = new Component(3300);
 
-            part.FunctionalName = "Glass";
-            part.PartGroupType = "Glass-Parts";
-            part.Qnty = 1;
-            part.ContainerAssembly = this;
-            part.PartWidth = m_subAssemblyWidth - (glassReduce * 2.0m);
-            part.PartLength = m_subAssemblyHieght - (glassReduce * 2.0m);
-            part.PartThick = 1.25m;
+            Component.FunctionalName = "Glass";
+            Component.ComponentGroupType = "Glass-Components";
+            Component.Qnty = 1;
+            Component.ContainerAssembly = this;
+            Component.ComponentWidth = m_subAssemblyWidth - (glassReduce * 2.0m);
+            Component.ComponentLength = m_subAssemblyHieght - (glassReduce * 2.0m);
+            Component.ComponentThick = 1.25m;
 
-            m_parts.Add(part);
+            m_Components.Add(Component);
 
 
 
@@ -185,11 +185,11 @@ namespace FrameWorks.Makes.System2060
                 decimal peri = FrameWorks.Functions.Perimeter(m_subAssemblyHieght - gasketReduce, m_subAssemblyWidth - gasketReduce);
 
                 //EPDM_PreSet
-                part = new Part(4314, "EPDM_PreSet", this, 1, peri);
-                part.PartGroupType = "GlazingSeal-Parts";
-                part.PartLabel = "";
+                Component = new Component(4314, "EPDM_PreSet", this, 1, peri);
+                Component.ComponentGroupType = "GlazingSeal-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -201,11 +201,11 @@ namespace FrameWorks.Makes.System2060
                 decimal peri = FrameWorks.Functions.Perimeter(m_subAssemblyHieght - gasketReduce, m_subAssemblyWidth - gasketReduce);
 
                 //EPDM_Wedge
-                part = new Part(4399, "EPDM_Wedge", this, 1, peri);
-                part.PartGroupType = "GlazingSeal-Parts";
-                part.PartLabel = "";
+                Component = new Component(4399, "EPDM_Wedge", this, 1, peri);
+                Component.ComponentGroupType = "GlazingSeal-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -221,13 +221,13 @@ namespace FrameWorks.Makes.System2060
 
             for (int i = 0; i < 8; i++)
             {
-                part = new Part(3206, "AglBrktAlum", this, 1, aluminumCrnBrk);
-                part.PartGroupType = "AssyBrackets";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "Angle_1.5";
+                Component = new Component(3206, "AglBrktAlum", this, 1, aluminumCrnBrk);
+                Component.ComponentGroupType = "AssyBrackets";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "Angle_1.5";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -235,13 +235,13 @@ namespace FrameWorks.Makes.System2060
 
             for (int i = 0; i < 32; i++)
             {
-                part = new Part(1545, "PointSetScrew_1/4_20", this, 1, PointSetScrew);
-                part.PartGroupType = "AssyBrackets";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "1/4_20x.25";
+                Component = new Component(1545, "PointSetScrew_1/4_20", this, 1, PointSetScrew);
+                Component.ComponentGroupType = "AssyBrackets";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "1/4_20x.25";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 

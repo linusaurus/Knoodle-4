@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrameWorks;
 using FrameWorks.Makes;
-using MultithreadingWorker;
+
 
 
 
@@ -637,14 +637,14 @@ namespace Weaselware.Knoodle
         //    return result;
         //}
 
-        private static void BuildOutAssemblies(List<FrameWorks.SubAssemblyBase>  Subs )
-        {
-            foreach (SubAssemblyBase  sub in Subs)
-            {
-                sub.Build();
-            }
+        //private static void BuildOutAssemblies(List<FrameWorks.SubAssemblyBase>  Subs )
+        //{
+        //    foreach (SubAssemblyBase  sub in Subs)
+        //    {
+        //        sub.Build();
+        //    }
 
-        }
+        //}
         /// <summary>
         /// Core Class generates unit fro class definiion using reflection
         /// </summary>

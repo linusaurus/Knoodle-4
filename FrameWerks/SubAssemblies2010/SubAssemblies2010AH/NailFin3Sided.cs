@@ -54,7 +54,7 @@ namespace FrameWorks.Makes.System2010AH
 
         public NailFin3Sided()
         {
-            m_subAssemblyID = Guid.NewGuid();
+            subAssemblyID = Guid.NewGuid();
             this.ModelID = "System2010-NailFin3Sided";
         }
 
@@ -66,9 +66,9 @@ namespace FrameWorks.Makes.System2010AH
         public override void Build()
         {
 
-            Part part;
+            Component Component;
 
-            string partleader = this.Parent.UnitID + "." + this.CreateID.ToString();
+            string Componentleader = this.Parent.UnitID + "." + this.CreateID.ToString();
 
             decimal pweight = FrameWorks.Functions.PanelWieghtS2000(m_subAssemblyWidth, m_subAssemblyHieght);
 
@@ -83,11 +83,11 @@ namespace FrameWorks.Makes.System2010AH
             // NailerWidthExt
             for (int i = 0; i < 1; i++)
             {
-                part = new Part(4373, "NailerWidthExt", this, 1, m_subAssemblyWidth + nailFinAd2X);
-                part.PartGroupType = "NailFin-Parts";
-                part.PartLabel = "1)MiterEnds";
+                Component = new Component(4373, "NailerWidthExt", this, 1, m_subAssemblyWidth + nailFinAd2X);
+                Component.ComponentGroupType = "NailFin-Components";
+                Component.ComponentLabel = "1)MiterEnds";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -96,11 +96,11 @@ namespace FrameWorks.Makes.System2010AH
             //NailerVertExt
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(4373, "NailerVertExt", this, 1, m_subAssemblyHieght + nailFinAd - calkJoint);
-                part.PartGroupType = "NailFin-Parts";
-                part.PartLabel = "1)MiterTopEnd";
+                Component = new Component(4373, "NailerVertExt", this, 1, m_subAssemblyHieght + nailFinAd - calkJoint);
+                Component.ComponentGroupType = "NailFin-Components";
+                Component.ComponentLabel = "1)MiterTopEnd";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -108,11 +108,11 @@ namespace FrameWorks.Makes.System2010AH
 
             // NailFinTabs
 
-            //part = new Part(3649, "NailFinTabs3Inch", this, Convert.ToInt32(this.Perimeter / 16.0m + 1.0m), NFtab);
-            //part.PartGroupType = "NailFin-Parts";
-            //part.PartLabel = "CUT_LENGTH_3_INCHES";
+            //Component = new Component(3649, "NailFinTabs3Inch", this, Convert.ToInt32(this.Perimeter / 16.0m + 1.0m), NFtab);
+            //Component.ComponentGroupType = "NailFin-Components";
+            //Component.ComponentLabel = "CUT_LENGTH_3_INCHES";
 
-            //m_parts.Add(part);
+            //m_Components.Add(Component);
 
             /////////////////////////////////////////////////////////////////////////////////////////
 

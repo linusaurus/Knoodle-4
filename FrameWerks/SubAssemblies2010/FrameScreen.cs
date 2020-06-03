@@ -49,7 +49,7 @@ namespace FrameWorks.Makes.System2010
 
         public FrameScreen()
         {
-            m_subAssemblyID = Guid.NewGuid();
+            subAssemblyID = Guid.NewGuid();
             this.ModelID = "System2010-FrameScreen";
         }
 
@@ -61,8 +61,8 @@ namespace FrameWorks.Makes.System2010
         public override void Build()
         {
 
-            Part part;
-            string partleader = this.Parent.UnitID + "." + this.CreateID.ToString();
+            Component Component;
+            string Componentleader = this.Parent.UnitID + "." + this.CreateID.ToString();
 
             #region FrameScreen
 
@@ -72,13 +72,13 @@ namespace FrameWorks.Makes.System2010
             // ScreenFrameVert
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(4430, "ScreenFrameVert", this, 1, m_subAssemblyHieght - screenFrmRed2X);
-                part.PartGroupType = "FrameScreen-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "";
+                Component = new Component(4430, "ScreenFrameVert", this, 1, m_subAssemblyHieght - screenFrmRed2X);
+                Component.ComponentGroupType = "FrameScreen-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -90,13 +90,13 @@ namespace FrameWorks.Makes.System2010
             // ScreenFrameHorz
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(4430, "ScreenFrameHorz", this, 1, m_subAssemblyWidth - screenFrmRed2X);
-                part.PartGroupType = "FrameScreen-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "";
+                Component = new Component(4430, "ScreenFrameHorz", this, 1, m_subAssemblyWidth - screenFrmRed2X);
+                Component.ComponentGroupType = "FrameScreen-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -110,17 +110,17 @@ namespace FrameWorks.Makes.System2010
 
             //Mesh
 
-            part = new Part(911);
+            Component = new Component(911);
 
-            part.FunctionalName = "Mesh";
-            part.PartGroupType = "Mesh-Parts";
-            part.Qnty = 1;
-            part.ContainerAssembly = this;
-            part.PartWidth = m_subAssemblyWidth - screenFrmRed2X;
-            part.PartLength = m_subAssemblyHieght - screenFrmRed2X;
-            part.PartThick = 0.3125m;
+            Component.FunctionalName = "Mesh";
+            Component.ComponentGroupType = "Mesh-Components";
+            Component.Qnty = 1;
+            Component.ContainerAssembly = this;
+            Component.ComponentWidth = m_subAssemblyWidth - screenFrmRed2X;
+            Component.ComponentLength = m_subAssemblyHieght - screenFrmRed2X;
+            Component.ComponentThick = 0.3125m;
 
-            m_parts.Add(part);
+            m_Components.Add(Component);
 
 
 
@@ -134,11 +134,11 @@ namespace FrameWorks.Makes.System2010
                 decimal peri = FrameWorks.Functions.Perimeter(m_subAssemblyHieght - splineReduceX2, m_subAssemblyWidth - splineReduceX2);
 
                 //Glazing Seals
-                part = new Part(911, "Spline", this, 1, peri);
-                part.PartGroupType = "Spline-Parts";
-                part.PartLabel = "";
+                Component = new Component(911, "Spline", this, 1, peri);
+                Component.ComponentGroupType = "Spline-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -149,13 +149,13 @@ namespace FrameWorks.Makes.System2010
 
             for (int i = 0; i < 4; i++)
             {
-                part = new Part(911, "ScnFrmCrnBrackets", this, 1, aluminumCrnBrk);
-                part.PartGroupType = "Hardware-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "";
+                Component = new Component(911, "ScnFrmCrnBrackets", this, 1, aluminumCrnBrk);
+                Component.ComponentGroupType = "Hardware-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 

@@ -17,7 +17,7 @@ namespace DataAccess.Entities
         public int? GlassPartID { get; set; }
         public int? CPD_id { get; set; }
 
-        public List<Part> Parts { get; set; }
+        //public List<Part> Parts { get; set; }
        
         
     }

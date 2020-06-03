@@ -13,14 +13,14 @@ namespace FrameWorks
    
    
    
-   public class PartsHelper
+   public class ComponentsHelper
    {
      
    
 
-      public static List<Part> TrackMaker(SubAssemblyBase subassembly, int PanelCount,int positions, TrackConfiguration configuration)
+      public static List<Component> TrackMaker(SubAssemblyBase subassembly, int PanelCount,int positions, TrackConfiguration configuration)
        {
-            List<Part> result = new List<Part>();
+            List<Component> result = new List<Component>();
 
             switch (configuration)
 	        {
@@ -31,7 +31,7 @@ namespace FrameWorks
             for (int i = 0; i < PanelCount; i++)
 			{
             
-            Part p = new Part(3345,"Blade-" + i.ToString(),subassembly,1,subassembly.SubAssemblyWidth + 3.0m);
+            Component p = new Component(3345,"Blade-" + i.ToString(),subassembly,1,subassembly.SubAssemblyWidth + 3.0m);
             result.Add(p);
 			}
                     
@@ -42,7 +42,7 @@ namespace FrameWorks
 
             break;
 
-            case TrackConfiguration.BiParting:
+            case TrackConfiguration.BiComponenting:
             break;
 
             default:

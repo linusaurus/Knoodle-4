@@ -39,8 +39,8 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
         #region Fields
 
-        private List<Part> m_parts;
-        Part part;
+        private List<Component> m_Components;
+        Component Component;
         SubAssemblyBase m_parent;
 
 
@@ -54,7 +54,7 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
         public MultipointActive(decimal height, SubAssemblyBase parent)
         {
-            this.m_parts = new List<Part>();
+            this.m_Components = new List<Component>();
             this.m_parent = parent;
             PickMultiPoint(height);
         }
@@ -71,9 +71,9 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
         #endregion
 
-        public List<Part> Parts
+        public List<Component> Components
         {
-            get { return m_parts; }
+            get { return m_Components; }
         }
 
 
@@ -84,11 +84,11 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
 
             //MP_ShootTip
-            part = new Part(3865, "MP_TopShootTip", m_parent, 1, 1.0m);
-            part.PartGroupType = "Hardware-Parts";
-            part.PartName = "5670-81-ShootTip";
-            part.PartLabel = "";
-            m_parts.Add(part);
+            Component = new Component(3865, "MP_TopShootTip", m_parent, 1, 1.0m);
+            Component.ComponentGroupType = "Hardware-Components";
+            Component.ComponentName = "5670-81-ShootTip";
+            Component.ComponentLabel = "";
+            m_Components.Add(Component);
 
             /////////////////////////////////////////////////////
 
@@ -103,38 +103,38 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
                 if ((HingeAxisLength > 73.0m) && (HingeAxisLength <= 86.2499m))
                 {
-                    part = new Part(3861, "MP_UpperAssY", m_parent, 1, 1.0m);
-                    part.PartGroupType = "Hardware-Parts";
-                    part.PartName = "16-2094UA";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3861, "MP_UpperAssY", m_parent, 1, 1.0m);
+                    Component.ComponentGroupType = "Hardware-Components";
+                    Component.ComponentName = "16-2094UA";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
 
                 }
                 else if ((HingeAxisLength > 86.25m) && (HingeAxisLength <= 99.2499m))
                 {
-                    part = new Part(3862, "MP_UpperAssY", m_parent, 1, 1.0m);
-                    part.PartGroupType = "Hardware-Parts";
-                    part.PartName = "16-2095UA";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3862, "MP_UpperAssY", m_parent, 1, 1.0m);
+                    Component.ComponentGroupType = "Hardware-Components";
+                    Component.ComponentName = "16-2095UA";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
 
                 }
                 else if ((HingeAxisLength > 99.25m) && (HingeAxisLength <= 112.2499m))
                 {
-                    part = new Part(3863, "MP_UpperAssY", m_parent, 1, 1.0m);
-                    part.PartGroupType = "Hardware-Parts";
-                    part.PartName = "16-2096UA";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3863, "MP_UpperAssY", m_parent, 1, 1.0m);
+                    Component.ComponentGroupType = "Hardware-Components";
+                    Component.ComponentName = "16-2096UA";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
 
                 }
                 else if ((HingeAxisLength > 112.25m) && (HingeAxisLength <= 125.5m))
                 {
-                    part = new Part(3864, "MP_UpperAssY", m_parent, 1, 1.0m);
-                    part.PartGroupType = "Hardware-Parts";
-                    part.PartName = "16-2097UA";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3864, "MP_UpperAssY", m_parent, 1, 1.0m);
+                    Component.ComponentGroupType = "Hardware-Components";
+                    Component.ComponentName = "16-2097UA";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
 
                 }
 
@@ -145,11 +145,11 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
             #region MP_GearActive
 
-            part = new Part(4112, "MP_GearActive", m_parent, 1, 1.0m);
-            part.PartGroupType = "Hardware-Parts";
-            part.PartName = "8045-2094-81-LA-EC";
-            part.PartLabel = "";
-            m_parts.Add(part);
+            Component = new Component(4112, "MP_GearActive", m_parent, 1, 1.0m);
+            Component.ComponentGroupType = "Hardware-Components";
+            Component.ComponentName = "8045-2094-81-LA-EC";
+            Component.ComponentLabel = "";
+            m_Components.Add(Component);
 
 
 
@@ -165,8 +165,8 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
         #region Fields
 
-        private List<Part> m_parts;
-        Part part;
+        private List<Component> m_Components;
+        Component Component;
         SubAssemblyBase m_parent;
 
 
@@ -180,7 +180,7 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
         public MultipointPassive(decimal height, SubAssemblyBase parent)
         {
-            this.m_parts = new List<Part>();
+            this.m_Components = new List<Component>();
             this.m_parent = parent;
             PickMultiPoint(height);
         }
@@ -197,9 +197,9 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
         #endregion
 
-        public List<Part> Parts
+        public List<Component> Components
         {
-            get { return m_parts; }
+            get { return m_Components; }
         }
 
 
@@ -210,11 +210,11 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
 
             //MP_ShootTip
-            part = new Part(3865, "MP_TopShootTip", m_parent, 1, 1.0m);
-            part.PartGroupType = "Hardware-Parts";
-            part.PartName = "5670-81-ShootTip";
-            part.PartLabel = "";
-            m_parts.Add(part);
+            Component = new Component(3865, "MP_TopShootTip", m_parent, 1, 1.0m);
+            Component.ComponentGroupType = "Hardware-Components";
+            Component.ComponentName = "5670-81-ShootTip";
+            Component.ComponentLabel = "";
+            m_Components.Add(Component);
 
             /////////////////////////////////////////////////////
 
@@ -229,38 +229,38 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
                 if ((HingeAxisLength > 73.0m) && (HingeAxisLength <= 86.2499m))
                 {
-                    part = new Part(3867, "MP_UpperAssY", m_parent, 1, 1.0m);
-                    part.PartGroupType = "Hardware-Parts";
-                    part.PartName = "16-2074UA";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3867, "MP_UpperAssY", m_parent, 1, 1.0m);
+                    Component.ComponentGroupType = "Hardware-Components";
+                    Component.ComponentName = "16-2074UA";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
 
                 }
                 else if ((HingeAxisLength > 86.25m) && (HingeAxisLength <= 99.2499m))
                 {
-                    part = new Part(3868, "MP_UpperAssY", m_parent, 1, 1.0m);
-                    part.PartGroupType = "Hardware-Parts";
-                    part.PartName = "16-2075UA";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3868, "MP_UpperAssY", m_parent, 1, 1.0m);
+                    Component.ComponentGroupType = "Hardware-Components";
+                    Component.ComponentName = "16-2075UA";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
 
                 }
                 else if ((HingeAxisLength > 99.25m) && (HingeAxisLength <= 112.2499m))
                 {
-                    part = new Part(3869, "MP_UpperAssY", m_parent, 1, 1.0m);
-                    part.PartGroupType = "Hardware-Parts";
-                    part.PartName = "16-2076UA";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3869, "MP_UpperAssY", m_parent, 1, 1.0m);
+                    Component.ComponentGroupType = "Hardware-Components";
+                    Component.ComponentName = "16-2076UA";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
 
                 }
                 else if ((HingeAxisLength > 112.25m) && (HingeAxisLength <= 125.5m))
                 {
-                    part = new Part(3867, "MP_UpperAssY", m_parent, 1, 1.0m);
-                    part.PartGroupType = "Hardware-Parts";
-                    part.PartName = "16-2071UA";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3867, "MP_UpperAssY", m_parent, 1, 1.0m);
+                    Component.ComponentGroupType = "Hardware-Components";
+                    Component.ComponentName = "16-2071UA";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
 
                 }
 
@@ -271,11 +271,11 @@ namespace FrameWorks.Makes.Hardware.Amesbury40.Premiere2000
 
             #region MP_GearPassive
 
-            part = new Part(4113, "MP_GearPassive", m_parent, 1, 1.0m);
-            part.PartGroupType = "Hardware-Parts";
-            part.PartName = "8545-2074-81-LA-EC";
-            part.PartLabel = "";
-            m_parts.Add(part);
+            Component = new Component(4113, "MP_GearPassive", m_parent, 1, 1.0m);
+            Component.ComponentGroupType = "Hardware-Components";
+            Component.ComponentName = "8545-2074-81-LA-EC";
+            Component.ComponentLabel = "";
+            m_Components.Add(Component);
 
 
 

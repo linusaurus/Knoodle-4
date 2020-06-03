@@ -52,7 +52,7 @@ namespace FrameWorks.Makes.System2010
 
         public FrmSpndrlFcdSilHd()
         {
-            m_subAssemblyID = Guid.NewGuid();
+            subAssemblyID = Guid.NewGuid();
             this.ModelID = "System2010-FrmSpndrlFcdSilHd";
         }
 
@@ -64,8 +64,8 @@ namespace FrameWorks.Makes.System2010
         public override void Build()
         {
 
-            Part part;
-            string partleader = this.Parent.UnitID + "." + this.CreateID.ToString();
+            Component Component;
+            string Componentleader = this.Parent.UnitID + "." + this.CreateID.ToString();
 
 
 
@@ -74,13 +74,13 @@ namespace FrameWorks.Makes.System2010
             // BaseFrameHorz
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(4360, "BaseFrameHorz", this, 1, m_subAssemblyWidth - baseReduce);
-                part.PartGroupType = "FrameAlum-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "BaseH";
+                Component = new Component(4360, "BaseFrameHorz", this, 1, m_subAssemblyWidth - baseReduce);
+                Component.ComponentGroupType = "FrameAlum-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "BaseH";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -89,13 +89,13 @@ namespace FrameWorks.Makes.System2010
             // ClampHorz
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(4359, "ClampHorz", this, 1, m_subAssemblyWidth);
-                part.PartGroupType = "FrameAlum-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "BaseH";
+                Component = new Component(4359, "ClampHorz", this, 1, m_subAssemblyWidth);
+                Component.ComponentGroupType = "FrameAlum-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "BaseH";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -110,13 +110,13 @@ namespace FrameWorks.Makes.System2010
             //CapHz  
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(4358, "CapHz", this, 1, m_subAssemblyWidth);
-                part.PartGroupType = "CapAlum-Parts";
-                part.PartWidth = part.Source.Width;
-                part.PartThick = part.Source.Height;
-                part.PartLabel = "";
+                Component = new Component(4358, "CapHz", this, 1, m_subAssemblyWidth);
+                Component.ComponentGroupType = "CapAlum-Components";
+                Component.ComponentWidth = Component.Source.Width;
+                Component.ComponentThick = Component.Source.Height;
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -128,17 +128,17 @@ namespace FrameWorks.Makes.System2010
 
             //Glass Panel
 
-            part = new Part(2989);
+            Component = new Component(2989);
 
-            part.FunctionalName = "Glass";
-            part.PartGroupType = "Glass-Parts";
-            part.Qnty = 1;
-            part.ContainerAssembly = this;
-            part.PartWidth = m_subAssemblyWidth - (glassReduce + glasMidRed) ;
-            part.PartLength = m_subAssemblyHieght - (glassReduce * 2.0m);
-            part.PartThick = 0.25m;
+            Component.FunctionalName = "Glass";
+            Component.ComponentGroupType = "Glass-Components";
+            Component.Qnty = 1;
+            Component.ContainerAssembly = this;
+            Component.ComponentWidth = m_subAssemblyWidth - (glassReduce + glasMidRed) ;
+            Component.ComponentLength = m_subAssemblyHieght - (glassReduce * 2.0m);
+            Component.ComponentThick = 0.25m;
 
-            m_parts.Add(part);
+            m_Components.Add(Component);
 
             #endregion
 
@@ -150,11 +150,11 @@ namespace FrameWorks.Makes.System2010
                 decimal peri = FrameWorks.Functions.Perimeter(m_subAssemblyHieght - gasketReduce, m_subAssemblyWidth - gasketReduce);
 
                 //Glazing Seals
-                part = new Part(4314, "GlazDartEPDM", this, 1, peri);
-                part.PartGroupType = "GlazingSeal-Parts";
-                part.PartLabel = "";
+                Component = new Component(4314, "GlazDartEPDM", this, 1, peri);
+                Component.ComponentGroupType = "GlazingSeal-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -165,11 +165,11 @@ namespace FrameWorks.Makes.System2010
                 decimal peri = FrameWorks.Functions.Perimeter(m_subAssemblyHieght - gasketReduce, m_subAssemblyWidth - gasketReduce);
 
                 //Glazing Seals
-                part = new Part(4399, "GlazWedgEPDM", this, 1, peri);
-                part.PartGroupType = "GlazingSeal-Parts";
-                part.PartLabel = "";
+                Component = new Component(4399, "GlazWedgEPDM", this, 1, peri);
+                Component.ComponentGroupType = "GlazingSeal-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -179,11 +179,11 @@ namespace FrameWorks.Makes.System2010
                 decimal peri = FrameWorks.Functions.Perimeter(m_subAssemblyHieght - gasketAdd, m_subAssemblyWidth - gasketAdd);
 
                 //Glazing Seals
-                part = new Part(4399, "GlazWedgEPDM", this, 1, peri);
-                part.PartGroupType = "GlazingSeal-Parts";
-                part.PartLabel = "";
+                Component = new Component(4399, "GlazWedgEPDM", this, 1, peri);
+                Component.ComponentGroupType = "GlazingSeal-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 

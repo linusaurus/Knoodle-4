@@ -57,7 +57,7 @@ namespace FrameWorks.Makes.SubAssembliesFASTrack
 
         public FTOXX()
         {
-            m_subAssemblyID = Guid.NewGuid();
+            subAssemblyID = Guid.NewGuid();
             this.ModelID = "LiftSlide-FTOXX";
         }
 
@@ -74,8 +74,8 @@ namespace FrameWorks.Makes.SubAssembliesFASTrack
 
             BridgeGenie bridgeGenie = new BridgeGenie(2.25m);
 
-            Part part;
-            string partleader = this.Parent.UnitID + "." + this.CreateID.ToString();
+            Component Component;
+            string Componentleader = this.Parent.UnitID + "." + this.CreateID.ToString();
 
 
             #region BladeSS
@@ -83,29 +83,29 @@ namespace FrameWorks.Makes.SubAssembliesFASTrack
 
             //BladeO
 
-            part = new Part(3444, "BladeO", this, 1, (trackHelper.DoorPanelWidth) + bladeAdd);
-            part.PartGroupType = "BladeSS-Parts";
-            part.PartLabel = "";
+            Component = new Component(3444, "BladeO", this, 1, (trackHelper.DoorPanelWidth) + bladeAdd);
+            Component.ComponentGroupType = "BladeSS-Components";
+            Component.ComponentLabel = "";
 
-            m_parts.Add(part);
+            m_Components.Add(Component);
 
 
             // BladeOX
 
-            part = new Part(3444, "BladeOX", this, 1, (trackHelper.DoorPanelWidth * 2.0m) - stileWidth + bladeAdd );
-            part.PartGroupType = "BladeSS-Parts";
-            part.PartLabel = "";
+            Component = new Component(3444, "BladeOX", this, 1, (trackHelper.DoorPanelWidth * 2.0m) - stileWidth + bladeAdd );
+            Component.ComponentGroupType = "BladeSS-Components";
+            Component.ComponentLabel = "";
 
-            m_parts.Add(part);
+            m_Components.Add(Component);
 
 
             // BladeOXX
 
-            part = new Part(3444, "BladeOXX", this, 1, (trackHelper.DoorPanelWidth * 3.0m) - (2.0m * stileWidth) + (2.0m * bladeAdd)  );
-            part.PartGroupType = "BladeSS-Parts";
-            part.PartLabel = "";
+            Component = new Component(3444, "BladeOXX", this, 1, (trackHelper.DoorPanelWidth * 3.0m) - (2.0m * stileWidth) + (2.0m * bladeAdd)  );
+            Component.ComponentGroupType = "BladeSS-Components";
+            Component.ComponentLabel = "";
 
-            m_parts.Add(part);
+            m_Components.Add(Component);
 
 
             #endregion
@@ -128,14 +128,14 @@ namespace FrameWorks.Makes.SubAssembliesFASTrack
                 decimal waste = decimal.Zero;
                 for (int j = 1; j < trackHelper.BridgeCount + 1; j++)
                 {
-                    part = new Part(3445, "Bridge", this, 1, bridgeGenie.result[i - 1]);
-                    part.PartGroupType = "BridgeAssemble-Parts";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3445, "Bridge", this, 1, bridgeGenie.result[i - 1]);
+                    Component.ComponentGroupType = "BridgeAssemble-Components";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
                     waste += 0.125m;
                 }
-                part = new Part(3445,"Cutting Waste",this, 1 ,waste);
-                m_parts.Add(part);
+                Component = new Component(3445,"Cutting Waste",this, 1 ,waste);
+                m_Components.Add(Component);
             }
 
             else
@@ -143,14 +143,14 @@ namespace FrameWorks.Makes.SubAssembliesFASTrack
                 decimal waste = decimal.Zero;
                 for (int j = 1; j < trackHelper.BridgeCount+ 1 ; j++)
                 {
-                    part = new Part(3445, "Bridge", this,1, bridgeGenie.result[i - 1]);
-                    part.PartGroupType = "BridgeAssemble-Parts";
-                    part.PartLabel = "";
-                    m_parts.Add(part);
+                    Component = new Component(3445, "Bridge", this,1, bridgeGenie.result[i - 1]);
+                    Component.ComponentGroupType = "BridgeAssemble-Components";
+                    Component.ComponentLabel = "";
+                    m_Components.Add(Component);
                     waste += 0.125m;
                 }
-                part = new Part(3445, "Cutting Waste", this, 1, waste);
-                m_parts.Add(part);
+                Component = new Component(3445, "Cutting Waste", this, 1, waste);
+                m_Components.Add(Component);
             }
 
             //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -161,22 +161,22 @@ namespace FrameWorks.Makes.SubAssembliesFASTrack
             if (i > 1)
             {
 
-                part = new Part(3446, "BridgeClips", this, trackHelper.BridgeCount * 2, 0.0m);
-                part.PartGroupType = "BridgeAssemble-Parts";
-                part.PartLabel = "";
+                Component = new Component(3446, "BridgeClips", this, trackHelper.BridgeCount * 2, 0.0m);
+                Component.ComponentGroupType = "BridgeAssemble-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
             else
             {
 
-                part = new Part(3446, "BridgeClips", this, trackHelper.BridgeCount * 2, 0.0m);
-                part.PartGroupType = "BridgeAssemble-Parts";
-                part.PartLabel = "";
+                Component = new Component(3446, "BridgeClips", this, trackHelper.BridgeCount * 2, 0.0m);
+                Component.ComponentGroupType = "BridgeAssemble-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
 
@@ -185,38 +185,38 @@ namespace FrameWorks.Makes.SubAssembliesFASTrack
 
             //if (i > 1)
             //{
-                //part = new Part(3451, "TrackBolts", this, trackHelper.BridgeCount * 2, 0.0m);
-                //part.PartGroupType = "BridgeAssemble-Parts";
-                //part.PartLabel = "";
+                //Component = new Component(3451, "TrackBolts", this, trackHelper.BridgeCount * 2, 0.0m);
+                //Component.ComponentGroupType = "BridgeAssemble-Components";
+                //Component.ComponentLabel = "";
 
-                //m_parts.Add(part);
+                //m_Components.Add(Component);
             //}
             //else
             //{
-                //part = new Part(3451, "TrackBolts", this, trackHelper.BridgeCount * 2, 0.0m);
-                //part.PartGroupType = "BridgeAssemble-Parts";
-                //part.PartLabel = "";
+                //Component = new Component(3451, "TrackBolts", this, trackHelper.BridgeCount * 2, 0.0m);
+                //Component.ComponentGroupType = "BridgeAssemble-Components";
+                //Component.ComponentLabel = "";
 
-                //m_parts.Add(part);
+                //m_Components.Add(Component);
             //}
             ///////////////////////////////////////////////////////////////////////////////////
 
 
             //TrackClips
 
-                part = new Part(3447, "TrackClips", this, trackHelper.BridgeCount * i * 2, 0.0m);
-                part.PartGroupType = "BridgeAssemble-Parts";
-                part.PartLabel = "";
+                Component = new Component(3447, "TrackClips", this, trackHelper.BridgeCount * i * 2, 0.0m);
+                Component.ComponentGroupType = "BridgeAssemble-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
 
                 
-                part = new Part(3449, "CapScrews", this, trackHelper.BridgeCount * i * 2, 0.0m);
-                part.PartGroupType = "BridgeAssemble-Parts";
-                part.PartLabel = "";
+                Component = new Component(3449, "CapScrews", this, trackHelper.BridgeCount * i * 2, 0.0m);
+                Component.ComponentGroupType = "BridgeAssemble-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
 
 
@@ -224,20 +224,20 @@ namespace FrameWorks.Makes.SubAssembliesFASTrack
 
             if (i > 1)
             {
-                part = new Part(3450, "FlangeNuts", this, trackHelper.BridgeCount * 4, 0.0m);
-                part.PartGroupType = "BridgeAssemble-Parts";
-                part.PartLabel = "";
+                Component = new Component(3450, "FlangeNuts", this, trackHelper.BridgeCount * 4, 0.0m);
+                Component.ComponentGroupType = "BridgeAssemble-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
             }
             else
             {
-                part = new Part(3450, "FlangeNuts", this, trackHelper.BridgeCount * 4, 0.0m);
-                part.PartGroupType = "BridgeAssemble-Parts";
-                part.PartLabel = "";
+                Component = new Component(3450, "FlangeNuts", this, trackHelper.BridgeCount * 4, 0.0m);
+                Component.ComponentGroupType = "BridgeAssemble-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
             }
 
 
@@ -248,20 +248,20 @@ namespace FrameWorks.Makes.SubAssembliesFASTrack
                 // your the second door but NOT second to last
             if (i >= 2 && i < (panelCount - 1))
               {
-                part = new Part(3448, "NutPlateConnector", this, trackHelper.BridgeCount * (panelCount - 2), 0.0m);
-                part.PartGroupType = "BridgeAssemble-Parts";
-                part.PartLabel = "";
+                Component = new Component(3448, "NutPlateConnector", this, trackHelper.BridgeCount * (panelCount - 2), 0.0m);
+                Component.ComponentGroupType = "BridgeAssemble-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
               }
                     // your the second door but ARE second to last
              else
               {
-                part = new Part(3448, "NutPlateConnector", this, trackHelper.BridgeCount * (panelCount - 2), 0.0m);
-                part.PartGroupType = "BridgeAssemble-Parts";
-                part.PartLabel = "";
+                Component = new Component(3448, "NutPlateConnector", this, trackHelper.BridgeCount * (panelCount - 2), 0.0m);
+                Component.ComponentGroupType = "BridgeAssemble-Components";
+                Component.ComponentLabel = "";
 
-                m_parts.Add(part);
+                m_Components.Add(Component);
 
               }
 

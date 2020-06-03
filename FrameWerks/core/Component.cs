@@ -1,4 +1,4 @@
-#region Copyright (c) 2011 WeaselWare Software
+#region Copyright (c) 2020 WeaselWare Software
 /************************************************************************************
 '
 ' Copyright  2011 WeaselWare Software 
@@ -15,7 +15,7 @@
 ' you wrote the original software. If you use this software in a product, an 
 ' acknowledgment (see the following) in the product documentation is required.
 '
-' Portions Copyright 2010 WeaselWare Software
+' Portions Copyright 2020 WeaselWare Software
 '
 ' 2. Altered source versions must be plainly marked as such, and must not be 
 ' misrepresented as being the original software.
@@ -30,48 +30,55 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
+
 namespace FrameWorks
 {
-    public class PartNotFoundException : System.Exception
+    public class ComponentNotFoundException : System.Exception
     {
-        public PartNotFoundException()
+        public ComponentNotFoundException()
         {
             // Add implementation.
         }
-        public PartNotFoundException(string message)
+        public ComponentNotFoundException(string message) 
+            : base(message)
         {
             // Add implementation.
         }
+        public ComponentNotFoundException(string message, Exception inner)
+            : base(message, inner)
+        {
+        }
+
     }
-    [Serializable]
-    public class Part :  ICloneable 
+ 
+    public class Component
    {
 
       #region Fields
 
       //protected FrameWorks.Material m_source;
 
-      protected string m_partType = "Materials";
+      protected string m_ComponentType = "Materials";
       protected decimal m_rate;
       protected decimal m_laborAmount;
       protected decimal m_unitPrice;
-      protected string m_partName;
-      protected int m_partSourceNumber;
+      protected string m_ComponentName;
+      protected int m_ComponentSourceNumber;
       protected decimal unitSpecificAmount;
-      // this requires the lookup and a part number
-      protected Material m_source;
-      protected decimal m_partWidth = 0.0m;
-      protected decimal m_partThick = 0.0m;
-      protected decimal m_partLength = 0.0m;
+      // this requires the lookup and a Component number
+      protected SourceMaterial m_source;
+      protected decimal m_ComponentWidth = 0.0m;
+      protected decimal m_ComponentThick = 0.0m;
+      protected decimal m_ComponentLength = 0.0m;
       protected string m_functionalName;
-      protected string m_partGroupType;
+      protected string m_ComponentGroupType;
       protected decimal m_sourceWaste = 0.0m;
       protected decimal m_sourceMarkup = 0.0m;
       
       protected SubAssemblyBase m_parentAssembly;
       protected decimal m_area;
-      protected string m_partLabel = string.Empty;
-      protected string m_partIdentifier = string.Empty;
+      protected string m_ComponentLabel = string.Empty;
+      protected string m_ComponentIdentifier = string.Empty;
       protected int m_UOM = 0;
       protected decimal m_weight;
       protected decimal m_waste = 0.0m;
@@ -87,41 +94,42 @@ namespace FrameWorks
 
  
 
-      public Part()
+      public Component()
       {
 
       }
 
-      public Part(int sourceID)
+      public Component(int sourceID)
       {
          if(sourceID == -1)
          {
-            m_source = new Material();
-            m_partSourceNumber  = -1;
+            m_source = new SourceMaterial();
+            m_ComponentSourceNumber  = -1;
          } 
-         else{
-                this.m_source = FrameWorks.SourceManager.PartsSource[sourceID];
+         else
+         {
+                this.m_source = FrameWorks.PartDictionary.PartSource[sourceID];
                 m_UOM = m_source.UOM ;
          }
       }
 
-      public Part(int sourceID, string functionalName, SubAssemblyBase parent,int Quantity, decimal calculatedLength)
+      public Component(int sourceID, string functionalName, SubAssemblyBase parent,int Quantity, decimal calculatedLength)
       {
          if (sourceID == -1)
          {
-            m_source = new Material();
-            m_partSourceNumber  = -1;
+            m_source = new SourceMaterial();
+            m_ComponentSourceNumber  = -1;
 
          }
          else
          {
              try
              {
-                this.m_source = FrameWorks.SourceManager.PartsSource[sourceID];
+                this.m_source = FrameWorks.PartDictionary.PartSource[sourceID];
              }
              catch 
              {
-                 PartNotFoundException ex = new PartNotFoundException("Part ID = does not exist");
+                 ComponentNotFoundException ex = new ComponentNotFoundException(String.Format("Source Part {0} does not exist",sourceID.ToString()));
                  throw ex;
              }
              
@@ -130,28 +138,28 @@ namespace FrameWorks
          
          this.FunctionalName = functionalName;
          this.m_parentAssembly = parent;
-         this.m_partLength = calculatedLength;
+         this.m_ComponentLength = calculatedLength;
          this.Qnty = Quantity ;
 
       }
 
-      public Part(int sourceID, string functionalName, SubAssemblyBase parent, int Quantity, decimal calculatedLength,decimal width)
+      public Component(int sourceID, string functionalName, SubAssemblyBase parent, int Quantity, decimal calculatedLength,decimal width)
       {
           if (sourceID == -1)
           {
-              m_source = new Material();
-              m_partSourceNumber = -1;
+              m_source = new SourceMaterial();
+              m_ComponentSourceNumber = -1;
 
           }
           else
           {
               try
               {
-                  this.m_source = FrameWorks.SourceManager.PartsSource[sourceID];
+                  this.m_source = FrameWorks.PartDictionary.PartSource[sourceID];
               }
               catch
               {
-                  PartNotFoundException ex = new PartNotFoundException("Part ID = does not exist");
+                  ComponentNotFoundException ex = new ComponentNotFoundException("Component ID = does not exist");
                   throw ex;
               }
 
@@ -160,16 +168,16 @@ namespace FrameWorks
 
           this.FunctionalName = functionalName;
           this.m_parentAssembly = parent;
-          this.m_partLength = calculatedLength;
+          this.m_ComponentLength = calculatedLength;
           this.Qnty = Quantity;
-          this.PartWidth = width;
+          this.ComponentWidth = width;
 
       }
       
       #endregion
-      [Category("Part Specification")]
-      public string PartType
-      { get { return m_partType; } set { m_partType = value; } }
+      [Category("Component Specification")]
+      public string ComponentType
+      { get { return m_ComponentType; } set { m_ComponentType = value; } }
       [Category("Labor")]
       public decimal Rate
       { get { return m_rate; } set { m_rate = value; } }
@@ -181,8 +189,8 @@ namespace FrameWorks
       { 
           get 
           {
-              if (this.GetType().ToString() == "FrameWorks.LPart")
-              { m_unitPrice = ((FrameWorks.LPart)this).Rate; }
+              if (this.GetType().ToString() == "FrameWorks.LComponent")
+              { m_unitPrice = ((FrameWorks.LComponent)this).Rate; }
               else { m_unitPrice = m_source.Cost; }
               
               return m_unitPrice; 
@@ -221,37 +229,37 @@ namespace FrameWorks
                       //--- Foot
                       case 2:
                           {
-                              this.m_waste = Math.Round((decimal)((this.m_partLength / 12) * Qnty) * m_source.Waste,2);
+                              this.m_waste = Math.Round((decimal)((this.m_ComponentLength / 12) * Qnty) * m_source.Waste,2);
                               break;
                           }
                       //--- lbs
                       case 3:
                           {
-                              this.m_waste = (decimal)((this.m_partLength / 12) * Qnty) * m_source.Waste;
+                              this.m_waste = (decimal)((this.m_ComponentLength / 12) * Qnty) * m_source.Waste;
                               break;
                           }
                       //--- Qts
                       case 4:
                           {
-                              this.m_waste = (decimal)((this.m_partLength / 12) * Qnty) * m_source.Waste;
+                              this.m_waste = (decimal)((this.m_ComponentLength / 12) * Qnty) * m_source.Waste;
                               break;
                           }
                       //--- Inch
                       case 6:
                           {
-                              this.m_waste = (this.m_partLength * Qnty) * m_source.Waste;
+                              this.m_waste = (this.m_ComponentLength * Qnty) * m_source.Waste;
                               break;
                           }
                       //--- Pair
                       case 7:
                           {
-                              this.m_waste = (this.m_partLength * Qnty) * m_source.Waste;
+                              this.m_waste = (this.m_ComponentLength * Qnty) * m_source.Waste;
                               break;
                           }
                       // Sqft
                       case 8:
                           {
-                              this.m_waste = Math.Round((((this.m_partLength * this.PartWidth) / 144) * qty) * m_source.Waste,2);
+                              this.m_waste = Math.Round((((this.m_ComponentLength * this.ComponentWidth) / 144) * qty) * m_source.Waste,2);
                               break;
                           }
 
@@ -289,7 +297,7 @@ namespace FrameWorks
       {
           get 
           {
-              if (this.GetType().ToString() == "FrameWorks.LPart")
+              if (this.GetType().ToString() == "FrameWorks.LComponent")
               {
                  return 0.0m;
               }
@@ -297,7 +305,7 @@ namespace FrameWorks
           }
           set { m_markup = value; }
       }
-      [Category("Part Specification")]
+      [Category("Component Specification")]
       public decimal Area
       {
          get
@@ -307,9 +315,9 @@ namespace FrameWorks
                  {
                  case 8:
                      {
-                      if (m_partWidth > 0.0m && m_partLength > 0.0m)
+                      if (m_ComponentWidth > 0.0m && m_ComponentLength > 0.0m)
                         {
-                            m_area = (m_partLength * m_partWidth);
+                            m_area = (m_ComponentLength * m_ComponentWidth);
                             m_area = m_area / 144;
                             m_area = Math.Round(m_area, 4);
                         }
@@ -317,9 +325,9 @@ namespace FrameWorks
                      }
                  case 9:
                      {
-                         if (m_partWidth > 0.0m)
+                         if (m_ComponentWidth > 0.0m)
                          {
-                             m_area = (m_partLength * m_partWidth);
+                             m_area = (m_ComponentLength * m_ComponentWidth);
                              m_area = Math.Round(m_area, 4);
                          }
                         break;
@@ -330,7 +338,7 @@ namespace FrameWorks
          } 
         
        }
-      [Category("Part Specification")]
+      [Category("Component Specification")]
       public decimal Weight
       {
           get 
@@ -347,13 +355,13 @@ namespace FrameWorks
                 //--- Foot
                 case 2:
                 {
-                    this.m_weight =((this.m_partLength / 12)* Qnty) * m_source.Weight;
+                    this.m_weight =((this.m_ComponentLength / 12)* Qnty) * m_source.Weight;
                     break;
                 }
                 //--- Inch
                 case 6:
                 {
-                    this.m_weight =((this.m_partLength)* Qnty) * m_source.Weight;
+                    this.m_weight =((this.m_ComponentLength)* Qnty) * m_source.Weight;
                     break;
                 }
                 //--- Pair
@@ -413,26 +421,26 @@ namespace FrameWorks
               return ConvertToUomAmount(this.UOM,this); 
           }     
       }
-      [Category("Part Specification")]
-       public string PartLabel
+      [Category("Component Specification")]
+       public string ComponentLabel
        {
          get
          {
-             //m_partLabel =  this.m_parentAssembly.Parent.UnitID.ToString() + this. ;
-             return m_partLabel;
+             //m_ComponentLabel =  this.m_parentAssembly.Parent.UnitID.ToString() + this. ;
+             return m_ComponentLabel;
          }
-         set{m_partLabel = value;}
+         set{m_ComponentLabel = value;}
        
        }
-      [Category("Part Specification")]
-      public string PartIdentifier
+      [Category("Component Specification")]
+      public string ComponentIdentifier
       {
-         get { return m_partIdentifier; }
-         set { m_partIdentifier = value; }
+         get { return m_ComponentIdentifier; }
+         set { m_ComponentIdentifier = value; }
       }
 
       [Category("Material")]
-      public int PartSourceNumber
+      public int ComponentSourceNumber
       {
          get
          {
@@ -440,15 +448,15 @@ namespace FrameWorks
          }
          set
          {
-            this.PartSourceNumber = value ;
+            this.ComponentSourceNumber = value ;
             
          }
       }
-      [Category("Part Specification")]
+      [Category("Component Specification")]
       private int m_Qnty;
-      [Category("Part Specification")]
+      [Category("Component Specification")]
       private decimal m_calculatedCost = decimal.Zero ;
-      [Category("Part Specification")]
+      [Category("Component Specification")]
       public virtual decimal CalculatedCost
       {
         get {
@@ -465,14 +473,14 @@ namespace FrameWorks
             //--- Foot
             case 2:
             {
-                    decimal cs = (decimal)(this.m_partLength / 12) *  Convert.ToDecimal(Qnty) * m_source.Cost;
+                    decimal cs = (decimal)(this.m_ComponentLength / 12) *  Convert.ToDecimal(Qnty) * m_source.Cost;
                     this.m_calculatedCost = Math.Round(cs, 2);
                     break;
             }
             //--- Inch
             case 6:
             {
-                    this.m_calculatedCost =(decimal) (this.m_partLength  *  Convert.ToDecimal(Qnty)  *  m_source.Cost);
+                    this.m_calculatedCost =(decimal) (this.m_ComponentLength  *  Convert.ToDecimal(Qnty)  *  m_source.Cost);
                     break;
             }
             //--- Pair
@@ -508,25 +516,25 @@ namespace FrameWorks
          }
          
       }
-      [Category("Part Specification")]
+      [Category("Component Specification")]
       public int Qnty
       {
          get { return m_Qnty; }
          set { m_Qnty = value; }
       }
       [Category("Material")]
-      public string PartName
+      public string ComponentName
       {
-         get { return m_partName; }
-         set { m_partName = value; }
+         get { return m_ComponentName; }
+         set { m_ComponentName = value; }
       }
 
-      public void LoadPart()
+      public void LoadComponent()
       {
 
       }
 
-      [Category("Part Specification")]
+      [Category("Component Specification")]
       public SubAssemblyBase ContainerAssembly
       {
          get { return m_parentAssembly; }
@@ -534,43 +542,43 @@ namespace FrameWorks
       }
 
       [Category("Material")]
-      public virtual Material Source
+      public virtual SourceMaterial Source
       {
          get { return m_source; }
          set { m_source = value; }
 
       }
-      [Category("Part Specification")]
+      [Category("Component Specification")]
       public virtual string FunctionalName
       {
          get { return m_functionalName; }
          set { m_functionalName =value; }
       }
-      [Category("Part Specification")]
-      public string PartGroupType
+      [Category("Component Specification")]
+      public string ComponentGroupType
       {
-         get { return m_partGroupType; }
-         set { m_partGroupType = value; }
+         get { return m_ComponentGroupType; }
+         set { m_ComponentGroupType = value; }
 
       }
       [Category("Dimension")]
-      public decimal PartWidth
+      public decimal ComponentWidth
       {
-         get { return m_partWidth; }
-         set { m_partWidth = value; }
+         get { return m_ComponentWidth; }
+         set { m_ComponentWidth = value; }
       }
       [Category("Dimension")]
-      public decimal PartLength
+      public decimal ComponentLength
       {
-         get { return m_partLength; }
-         set { m_partLength  = value; }
+         get { return m_ComponentLength; }
+         set { m_ComponentLength  = value; }
 
       }
       [Category("Dimension")]
-      public decimal PartThick
+      public decimal ComponentThick
       {
-         get { return m_partThick; }
-         set { m_partThick = value; }
+         get { return m_ComponentThick; }
+         set { m_ComponentThick = value; }
       }
 
       #endregion
@@ -579,11 +587,11 @@ namespace FrameWorks
 
       public virtual object Clone()
       {
-         Part newPart =(Part)this.MemberwiseClone();
-         return newPart;
+         Component newComponent =(Component)this.MemberwiseClone();
+         return newComponent;
       }
 
-      private decimal ConvertToUomAmount(int UoM, FrameWorks.Part part)
+      private decimal ConvertToUomAmount(int UoM, FrameWorks.Component Component)
       {
           decimal result = decimal.Zero;
           switch (this.UOM)
@@ -595,7 +603,7 @@ namespace FrameWorks
                   }
               case 2:
                   {
-                      result = Convert.ToDecimal(this.PartLength / 12);
+                      result = Convert.ToDecimal(this.ComponentLength / 12);
                       break;
                   }
               case 3:
@@ -635,9 +643,9 @@ namespace FrameWorks
                   }
               case 10:
                   {
-                      if (this.PartThick != decimal.Zero)
+                      if (this.ComponentThick != decimal.Zero)
                       {
-                        result = Convert.ToDecimal(this.Qnty * this.Area * this.PartThick);
+                        result = Convert.ToDecimal(this.Qnty * this.Area * this.ComponentThick);
                       }
                       else
                       {

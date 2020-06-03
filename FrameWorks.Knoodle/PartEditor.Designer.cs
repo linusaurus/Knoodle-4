@@ -145,7 +145,7 @@
             // 
             // partBindingSource
             // 
-            this.partBindingSource.DataSource = typeof(FrameWorks.Part);
+            this.partBindingSource.DataSource = typeof(FrameWorks.Component);
             // 
             // tbSubAssemblyName
             // 

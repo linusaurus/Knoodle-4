@@ -45,8 +45,8 @@ namespace Weaselware.Knoodle
             this.tbWidth.DataBindings.Clear();
             this.tbWidth.DataBindings.Add("Text", _sub, "SubAssemblyWidth");
             this.dataGridView1.DataSource = this.partBindingSource;
-            var result = from n in sub.Parts  where n.PartType == "Materials" select n ;
-            this.partBindingSource.DataSource = result;
+           //var result = null; //= from n in sub.Components  where n.part == "Materials" select n ;
+           // this.partBindingSource.DataSource = result;
 
         }
 
@@ -72,7 +72,7 @@ namespace Weaselware.Knoodle
 
         private void btnAddPart_Click(object sender, EventArgs e)
         {
-            this._sub.Parts.Add(new FrameWorks.Part(751,"Added Part",_sub,1,60.25m));
+            this._sub.Components.Add(new FrameWorks.Component(751,"Added Part",_sub,1,60.25m));
             
             BindData(_sub);
         }

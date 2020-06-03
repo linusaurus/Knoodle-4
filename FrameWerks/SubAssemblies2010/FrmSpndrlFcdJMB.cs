@@ -50,7 +50,7 @@ namespace FrameWorks.Makes.System2010
 
         public FrmSpndrlFcdJMB()
         {
-            m_subAssemblyID = Guid.NewGuid();
+            subAssemblyID = Guid.NewGuid();
             this.ModelID = "System2010-FrmSpndrlFcdJMB";
         }
 
@@ -62,8 +62,8 @@ namespace FrameWorks.Makes.System2010
         public override void Build()
         {
 
-            Part part;
-            string partleader = this.Parent.UnitID + "." + this.CreateID.ToString();
+            Component Component;
+            string Componentleader = this.Parent.UnitID + "." + this.CreateID.ToString();
 
 
 
@@ -74,13 +74,13 @@ namespace FrameWorks.Makes.System2010
             // BaseFrameVert
             for (int i = 0; i < 2; i++)
             {
-            part = new Part(4360, "BaseFrameVert", this, 1, m_subAssemblyHieght - baseReducex2);
-            part.PartGroupType = "FrameAlum-Parts";
-            part.PartWidth = part.Source.Width;
-            part.PartThick = part.Source.Height;
-            part.PartLabel = "BaseV";
+            Component = new Component(4360, "BaseFrameVert", this, 1, m_subAssemblyHieght - baseReducex2);
+            Component.ComponentGroupType = "FrameAlum-Components";
+            Component.ComponentWidth = Component.Source.Width;
+            Component.ComponentThick = Component.Source.Height;
+            Component.ComponentLabel = "BaseV";
 
-            m_parts.Add(part);
+            m_Components.Add(Component);
 
             }
 
@@ -89,13 +89,13 @@ namespace FrameWorks.Makes.System2010
             // BaseFrameHorz
             //for (int i = 0; i < 2; i++)
             //{
-                //part = new Part(4360, "BaseFrameHorz", this, 1, m_subAssemblyWidth - baseReducex2);
-                //part.PartGroupType = "FrameAlum-Parts";
-                //part.PartWidth = part.Source.Width;
-                //part.PartThick = part.Source.Height;
-                //part.PartLabel = "BaseH";
+                //Component = new Component(4360, "BaseFrameHorz", this, 1, m_subAssemblyWidth - baseReducex2);
+                //Component.ComponentGroupType = "FrameAlum-Components";
+                //Component.ComponentWidth = Component.Source.Width;
+                //Component.ComponentThick = Component.Source.Height;
+                //Component.ComponentLabel = "BaseH";
 
-                //m_parts.Add(part);
+                //m_Components.Add(Component);
 
             //}
 
@@ -104,13 +104,13 @@ namespace FrameWorks.Makes.System2010
             // ClampVert
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(4359, "ClampVert", this, 1, m_subAssemblyHieght);
-            part.PartGroupType = "FrameAlum-Parts";
-            part.PartWidth = part.Source.Width;
-            part.PartThick = part.Source.Height;
-            part.PartLabel = "BaseV";
+                Component = new Component(4359, "ClampVert", this, 1, m_subAssemblyHieght);
+            Component.ComponentGroupType = "FrameAlum-Components";
+            Component.ComponentWidth = Component.Source.Width;
+            Component.ComponentThick = Component.Source.Height;
+            Component.ComponentLabel = "BaseV";
 
-            m_parts.Add(part);
+            m_Components.Add(Component);
 
             }
 
@@ -119,13 +119,13 @@ namespace FrameWorks.Makes.System2010
             // ClampHorz
             //for (int i = 0; i < 2; i++)
             //{
-                //part = new Part(4356, "ClampHorz", this, 1, m_subAssemblyWidth);
-                //part.PartGroupType = "FrameAlum-Parts";
-                //part.PartWidth = part.Source.Width;
-                //part.PartThick = part.Source.Height;
-                //part.PartLabel = "BaseH";
+                //Component = new Component(4356, "ClampHorz", this, 1, m_subAssemblyWidth);
+                //Component.ComponentGroupType = "FrameAlum-Components";
+                //Component.ComponentWidth = Component.Source.Width;
+                //Component.ComponentThick = Component.Source.Height;
+                //Component.ComponentLabel = "BaseH";
 
-                //m_parts.Add(part);
+                //m_Components.Add(Component);
 
             //}
 
@@ -140,13 +140,13 @@ namespace FrameWorks.Makes.System2010
             //CapVt
             for (int i = 0; i < 2; i++)
             {
-                part = new Part(4358, "CapVt", this, 1, m_subAssemblyHieght);
-            part.PartGroupType = "CapAlum-Parts";
-            part.PartWidth = part.Source.Width;
-            part.PartThick = part.Source.Height;
-            part.PartLabel = "";
+                Component = new Component(4358, "CapVt", this, 1, m_subAssemblyHieght);
+            Component.ComponentGroupType = "CapAlum-Components";
+            Component.ComponentWidth = Component.Source.Width;
+            Component.ComponentThick = Component.Source.Height;
+            Component.ComponentLabel = "";
 
-            m_parts.Add(part);
+            m_Components.Add(Component);
 
             }
 
@@ -155,13 +155,13 @@ namespace FrameWorks.Makes.System2010
             //CapHz  
             //for (int i = 0; i < 2; i++)
             //{
-                //part = new Part(4344, "CapHz", this, 1, m_subAssemblyWidth - capReduceX2);
-                //part.PartGroupType = "CapAlum-Parts";
-                //part.PartWidth = part.Source.Width;
-                //part.PartThick = part.Source.Height;
-                //part.PartLabel = "";
+                //Component = new Component(4344, "CapHz", this, 1, m_subAssemblyWidth - capReduceX2);
+                //Component.ComponentGroupType = "CapAlum-Components";
+                //Component.ComponentWidth = Component.Source.Width;
+                //Component.ComponentThick = Component.Source.Height;
+                //Component.ComponentLabel = "";
 
-                //m_parts.Add(part);
+                //m_Components.Add(Component);
 
             //}
 

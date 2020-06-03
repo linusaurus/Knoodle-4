@@ -37,6 +37,7 @@ namespace DataAccess.Mappers
             destination.ProductionDate = source.ProductionDate.GetValueOrDefault();
             destination.RoomName = source.RoomName;
             destination.UnitID = source.UnitID;
+            destination.UnitName = source.UnitName;
             destination.W = source.W.GetValueOrDefault();
             destination.H = source.H.GetValueOrDefault();
             destination.D = source.D.GetValueOrDefault();

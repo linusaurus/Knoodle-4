@@ -38,9 +38,9 @@ namespace FrameWorks
 
     public class TracksFunctions
     {
-        public static List<Part> Tracks()
+        public static List<Component> Tracks()
         {
-            List<Part> result = new List<Part>();
+            List<Component> result = new List<Component>();
 
             return result;
         }

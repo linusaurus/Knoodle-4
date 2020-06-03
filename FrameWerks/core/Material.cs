@@ -4,93 +4,93 @@ using System.Text;
 
 namespace FrameWorks
 {
-     [Serializable]
-    public class Material
-   {
-      private int m_ItemId;
-      private string m_materialName;
-      private decimal m_width;
-      private decimal m_Height;
-      private string m_materialDiscription;
-      private decimal m_cost = decimal.Zero;
-      private int m_uom = 0;
-      private decimal _weight = 0.0m;
-      private decimal _waste = 0.0m;
-      private decimal _markup = 0.0m;
-      private int _supplierID;
+   
+    public class  SourceMaterial
+    {
+      private int partID;
+      private string materialName;
+      private decimal width;
+      private decimal height;
+      private string materialDescription;
+      private decimal cost = decimal.Zero;
+      private int uom = 0;
+      private decimal weight = 0.0m;
+      private decimal waste = 0.0m;
+      private decimal markup = 0.0m;
+      private int supplierID;
 
       public int SupplierID
       {
-          get { return _supplierID; }
-          set { _supplierID = value; }
+          get { return supplierID; }
+          set { supplierID = value; }
       }
 
       public override string ToString()
       {
-          return this.m_materialName;
+          return this.materialName;
       }
 
       public decimal MarkUp
       {
-          get { return _markup ; }
-          set { _markup  = value; }
+          get { return markup ; }
+          set { markup  = value; }
       }
 
       public decimal Waste
       {
-          get { return _waste ; }
-          set { _waste  = value; }
+          get { return waste ; }
+          set { waste  = value; }
       }
 
       public decimal Weight
       {
-          get { return _weight; }
-          set { _weight = value; }
+          get { return weight; }
+          set { weight = value; }
       }
 
       public decimal Cost
       {
-         get{return m_cost ;}
-         set{m_cost = value;}
+         get{return cost ;}
+         set{cost = value;}
        }
       
       public int UOM
       {
-         get{return m_uom;}
-         set{m_uom = value;}
+         get{return uom;}
+         set{uom = value;}
       }
       public string MaterialDescription
       {
-         get { return m_materialDiscription; }
-         set { m_materialDiscription = value; }
+         get { return materialDescription; }
+         set { materialDescription = value; }
       }
 
 
       public decimal Height
       {
-         get { return m_Height; }
-         set { m_Height = value; }
+         get { return height; }
+         set { height = value; }
       }
 	
 
       public decimal Width
       {
-         get { return m_width; }
-         set { m_width = value; }
+         get { return width; }
+         set { width = value; }
       }
 	
       
       public string MaterialName
       {
-         get { return m_materialName; }
-         set { m_materialName = value; }
+         get { return materialName; }
+         set { materialName = value; }
       }
 	
 
       public int ItemID
       {
-         get { return m_ItemId;}
-         set { m_ItemId = value;}
+         get { return partID;}
+         set { partID = value;}
       }
 	
    }

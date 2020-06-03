@@ -207,7 +207,7 @@ namespace FrameWorks
 
       #endregion
 
-      public event EventHandler PartProccessed;
+      public event EventHandler ComponentProccessed;
 
 
       }

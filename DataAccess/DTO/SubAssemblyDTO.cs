@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using DataAccess.Entities;
+using DataAccess.DTO;
 
 namespace DataAccess.DTO
 {
@@ -117,7 +119,7 @@ namespace DataAccess.DTO
             }
         }
 
-        //public List<Part> Parts { get; set; }
+        public List<Part> Parts { get; set; }
 
 
 

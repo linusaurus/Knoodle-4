@@ -46,7 +46,7 @@ namespace FrameWorks
             public enum TrackConfiguration{
                 
             Telescoping,
-            BiParting
+            BiComponenting
 
             }
     
@@ -107,7 +107,7 @@ namespace FrameWorks
                 result.Add(12.25m);
                 result.Add(15.125m);
 
-                // Just add the proper Part-numbers for the clips
+                // Just add the proper Component-numbers for the clips
                 Clips.Add(4233);
                 Clips.Add(4233);
                 Clips.Add(4233);
@@ -481,14 +481,14 @@ public class Functions
 
    public static int AwningHinge(decimal AwningHieght, char handing)
    {
-      int HingePartNumber = 0;
+      int HingeComponentNumber = 0;
       if ((handing == 'L') || (handing =='l'))
       {
 
          if (AwningHieght < 15.75m)
          {
 
-            HingePartNumber = 997;
+            HingeComponentNumber = 997;
             //(1013);   
             //"Hinge Right";
          }
@@ -496,7 +496,7 @@ public class Functions
          if (AwningHieght > 15.75m && AwningHieght < 19.75m)
          {
             // Left
-            HingePartNumber = 710;
+            HingeComponentNumber = 710;
             //(710);
             //"Hinge Right";
 
@@ -505,7 +505,7 @@ public class Functions
          else if (AwningHieght < 19.75m && AwningHieght < 23.75m)
          {
             //Left 18
-            HingePartNumber = 1003;
+            HingeComponentNumber = 1003;
 
 
             //(1004);
@@ -514,7 +514,7 @@ public class Functions
          else if (AwningHieght > 23.75m)
          {
             //Left
-            HingePartNumber =1013;
+            HingeComponentNumber =1013;
             //
             //1014;
             //"Hinge Right";
@@ -527,14 +527,14 @@ public class Functions
          if (AwningHieght < 15.75m)
          {
 
-            HingePartNumber = 1000;
+            HingeComponentNumber = 1000;
 
          }
          //14 Inch
          if (AwningHieght > 15.75m && AwningHieght < 19.75m)
          {
             // Left
-            HingePartNumber = 709;
+            HingeComponentNumber = 709;
             //(710);
             //"Hinge Right";
 
@@ -543,19 +543,19 @@ public class Functions
          else if (AwningHieght > 19.75m && AwningHieght < 23.75m)
          {
             //Right 18
-            HingePartNumber = 1004;
+            HingeComponentNumber = 1004;
          }
          else if (AwningHieght > 23.75m)
          {
             //Right
-            HingePartNumber =1014;
+            HingeComponentNumber =1014;
 
          }
 
       }
 
 
-      return HingePartNumber;
+      return HingeComponentNumber;
    }
    
 
@@ -620,14 +620,14 @@ public class Functions
 
    public static int AwningHinge1000(decimal AwningHieght, char handing)
    {
-      int HingePartNumber = 0;
+      int HingeComponentNumber = 0;
       if ((handing == 'L') || (handing =='l'))
       {
 
          if (AwningHieght < 15.75m)
          {
 
-            HingePartNumber = 997;
+            HingeComponentNumber = 997;
             //(1013);   
             //"Hinge Right";
          }
@@ -635,7 +635,7 @@ public class Functions
          if (AwningHieght > 15.75m && AwningHieght < 19.75m)
          {
             // Left
-            HingePartNumber = 710;
+            HingeComponentNumber = 710;
             //(710);
             //"Hinge Right";
 
@@ -644,7 +644,7 @@ public class Functions
          else if (AwningHieght < 19.75m && AwningHieght < 23.75m)
          {
             //Left 18
-            HingePartNumber = 1003;
+            HingeComponentNumber = 1003;
 
 
             //(1004);
@@ -653,7 +653,7 @@ public class Functions
          else if (AwningHieght > 23.75m)
          {
             //Left
-            HingePartNumber =1013;
+            HingeComponentNumber =1013;
             //
             //1014;
             //"Hinge Right";
@@ -666,14 +666,14 @@ public class Functions
          if (AwningHieght < 15.75m)
          {
 
-            HingePartNumber = 1000;
+            HingeComponentNumber = 1000;
 
          }
          //14 Inch
          if (AwningHieght > 15.75m && AwningHieght < 19.75m)
          {
             // Left
-            HingePartNumber = 709;
+            HingeComponentNumber = 709;
             //(710);
             //"Hinge Right";
 
@@ -682,25 +682,25 @@ public class Functions
          else if (AwningHieght > 19.75m && AwningHieght < 23.75m)
          {
             //Right 18
-            HingePartNumber = 1004;
+            HingeComponentNumber = 1004;
          }
          else if (AwningHieght > 23.75m)
          {
             //Right
-            HingePartNumber =1014;
+            HingeComponentNumber =1014;
 
          }
 
       }
 
 
-      return HingePartNumber;
+      return HingeComponentNumber;
    }
 
 
    public static int S3000AwningHinge(decimal AwningHieght)
    {
-      int HingePartNumber = 0;
+      int HingeComponentNumber = 0;
 
          if (AwningHieght < 9.4999m) 
          {
@@ -711,37 +711,37 @@ public class Functions
           //10 Inch
          if ((AwningHieght > 9.4999m) && (AwningHieght <= 12.4999m))
          {
-            HingePartNumber = 1741;         
+            HingeComponentNumber = 1741;         
          }
          //12 Inch
          else if ((AwningHieght > 12.5m) && (AwningHieght <= 24.9999m))
          {       
-            HingePartNumber = 1742;        
+            HingeComponentNumber = 1742;        
          }
          //16 Inch
          else if ((AwningHieght > 25.0m) && (AwningHieght <= 33.9999m))
          {
-            HingePartNumber = 1743;
+            HingeComponentNumber = 1743;
          }
          //20 Inch
          else if ((AwningHieght > 34.0m) && (AwningHieght <= 52.0m))
          {
-            HingePartNumber = 1744;
+            HingeComponentNumber = 1744;
             //}
             //24 Inch ***DISCONTINUED HINGE ***
              //***DISCONTINUED HINGE *** else if ((AwningHieght > 40.0m) && (AwningHieght <= 52.0m))
             // {
-           // HingePartNumber = 1745;//***DISCONTINUED HINGE ***
+           // HingeComponentNumber = 1745;//***DISCONTINUED HINGE ***
          }
          //28 Inch
          else if ((AwningHieght > 50.0m) && (AwningHieght <= 80.0m))
          {
-            HingePartNumber = 1746;
+            HingeComponentNumber = 1746;
          }
           //Anything bigger
          else if (AwningHieght > 80.0m) 
          {
-            HingePartNumber = 1746;
+            HingeComponentNumber = 1746;
          }
         
         
@@ -752,7 +752,7 @@ public class Functions
       
 
 
-      return HingePartNumber;
+      return HingeComponentNumber;
    }
 
 
@@ -953,7 +953,7 @@ public class Functions
    }
 
 
-   public static int GetPartToWrite(List<AssemblyBase> units)
+   public static int GetComponentToWrite(List<AssemblyBase> units)
    {
       int value = 0;
       foreach (AssemblyBase unit in units)
@@ -961,7 +961,7 @@ public class Functions
      
          foreach(SubAssemblyBase _sub in unit.SubAssemblies)
          {
-               foreach(Part _part in _sub.Parts)
+               foreach(Component _Component in _sub.Components)
                {
                   value++;
                }
